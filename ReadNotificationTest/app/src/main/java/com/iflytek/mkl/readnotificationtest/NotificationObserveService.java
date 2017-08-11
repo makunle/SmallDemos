@@ -80,6 +80,11 @@ public class NotificationObserveService extends NotificationListenerService {
         EventBus.getDefault().post(new Msg(sbn.getNotification()));
     }
 
+    @Override
+    public void onNotificationRemoved(StatusBarNotification sbn) {
+        super.onNotificationRemoved(sbn);
+    }
+
     private Activity activity;
 
     public class MyBinder extends Binder{

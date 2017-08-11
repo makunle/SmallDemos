@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onNotificationGet(NotificationObserveService.Msg msg){
         if(output != null && msg.notification.tickerText != null){
-            output.append("--------------------------------------------\n");
+            output.append("==================================================\n");
             output.append(msg.notification.tickerText+"\n--------------------------\n");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 Bundle bundle = msg.notification.extras;
