@@ -1,0 +1,418 @@
+body:您好，您正在办理掌厅随机码登录业务，验证码是399243，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.018 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:961485  body:您好，您正在办理掌厅随机码登录业务，验证码是961485，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.122 6854-6854/com.iflytek.mkl.smscodeget D/smscode: number:10086   body:您好，您正在办理掌厅随机码登录业务，验证码是399243，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【  time:1502195262000
+08-08 20:27:45.127 6854-6854/com.iflytek.mkl.smscodeget D/smscode: receive SMS code is : 399243
+08-08 20:27:45.131 6854-6854/com.iflytek.mkl.smscodeget D/smscode: number:10086   body:中国移动】  time:1502195262000
+08-08 20:27:45.165 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:771965  body:您好，您正在办理掌厅随机码登录业务，验证码是771965，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.296 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:259956  body:您好，您正在办理掌厅随机码登录业务，验证码是259956，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.367 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:270058  body:您好，您正在办理掌厅随机码登录业务，验证码是270058，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.427 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:771324  body:您好，您正在办理掌厅随机码登录业务，验证码是771324，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.480 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:299752  body:您好，您正在办理掌厅随机码登录业务，验证码是299752，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.549 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:090639  body:您好，您正在办理掌厅随机码登录业务，验证码是090639，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.646 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:339854  body:您好，您正在办理掌厅随机码登录业务，验证码是339854，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.721 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您的招行信用卡申请已受理，戳 cmbt.cn/FUU 点击“进度查询”立查办卡进度。[招商银行]
+08-08 20:27:45.779 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【ofo】周一至周日ofo小黄车免费骑，秋高气爽，ofo一夏，下班赶快去骑车吧~退订td
+08-08 20:27:45.828 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:084627  body:您好，您正在办理掌厅随机码登录业务，验证码是084627，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.878 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:766594  body:您好，您正在办理掌厅随机码登录业务，验证码是766594，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:45.938 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:139635  body:【小米】139635（小米帐号安全验证，用于验证身份修改密码密保等，请勿将验证码透露给他人）
+08-08 20:27:45.980 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:263740  body:您好，您正在办理掌厅随机码登录业务，验证码是263740，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.044 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:791863  body:您好，您正在办理掌厅随机码登录业务，验证码是791863，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.107 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:447889  body:您好，您正在办理掌厅随机码登录业务，验证码是447889，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.170 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:回复KHD下载安徽移动手机营业厅，查询办理更方便，还能享受更多优惠。您当前余额为56.84元，已用话费为19.00元。
+                                                                   【宽带装飞享，暑期免费用】装宽带选飞享，暑期畅享200M，网上下单免3个月的宽带月租。赶快下单 ah.10086.cn/m/s/yxhd3【中国移动】
+08-08 20:27:46.240 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【免费送1G】安徽移动手厅新用户见面送壕礼，点击 ah.10086.cn/dt/khd 。
+                                                                   您好！截至08月07日14时54分，您本月已使用移动数据流量0.00M，套餐内流量剩余1G76.00M，其中国内流量剩余600.00M(含国内结转流量300.00M)，省内流量剩余500.00M。套餐外优惠流量已使用0.00M，剩余10G。夜间流量已使用185.13M，剩余1G19.67M。
+                                                                   回复序号办理:
+                                                                   661.流量包
+                                                                   662.流量加油包
+                                                                   663.夜间流量包
+                                                                   664.季包/半年包
+                                                                   665.假日流量包
+                                                                   666.视频流量包（1G低至8毛）
+                                                                   667.国内流量小时包
+                                                                   668.查询共享明细
+                                                                   669.查询上月结转流量
+                                                                   660.查询特殊流量及任我用套餐流量
+                                                                   【签到新玩法】周期更短，流量更多！首签可得30M，每周有惊喜，最高可领1G流量，点 ah.10086.cn/s/yxhd30【中国移动】
+08-08 20:27:46.305 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【免费送1G】安徽移动手厅新用户见面送壕礼，点击 ah.10086.cn/dt/khd 。
+                                                                   您好！截至08月07日14时54分，您本月已使用移动数据流量0.00M，套餐内流量剩余1G76.00M，其中国内流量剩余600.00M(含国内结转流量300.00M)，省内流量剩余500.00M。套餐外优惠流量已使用0.00M，剩余10G。夜间流量已使用185.13M，剩余1G19.67M。
+                                                                   回复序号办理:
+                                                                   661.流量包
+                                                                   662.流量加油包
+                                                                   663.夜间流量包
+                                                                   664.季包/半年包
+                                                                   665.假日流量包
+                                                                   666.视频流量包（1G低至8毛）
+                                                                   667.国内流量小时包
+                                                                   668.查询共享明细
+                                                                   669.查询上月结转流量
+                                                                   660.查询特殊流量及任我用套餐流量
+                                                                   【签到新玩法】周期更短，流量更多！首签可得30M，每周有惊喜，最高可领1G流量，点 ah.10086.cn/s/yxhd30【中国移动】
+08-08 20:27:46.353 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:493697  body:您好，您正在办理掌厅随机码登录业务，验证码是493697，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.407 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:279519  body:您好，您正在办理掌厅随机码登录业务，验证码是279519，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.480 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:006317  body:您好，您正在办理掌厅随机码登录业务，验证码是006317，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.550 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:051149  body:您好，您正在办理掌厅随机码登录业务，验证码是051149，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.619 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:812402  body:您好，您正在办理掌厅随机码登录业务，验证码是812402，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.684 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:368297  body:您好，您正在办理掌厅随机码登录业务，验证码是368297，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:46.776 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:937071  body:【科大讯飞】您好，您本次操作的验证码为937071，序号为79。请在10分钟内使用，过期无效。
+08-08 20:27:46.856 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】尊敬的客户，2017年上半年移动话费账单已送达您的139邮箱，看账单赢流量礼包详情点击 http://y.10086.cn/t/kvy8mWubZrxp1f
+                                                                    【中国移动 139邮箱】
+08-08 20:27:46.908 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您好！您参加移动公司促销活动获赠的套餐外优惠流量（省内10GB*3个月）已到账，2017年08月02日生效，有效期至2017年10月底，将在您无套餐流量可用时使用。如有疑问，请咨询10086。中国移动
+08-08 20:27:46.983 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您好！您参加移动公司促销活动获赠的套餐外优惠流量（省内10GB*3个月）已到账，2017年08月02日生效，有效期至2017年10月底，将在您无套餐流量可用时使用。如有疑问，请咨询10086。中国移动
+08-08 20:27:47.147 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:交费提醒：您好，您于2017年08月02日16时09分交费50.00元，您目前的账户预存款为75.84元，本月未出账话费19.00元。【交话费，送流量】手厅交费满50元送100M，满100元送200M，详点 ah.10086.cn/m/s/yxhd9
+08-08 20:27:47.238 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【中国移动　和包支付】尊敬的用户，您已成功通过南阳市江山信息技术有限公司充话费50元。
+08-08 20:27:47.302 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:余额提醒：您好！截至08月02日14时，您账户余额为6.84元，将启用10.00元的信用度。【交话费，送流量】手厅交费满50元送100M，满100元送200M，详点 ah.10086.cn/m/s/yxhd9
+08-08 20:27:47.375 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【花呗】您支付宝mak*@qq.*花呗08月账单384.36元，08月09日自动还款，可登录支付宝-花呗查账及还款，已还忽略
+08-08 20:27:47.376 6854-6859/com.iflytek.mkl.smscodeget I/art: Do partial code cache collection, code=30KB, data=29KB
+08-08 20:27:47.376 6854-6859/com.iflytek.mkl.smscodeget I/art: After code cache collection, code=28KB, data=28KB
+08-08 20:27:47.376 6854-6859/com.iflytek.mkl.smscodeget I/art: Increasing code cache capacity to 128KB
+08-08 20:27:47.459 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【丰巢】凭取件码『97740892』至2#楼北侧6号柜机取京东快递的包裹！寄快递低至8元，关注“丰巢快递柜”微信自助下单超方便！
+08-08 20:27:47.555 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于08月01日07:59在【支付宝-理财】发生直付通/快捷支付扣款，人民币3300.00[招商银行]
+08-08 20:27:47.652 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您尾号2808的一卡通已开通支付宝快捷支付功能，您可以通过支付宝支付密码（无需银行取款密码）完成交易，请妥善保管相关信息。若非本人操作，请致电95555。[招商银行]
+08-08 20:27:47.708 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:496447  body:【支付宝】你正在开通快捷支付，验证码496447，泄露验证码会影响资金安全。唯一热线：95188
+08-08 20:27:47.759 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:407414  body:您的验证码为：407414，有效时间为3分钟，如非本人操作请忽略。【友盟+】
+08-08 20:27:47.831 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【科大讯飞股份有限公司】欢迎使用科大讯飞访客网络，密码：211321
+08-08 20:27:47.941 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】您近3个月的移动话费消费报告已送达您的139邮箱，点击查看账单详情http://y.10086.cn/t/kvy8mWu7ox5v1f【中国移动139邮箱】
+08-08 20:27:48.009 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好，截至07月29日19时34分，您本月通话时长使用情况为：4G飞享套餐38元（校园版）套餐中包含国内语音主叫国内类通话时长为50分钟，剩余30分钟。本次提醒内容仅供参考，具体以月结账单为准。如需退订该提醒服务，请回复QXYYTX。中国移动
+08-08 20:27:48.134 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:832163  body:验证码832163，您正在用一网通登录，如非本人操作，请联系95555。请勿在任何短信或邮件链接的页面中输入验证码！ [招商银行]
+08-08 20:27:48.224 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:3445  body:【ofo】验证码为：3445请在2分钟之内输入
+08-08 20:27:48.299 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:553070  body:验证码553070，您正在用一网通登录，如非本人操作，请联系95555。请勿在任何短信或邮件链接的页面中输入验证码！ [招商银行]
+08-08 20:27:48.371 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【天天快递】亲，您的运单550602758742已为您放在蜀南庭苑桃园社区52#102（一单元）了 祝您购物愉快 非常感谢,有问题请联系快递员潘梅杰13855186110
+08-08 20:27:48.476 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:469343  body:验证码469343，您正在用一网通登录，如非本人操作，请联系95555。请勿在任何短信或邮件链接的页面中输入验证码！ [招商银行]
+08-08 20:27:48.541 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:222909  body:验证码222909，您正在用一网通登录，如非本人操作，请联系95555。请勿在任何短信或邮件链接的页面中输入验证码！ [招商银行]
+08-08 20:27:48.636 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日19:19在友宝使用一网通支付，人民币2.50元[招商银行]
+08-08 20:27:48.757 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:152455  body:一网通支付验证码：152455。支付金额2.50元。请妥善保管，切勿泄露！[招商银行]
+08-08 20:27:48.851 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:694750  body:验证码694750，您正在用一网通登录，如非本人操作，请联系95555。请勿在任何短信或邮件链接的页面中输入验证码！ [招商银行]
+08-08 20:27:48.933 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日发生的银联卡转入已到账，人民币5.00，转出方尾号3055
+                                                                   。1分看热剧 cmbt.cn/aq 。[招商银行]
+08-08 20:27:49.026 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:734221  body:转账验证码：734221。收款人：马坤乐。转出卡尾号：3055，金额5元。请保密并确认本人操作！[招商银行]
+08-08 20:27:49.153 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:494012  body:一网通支付验证码：494012。支付金额2.50元。请妥善保管，切勿泄露！[招商银行]
+08-08 20:27:49.276 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】尊敬的客户，您的服务单 323311117 已经完成处理，您可直接点击链接 3.cn/C260wq 确认服务单“已解决”并进行满意度评价；也可通过手机访问手机京东，在“我的京东”-“返修/退换货”-“进度查询”点击“已解决”后进行评价;还可通过电脑登录京东商城首页，点击“我的京东”-“返修/退换货”-“查看”-点击“已解决”后进行评价；若有疑问请您选择"未解决"，我们会尽快给您回复。3.cn/CdEyF2
+08-08 20:27:49.379 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】京东华东售后部温馨提示您,您的退换货服务单已经处理，请注意如下事项：【退款】款项到账未必有短信提醒，请您查询交易明细哦；【换货】收到时请尽快测试使用，如其他问题欢迎您通过【绿色通道】联系我们：①021-39123430(工作时间9:00-12:00,13:00-17:00，法定节假日除外);②:4006065500，华东区售后只为给您提供更优质的服务而努力！祝您生活愉快！   
+08-08 20:27:49.438 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日12:57在招行特惠使用一网通支付，人民币0.01元[招商银行]
+08-08 20:27:49.502 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:688124  body:一网通支付验证码：688124。支付金额0.01元。请妥善保管，切勿泄露！[招商银行]
+08-08 20:27:49.583 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:961849  body:重置一网通支付密码，验证码961849，请妥善保管，切勿泄露。[招商银行]
+08-08 20:27:49.683 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:900535  body:一网通支付验证码：900535。支付金额0.01元。请妥善保管，切勿泄露！[招商银行]
+08-08 20:27:49.775 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:698691  body:一网通绑定银行卡，验证码698691，请妥善保管，切勿泄露。[招商银行]
+08-08 20:27:49.854 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日发生的银联卡转入已到账，人民币10.10，转出方尾号3055[招商银行]
+08-08 20:27:49.923 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:055002  body:转账验证码：055002。收款人：马坤乐。转出卡尾号：3055，金额10.1元。请保密并确认本人操作！[招商银行]
+08-08 20:27:50.029 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:192843  body:一网通绑定银行卡，验证码192843，请妥善保管，切勿泄露。[招商银行]
+08-08 20:27:50.084 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:[可视柜台短信回单]您账户3055与2808已成功签约跨行通协议。[招商银行]
+08-08 20:27:50.144 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:[可视柜台短信回单]您账户2808已完成风险评估，风险承受能力级别A3，风险类型平衡型，适合的产品类型平衡型（R3）及以下产品。如有疑问，请联系95555。[招商银行]
+08-08 20:27:50.241 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:95555  body:已为您开通一网通用户服务，您可使用手机银行扫描屏幕二维码设置登录密码后，直接凭手机号查询和管理您名下的所有银行卡，详询95555。[招商银行]
+08-08 20:27:50.351 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:[可视柜台短信回单]您账户2808已成功开通转账汇款协议。[招商银行]
+08-08 20:27:50.450 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日12:43开通银联境外取款功能。一分钱喝饮料 cmbt.cn/by 。[招商银行]
+08-08 20:27:50.520 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日12:43调整POS消费每日限额为人民币200000.00[招商银行]
+08-08 20:27:50.612 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的用户，感谢您申办招商银行一卡通，更多优惠，免费转账，专属高收益理财请下载手机银行cmbt.cn/EQUAaB[招商银行]
+08-08 20:27:50.681 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您账户2808于07月27日12:43开通银联境外消费功能。一分钱喝饮料 cmbt.cn/by 。[招商银行]
+08-08 20:27:50.758 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:欢迎开立招商银行账户！您预留在我行的187****8382手机号非常重要，是我行与您联系和交易确认的关键电话，如需变更请及时通过我行专业版或柜台修改。用卡指南详见http://cmbt.cn/vrn7nR[招商银行]
+08-08 20:27:50.844 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:[可视柜台短信回单]您账户2808已经成功激活，请在卡片背面签名栏预留签名，并登陆www.cmbchina.com网站查看一卡通章程及各项业务收费标准。如有疑问，请联系95555。[招商银行]
+08-08 20:27:50.916 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:[可视柜台短信回单]您的基本资料已维护成功，手机号码：18788858382，婚姻状况：未婚，学历：硕士研究生，地址：安徽省合肥市包河区屯溪路１９３号２０１０级计算机与信息学院
+                                                                   。如有疑问，请联系95555。[招商银行]
+08-08 20:27:51.014 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:869563  body:[可视柜台短信回单]招商银行修改客户联系方式申请验证码：869563。请勿将验证码告诉他人并确认是您本人操作！[招商银行]
+08-08 20:27:51.184 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:355118  body:【网易】(有道智云)您的手机验证码为：355118,请勿将验证码提供给他人。
+08-08 20:27:51.271 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:822552  body:【聚合数据】您的验证码是822552。如非本人操作，请忽略本短信
+08-08 20:27:51.336 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:481704  body:【腾讯科技】Bugly验证码: 481704。欢迎使用腾讯Bugly服务，如非本人操作或其它疑问请联系客服QQ：800014972。
+08-08 20:27:51.423 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【丰巢】凭取件码『08278702』至2#楼北侧6号柜机取京东快递的包裹！寄快递低至8元，关注“丰巢快递柜”微信自助下单超方便！
+08-08 20:27:51.514 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:277696  body:【CSDN】感谢您使用CSDN手机注册功能，您的验证码为：277696
+08-08 20:27:51.590 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】您好，取件单号Q313643297，配送人员：倪雄峰，联系电话：13855108683或0551-63353021已上门取件，请准备好全套包装
+08-08 20:27:51.658 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【科大讯飞股份有限公司】欢迎使用科大讯飞访客网络，密码：873770
+08-08 20:27:51.738 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【丰巢】凭取件码『86695249』至2#楼北侧6号柜机取京东快递的包裹！寄快递低至8元，关注“丰巢快递柜”微信自助下单超方便！
+08-08 20:27:51.818 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】您近3个月的移动话费消费报告已送达您的139邮箱，点击查看账单详情 http://y.10086.cn/t/kvy8mWu7ox5v1f
+                                                                    【中国移动 139邮箱】
+08-08 20:27:51.877 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:流量提醒：您本月的校园内流量共有6GB，截至25日14时40分，已使用90%。安徽移动手机营业厅，轻松查流量、话费、详单，优惠交话费、加流量、换套餐，详点 ah.10086.cn/dt/khd
+08-08 20:27:51.951 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】玩所未玩，解锁新生！725数码超级品类日，小米手环2抢券低至9.9，爆款直降2000 dc.jd.com/YtCJQQ 回复BK退订
+08-08 20:27:52.032 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【科大讯飞股份有限公司】欢迎使用科大讯飞访客网络，密码：679049
+08-08 20:27:52.105 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您好！您参加移动公司促销活动获赠的套餐外优惠流量（省内150M*1个月）已到账，2017年07月24日生效，有效期至2017年07月底，将在您无套餐流量可用时使用。如有疑问，请咨询10086。中国移动
+08-08 20:27:52.215 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【科大讯飞股份有限公司】欢迎使用科大讯飞访客网络，密码：030830
+08-08 20:27:52.288 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年07月23日15时16分31秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:52.399 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年07月23日15时16分31秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:52.494 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:907554  body:【美团网】907554（登录二次验证验证码）。工作人员不会向您索要，请勿向任何人泄露。
+08-08 20:27:52.593 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】尊贵的主人，您好！您在京东商城订购的宝物59682143083（订单号）已经发货了！
+08-08 20:27:52.686 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:4006  body:【酷骑单车】您的验证码是4006，有效期5分钟，请在页面中提交验证码完成验证。
+08-08 20:27:52.798 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:感谢您使用智能语音服务，听您说话就能查询或办理业务。通话时请避免使用免提功能，尽量在安静的环境中简短说出您的需求，例如，“办理流量包，加油包，已开通业务查询退订”等。详细业务您可以说“业务清单”了解。期待您的再次体验！
+08-08 20:27:52.878 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:话费、流量、积分、账单、已开业务可点击10086微门户查询：http://dx.10086.cn/wxgrzy
+08-08 20:27:52.989 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:我们一直在努力，只为您“10分”满意！请回复序号进行评价：1.非常满意10分；2.满意9分；3.一般（较差）8分；4.不满意7分。����������
+08-08 20:27:53.151 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:7524  body:【摩拜单车】您的验证码是7524。请在页面中提交验证码完成验证。
+08-08 20:27:53.336 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【日日顺乐家】请凭775442到蜀南庭苑南新庄北区东门取3775快件,微信关注“日日顺乐家”回复我要票，免费申领电影票两张
+08-08 20:27:53.405 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:6371  body:【摩拜单车】您的验证码是6371。请在页面中提交验证码完成验证。
+08-08 20:27:53.465 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:2036  body:【酷骑单车】您的验证码是2036，有效期5分钟，请在页面中提交验证码完成验证。
+08-08 20:27:53.544 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】尊敬的客户，6月话费账单已送达您的139邮箱，看账单赢流量礼包详情点击http://y.10086.cn/t/kvy8mWtV5QfV1c，欢迎关注“中国移动139邮箱”官方微信【中国移动139邮箱】
+08-08 20:27:53.638 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:流量提醒：您本月的校园内流量共有6GB，截至16日18时58分，已使用50%。安徽移动手机营业厅，轻松查流量、话费、详单，优惠交话费、加流量、换套餐，详点 ah.10086.cn/dt/khd
+08-08 20:27:53.748 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您好！您参加移动公司促销活动获赠的套餐外优惠流量（省内60M*1个月）已到账，2017年07月15日生效，有效期至2017年07月底，将在您无套餐流量可用时使用。如有疑问，请咨询10086。中国移动
+08-08 20:27:53.838 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:648462  body:【天翼阅读】验证码：648462，30分钟内有效。如非本人操作，请忽略。搜“天翼阅读”关注微信 疯抢阅点
+08-08 20:27:53.896 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【天翼阅读】亲,提醒您别忘记使用电信积分,年底积分清零就浪费啦!抓紧抽个奖吧!http://t.cn/RVK90MO 询118178退订回T
+08-08 20:27:53.960 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】亲爱的makunle，您在京东购买的订单59484536190已完成，期待您的评价，将有机会获得京豆奖励哦，立即评论。sq.jd.com/pRFfzp
+08-08 20:27:54.039 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:积分提醒：尊敬的客户，您本月新增积分39分。截至08日19时53分，累计剩余1259分。现在发送LLJY100至10658999即可840积分兑换100M流量加油包。中国移动
+08-08 20:27:54.148 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:千古人文地，一城山水诗。诗歌之城马鞍山欢迎您！马鞍山文旅委温馨提示，请文明旅游。旅游咨询热线：2200001，投诉电话2360101。
+08-08 20:27:54.274 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:回复KHD下载安徽移动手机营业厅，查询办理更方便，还能享受更多优惠。您当前余额为44.84元，已用话费为19.10元。
+                                                                   【价格一步到位】4G 手机优选好网，畅通全球。速抢购 ah.10086.cn/s/hhgjd【中国移动】
+08-08 20:27:54.398 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【花呗】支付宝mak*@qq.*花呗今天将从余额、储蓄卡或余额宝自动还173.78元，可登录支付宝-花呗核对，已还忽略
+08-08 20:27:54.496 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】尊敬的客户，6月话费账单已送达您的139邮箱，看账单赢流量礼包详情点击 http://y.10086.cn/t/kvy8mWtV5QfV1c
+                                                                    【中国移动 139邮箱】
+08-08 20:27:54.563 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年07月08日20时20分33秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:54.655 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:2017届校招新员工，你好！请于7月9日（本周日）中午12:30着统一文化衫，在班车停车场集合乘车，赴七中新区桃溪会堂参加迎新大会，会议期间保持手机静音，服从工作人员统一安排（备注：培训请假的合肥本地校招新员工也须参会，具体会议详情及乘车安排见微信群或QQ群文件）。PS：本号码为公司招聘公用号，请勿回复！
+08-08 20:27:54.753 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:029061  body:【小米】029061（小米帐号安全验证，用于验证身份修改密码密保等，请勿将验证码透露给他人）
+08-08 20:27:54.843 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:484024  body:【腾讯科技】你正在登录微信，验证码484024。转发可能导致帐号被盗。如果这不是你本人操作，回复JZ可阻止该用户登录你的微信。
+08-08 20:27:54.950 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:441743  body:【腾讯科技】你正在登录微信，验证码441743。转发可能导致帐号被盗。如果这不是你本人操作，回复JZ可阻止该用户登录你的微信。
+08-08 20:27:55.035 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:441743  body:【腾讯科技】你正在登录微信，验证码441743。转发可能导致帐号被盗。如果这不是你本人操作，回复JZ可阻止该用户登录你的微信。
+08-08 20:27:55.165 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:441743  body:此验证码只用于登录你的微信或更换绑定，验证码提供给他人将导致微信被盗。441743（微信验证码）。再次提醒，请勿转发【腾讯科技】
+08-08 20:27:55.278 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:959444  body:【腾讯科技】959444（设备锁验证码），用于QQ55******2登录的设备验证，请勿转发。如不想接收此类短信，请回复T退订
+08-08 20:27:55.360 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【丰巢】凭取件码『71651581』至蜀南庭院南新庄北区值班室对面取申通快递的包裹！寄快递低至8元，关注“丰巢快递柜”微信自助下单超方便！
+08-08 20:27:55.440 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:回复KHD下载安徽移动手机营业厅，查询办理更方便，还能享受更多优惠。您当前余额为44.84元，已用话费为19.10元。
+                                                                   【交话费，送流量】手厅交费满50元送100M，满100元送200M，详点 ah.10086.cn/m/s/yxhd9【中国移动】
+08-08 20:27:55.543 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至07月05日17时08分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用1152.12M，剩余4991.88M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   2、您本月剩余套餐外优惠总流量30.00M，其中，套餐外优惠省内流量剩余30.00M。
+                                                                   感谢您的使用。
+                                                                   【签到新玩法】周期更短，流量更多！首签可得30M，每周有惊喜，最高可领1G流量，点 ah.10086.cn/s/yxhd30【中国移动】
+08-08 20:27:55.640 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【合肥市公安局】同志,您好!您于2017-07-05 14:19办理了驾驶证初次申领业务,请您对驾管所受理和考试工作进行评价。1满意2基本满意3对服务态度不满意4对办事效率不满意5对执法不公不满意6对工作推诿不满意7其他请直接回复序号。
+08-08 20:27:55.734 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【日日顺乐家】请凭193863到蜀南庭苑南新庄北区东门取4816快件,快递员：13857141642
+08-08 20:27:55.813 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:1242  body:【滴滴出行】(1242)滴滴出行验证码
+08-08 20:27:55.911 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您好！您参加移动公司促销活动获赠的套餐外优惠流量（省内30M*1个月）已到账，2017年07月02日生效，有效期至2017年07月底，将在您无套餐流量可用时使用。如有疑问，请咨询10086。中国移动
+08-08 20:27:55.996 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至07月02日17时25分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用810.23M，剩余5333.77M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   2、您本月剩余套餐外优惠总流量30.00M，其中，套餐外优惠省内流量剩余30.00M。
+                                                                   感谢您的使用。
+                                                                   【中国移动】
+08-08 20:27:56.080 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:4694  body:【酷骑单车】您的验证码是4694，有效期5分钟，请在页面中提交验证码完成验证。
+08-08 20:27:56.163 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:603375  body:【饿了么】您的验证码是603375，在5分钟内有效。如非本人操作请忽略本短信。
+08-08 20:27:56.271 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:429084  body:【腾讯科技】429084，来自"摩拜单车"小程序的验证码，十分钟内有效。
+08-08 20:27:56.415 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:156835  body:【摩拜单车】您的验证码是156835。请在页面中提交验证码完成验证。
+08-08 20:27:56.538 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【花呗】您支付宝mak*@qq.*花呗07月账单173.78元，07月09日自动还款，可登录支付宝-花呗查账及还款，已还忽略
+08-08 20:27:56.636 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【携程网】2017年7月2日06:40泗县汽车站—合肥，座位号09。凭取票号20170701000505，密码436417和马坤乐身份证取票。根据国家实名制要求，3月1日起长途汽车站将对旅客身份证原件进行查验，票、证、人不一致将无法进站。点击查看取票信息 http://t.ctrip.cn/chO6mF
+08-08 20:27:56.728 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:微信营业厅短信验证密码：336165，欢迎您使用！[中国电信]
+08-08 20:27:56.836 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:微信营业厅短信验证密码：412173，欢迎您使用！[中国电信]
+08-08 20:27:56.911 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户:您好!您的退费金额已于2017年06月30日09时20分充入您的手机帐户,本次退费29.00元--安徽移动
+08-08 20:27:57.018 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽交警】您已成功预约合肥支队安全文明A考场07月05日场次一的科目三 安全文明常识考试考试，请携带身份证明按时参加考试。如有特殊情况，请提前去车管所取消预约。
+08-08 20:27:57.166 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您好，您反映的客户投诉问题（工单号201706290502776）现在已受理环节，如需帮助，请致电10086，感谢您的支持！【中国移动】
+08-08 20:27:57.332 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户：您好！您反映的自有业务问题我公司已受理，工单编号为:201706290502776，您可以通过以下方式查询处理状态信息:1、登录安徽移动门户网站 ah.10086.cn ；2、发送短信CXTS，加上空格，再加上工单编号至10086，我们将竭诚为您服务，安徽移动通信！
+08-08 20:27:57.433 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:关注“中国移动10086”微信公众号可随时查话费、查流量，查套餐，便捷办理各项业务。
+08-08 20:27:57.521 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:“语音导航使用宝典”：一次只提一个问题。比如这个问题：“我这个月话费用了多少，我想知道手机上现在有哪些业务”，您可以先说“查询话费”，得出结果后再说“查询已开业务”。导航君一次只能回答您的一个问题。分开提问，效果更好哦！【关注“中国移动10086”微信公众号，召唤微信小助手随时为你查话费、查流量，查套餐，快捷办理业务】
+08-08 20:27:57.620 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年06月29日17时49分12秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:57.700 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年06月29日17时49分12秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:57.797 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好，截至06月29日13时35分，您本月通话时长使用情况为：4G飞享套餐38元（校园版）套餐中包含国内语音主叫国内类通话时长为50分钟，剩余30分钟。本次提醒内容仅供参考，具体以月结账单为准。如需退订该提醒服务，请回复QXYYTX。中国移动
+08-08 20:27:57.879 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:591697  body:【安徽交警】您本次操作【(考试预约)】的短信验证码为591697，切勿告知他人！
+08-08 20:27:57.996 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:234129  body:【安徽交警】您本次操作【(考试预约)】的短信验证码为234129，切勿告知他人！
+08-08 20:27:58.096 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尚德守法，共治共享食品安全。敬请您关注全国食品安全宣传周系列活动。让我们携起手来，共同维护“舌尖上的安全”。【国务院食品安全办】
+08-08 20:27:58.223 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽交警】您已成功预约合肥支队安全文明A考场07月04日场次一的科目三 安全文明常识考试考试，请携带身份证明按时参加考试。如有特殊情况，请提前去车管所取消预约。
+08-08 20:27:58.308 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:和彩印，一个超级强大的通话保镖，诈骗骚扰来电快速识别，弹屏提醒，让电话诈骗不难防，发送KTCY到10086开通。
+08-08 20:27:58.399 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:详单查询提醒：您好！您的号码18788858382于2017年06月28日13时43分32秒在掌上客户端被查询详单。您可以登录网上营业厅ah.10086.cn查询话费账单或详单。中国移动
+08-08 20:27:58.499 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:050538  body:您好，您正在办理掌厅详单查询业务，验证码是050538，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:58.577 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年06月28日13时42分47秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:58.628 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月28日 13时42分34秒登录安徽移动手机营业厅。升级到新版APP后，您可以在“我的移动”中设置关闭登录提醒短信【中国移动】
+08-08 20:27:58.703 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月28日 13时36分27秒登录安徽移动手机营业厅。升级到新版APP后，您可以在“我的移动”中设置关闭登录提醒短信【中国移动】
+08-08 20:27:58.816 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月28日 13时30分41秒登录安徽移动手机营业厅。升级到新版APP后，您可以在“我的移动”中设置关闭登录提醒短信【中国移动】
+08-08 20:27:58.888 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您套餐或营销案内包含的包月增值业务有：4G飞享套餐38元（校园版）包含的业务:5、飞信;6、来电显示;参加优惠活动订购的包月增值业务有:无；回复“业务序号”可取消对应业务，协议有效期内，重新订购套餐内退订的业务不再收取费用。2小时内回复有效，回复免费。【中国移动】
+08-08 20:27:58.969 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您订购的套餐外包月增值业务有：中国移动业务:1、非cmwap用户状态标记，免信息费;2、安心服务，0元/月;3、彩信账单，免信息费;4、BOSS－VPMN套餐(0.05＋0,不区分忙闲时)，免信息费;中国移动代收费业务:无；回复“业务序号”取消对应业务；如需取消多项业务，请回复各业务序号，中间用逗号分隔。2小时内回复有效，回复免费。【中国移动】
+08-08 20:27:59.099 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年06月28日13时25分50秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:27:59.309 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:详单查询提醒：您好！您的号码18788858382于2017年06月28日13时25分20秒在掌上客户端被查询详单。您可以登录网上营业厅ah.10086.cn查询话费账单或详单。中国移动
+08-08 20:27:59.428 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:951048  body:您好，您正在办理掌厅详单查询业务，验证码是951048，有效时间为3分钟。切勿向他人泄露，以防上当受骗。如有疑问请咨询10086。【中国移动】
+08-08 20:27:59.563 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月28日 13时24分42秒登录安徽移动手机营业厅。升级到新版APP后，您可以在“我的移动”中设置关闭登录提醒短信【中国移动】
+08-08 20:27:59.675 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:我们一直在努力，只为您“10分”满意！请回复序号进行评价：1.非常满意10分；2.满意9分；3.一般（较差）8分；4.不满意7分。����������
+08-08 20:27:59.757 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:订购提醒：尊敬的客户，您好！您于2017年06月28日13点10分点播了由咪咕互娱提供的互娱29.00元，话费支付29元。中国移动����������
+08-08 20:27:59.853 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【中国移动　咪咕游戏】您已购买“猪猪侠之百变英雄完美版”之通关GG宝箱，价格29元，已扣点数账户2900点（折合29元）。
+08-08 20:27:59.920 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:098927  body:【魅族科技】验证码098927（找回密码），30分钟内有效。工作人员不会向您索要密码、验证码等信息。如非本人操作，请联系魅族客服或忽略
+08-08 20:28:00.002 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:交费提醒：您好，您于2017年06月28日08时35分交费50.00元，您目前的账户预存款为102.24元，本月未出账话费38.30元。【9折交费日】每月28日，安徽移动手机营业厅交话费独享9折，详点 ah.10086.cn/m/s/yxhd1
+08-08 20:28:00.125 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【中国移动　和包支付】尊敬的用户，您已成功通过南阳市江山信息技术有限公司充话费50元。
+08-08 20:28:00.228 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body: 由于套餐月租等固定费用即将收取，您的手机余额可能不足，为保障您正常通信，中国移动提醒您预存一定费用。如您已提前预存，此短信可忽略��
+08-08 20:28:00.326 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至06月27日10时23分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用1604.16M，剩余4539.84M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   感谢您的使用。【中国移动】
+08-08 20:28:00.439 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:请直接回复序号：
+                                                                   6021:开通12593长途新干线
+                                                                   6022:取消12593长途新干线
+                                                                   【中国移动】
+08-08 20:28:00.528 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】好久不见~送您思念礼包，内含两张优惠券，6/30前领取并使用，未领取请戳 dc.jd.com/duLNQQ 已领请忽略，回BK退订
+08-08 20:28:00.641 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:882485  body:【安徽交警】您本次操作【(考试预约)】的短信验证码为882485，切勿告知他人！
+08-08 20:28:00.754 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:156779  body:【安徽交警】您本次操作【(用户密码找回)】的短信验证码为156779，切勿告知他人！
+08-08 20:28:00.831 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:698728  body:【爱WiFi】您的验证码是:698728
+08-08 20:28:00.920 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【支付宝】账户mak**@qq.**于06月25日20时46分在永安行成功付款1.00元
+08-08 20:28:00.978 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【支付宝】您已在永安行开通永安骑行服务，使用时将自动从您的支付宝账户扣款，可在支付宝的支付设置中查看详情。
+08-08 20:28:01.066 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:1166  body:【永安行】您的验证码是1166，5分钟内有效。
+08-08 20:28:01.251 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:回复KHD下载安徽移动手机营业厅，查询办理更方便，还能享受更多优惠。您当前余额为13.94元，已用话费为38.30元。
+                                                                   【流量超便宜】60元包6G任我享流量降费红包，有效期180天，名额有限，快去手厅办理！点ah.10086.cn/s/yxhd28【中国移动】
+08-08 20:28:01.369 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:547732  body:【康博男装】验证码：547732，如需帮助请致电4008098883
+08-08 20:28:01.454 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至06月19日21时03分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用1302.39M，剩余4841.61M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   感谢您的使用。
+                                                                   【升级套餐送流量】办4G飞享套餐，享更多福利，最高送2GB。点 ah.10086.cn/m/s/yxhd13【中国移动】
+08-08 20:28:01.519 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:648235  body:尊敬的客户，欢迎使用网上营业厅，您于2017年6月17日 12时57分5秒申请自助业务，本次业务的随机码为648235 -中国电信。
+08-08 20:28:01.587 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:274089  body:本次随机码为：274089，重要提示：随机码切勿告知他人，并确保您正在使用电信营业厅客户端官方版，否则极可能造成信息泄露！！[中国电信]
+08-08 20:28:01.683 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:客户您好，密码修改失败，请检查您的输入并稍候重发。
+08-08 20:28:01.777 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:624408  body:【小米通讯】624408（小米帐号安全验证，用于验证身份修改密码密保等，请勿将验证码透露给他人）
+08-08 20:28:01.836 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【畅游】您的makunle@qq.com已经成功激活新水浒Q传，请在页面上按照提示继续操作
+08-08 20:28:01.919 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【畅游】您正在申请激活新水浒Q传，短信直接回复1166即可（10分钟内有效）
+08-08 20:28:02.020 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【畅游公司】ma***le@qq.com于22:53成功认证手机18788858382。今后您可使用手机号18788858382登录畅游网站。回复"FF"可获取账号的快捷管理方法（停/解权，修改密码）
+08-08 20:28:02.122 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:946651  body:【畅游】您正在申请认证手机，不能告诉任何人的短信验证码为：946651，验证码10分钟内有效
+08-08 20:28:02.254 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:528765  body:【小米公司】528765 (小米商城礼品卡验证码，如非本人操作，请忽略本短信)
+08-08 20:28:02.370 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:547125  body:【小米公司】547125 (小米商城礼品卡验证码，如非本人操作，请忽略本短信)
+08-08 20:28:02.482 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:215884  body:本次随机码为：215884，重要提示：随机码切勿告知他人，并确保您正在使用电信营业厅客户端官方版，否则极可能造成信息泄露！！[中国电信]
+08-08 20:28:02.600 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:661629  body:本次随机码为：661629，重要提示：随机码切勿告知他人，并确保您正在使用电信营业厅客户端官方版，否则极可能造成信息泄露！！[中国电信]
+08-08 20:28:02.662 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:949290  body:【小米】949290 (小米商城礼品卡验证码，如非本人操作，请忽略本短信)
+08-08 20:28:02.771 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】6.14电脑品类火力全开！抢618元电脑~领3000元神券！选择京准达，预约时段准时送达 dc.jd.com/dGVfQQ BK退订
+08-08 20:28:02.883 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:357970  body:【完美世界】您的短信验证码为：357970，请在10分钟内完成验证操作（请勿将验证码提供给他人）
+08-08 20:28:02.985 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:277359  body:【完美世界】您正在申请手机注册，验证码为：277359。如非本人申请的操作，回复“T”即可拒收此类短信。
+08-08 20:28:03.069 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:560623  body:【完美世界】您正在申请手机注册，验证码为：560623。如非本人申请的操作，回复“T”即可拒收此类短信。
+08-08 20:28:03.201 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:048061  body:【完美世界】您正在申请手机注册，验证码为：048061。如非本人申请的操作，回复“T”即可拒收此类短信。
+08-08 20:28:03.297 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:C85XCD  body:【盛大游戏】仅供在网站修改密码使用，请勿告知他人，验证码：C85XCD。回0000屏蔽短信
+08-08 20:28:03.378 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至06月11日11时05分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用1302.39M，剩余4841.61M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   感谢您的使用。
+                                                                   【升级套餐送流量】办4G飞享套餐，享更多福利，最高送2GB。点 ah.10086.cn/m/s/yxhd13【中国移动】
+08-08 20:28:03.488 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:对不起，您的回复不正确。如需办理加油包请重新回复662或JYB 选择档次时回复数字序号即可，确认办理时回复汉字“是”即可。回复KHD下载安徽移动手机营业厅，查询办理更方便，优惠活动享不停。【中国移动】
+08-08 20:28:03.588 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【免费送1G】安徽移动手厅新用户见面送壕礼，点击 ah.10086.cn/dt/khd 。
+                                                                   您好!请于15分钟内回复序号(如1)订购对应的流量加油包：
+                                                                   1. 5元包30M
+                                                                   2. 10元包100M
+                                                                   3. 20元包200M
+                                                                   4. 30元包500M
+                                                                   5. 50元包1G
+                                                                   6. 100元包3G
+                                                                   注:以上流量仅限在国内(不含港澳台)使用,且不包含加油包订购生效前已产生的流量，加油包仅限当月使用，月底自动失效。
+                                                                   【中国移动】
+08-08 20:28:03.681 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:积分提醒：尊敬的客户，您本月新增积分38分。截至08日20时01分，累计剩余1220分。现在发送LLJY100至10658999即可840积分兑换100M流量加油包。中国移动
+08-08 20:28:03.750 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:821252  body:您在百度开发者中心进行的手机验证的验证码为：821252，请输入后进行验证，谢谢！[百度开发者中心]【百度】
+08-08 20:28:03.817 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:485911  body:【网易】(有道智云)您的手机验证码为：485911,请勿将验证码提供给他人。
+08-08 20:28:03.904 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的用户，您好！您的“首月优惠（赠送100元话费）”套餐将于2017年6月底到期失效，建议您前往就近的营业厅或拨打10000咨询，办理最新促销活动。如您已办理请忽略。
+08-08 20:28:03.999 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:微信营业厅短信验证密码：518222，欢迎您使用！[中国电信]
+08-08 20:28:04.083 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，请回复数字对刚才营业厅整体服务进行评价： 1 非常满意，2 满意，3 服务态度不满意，4 业务水平不满意，5 等候时间不满意，6 办理效率不满意，7 营业厅内部环境不满意。回复本短信免费。【中国电信】
+08-08 20:28:04.164 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:欢迎您成为中国电信天翼用户，您的初始密码为249447，为保障您账号安全，请您及时修改。密码修改请回复502#原密码#新密码（6位数字），或下载掌上10000手机APP（ http://dwz.cn/1KVlNV ）进行修改。为了您更好的使用电信业务，敬请仔细阅读客户须知， http://wapah.189.cn/zt/c/lh/kehu/ 。中国电信
+08-08 20:28:04.267 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:尊敬的客户，您已成功办理米粉卡（3元日租）套餐及叠加包，套餐自2017年06月09日起生效；使用4G终端、4G卡即可进行4G上网；查询套餐详情请点击 http://wapah.189.cn/tc/tcQuery.shtml?g=946875F5FDCEDE7E 或下载安徽掌上10000客户端（ http://t.cn/RvbDYPp ）查询更方便，交费享优惠！中国电信
+08-08 20:28:04.365 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:596931  body:本次随机码为：596931，重要提示：随机码切勿告知他人，并确保您正在使用电信营业厅客户端官方版，否则极可能造成信息泄露！！[中国电信]
+08-08 20:28:04.454 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【小米】感谢您选购米粉卡！您的100元小米商城现金券已发放至您的帐户，请登录小米官网mi.com或小米商城App查看！
+08-08 20:28:04.564 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:支付宝mak*@qq.*花呗今天将从余额、储蓄卡或余额宝自动还288.20元，可登录支付宝-蚂蚁花呗核对，已还忽略【花呗】
+08-08 20:28:04.664 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:267254  body:【腾讯科技】此验证码只用于登录你的微信或更换绑定，验证码提供给他人将导致微信被盗。267254（微信验证码）。再次提醒，请勿转发
+08-08 20:28:04.759 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:844560  body:【小米】小米黄页快递验证码:844560 ,用于绑定手机号查询快递
+08-08 20:28:04.835 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:154004  body:【腾讯科技】此验证码只用于登录你的微信或更换绑定，验证码提供给他人将导致微信被盗。154004（微信验证码）。再次提醒，请勿转发
+08-08 20:28:04.904 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月07日 07时46分26秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:04.989 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月06日 17时00分22秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.107 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月06日 13时30分28秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.330 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月06日 12时35分34秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.437 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月06日 12时28分56秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.524 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:778270  body:【小米通讯】778270（小米帐号安全验证，用于验证身份修改密码密保等，请勿将验证码透露给他人）
+08-08 20:28:05.616 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月06日 07时58分19秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.700 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月05日 22时53分39秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.791 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月05日 20时26分09秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:05.876 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月04日 17时44分17秒登录安徽移动手机营业厅，您可以在“我的移动”中设置关闭登录提醒短信。【中国移动】
+08-08 20:28:05.938 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:061114  body:【百度】您申请的手机验证码是： 061114 ，请输入后进行验证，谢谢 ！
+08-08 20:28:06.058 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】您近3个月移动话费消费报告已送达139邮箱，点击查看账单详情http://y.10086.cn/t?s=kvy8mWtq3LRS&m=l2Vj2【中国移动139邮箱】
+08-08 20:28:06.182 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月02日 12时36分02秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:06.320 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您支付宝mak*@qq.*花呗06月账单288.20元，06月09日自动还款，可登录支付宝-蚂蚁花呗查账及还款，已还忽略【花呗】
+08-08 20:28:06.409 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】我还是宝宝~想要礼物！6/1-4电脑2折抢！还有618元神券！用京准达~让电脑准时送达哦 dc.jd.com/dKXPQQ BK退订
+08-08 20:28:06.508 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年06月01日 00时08分56秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:06.633 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:流量提醒：您本月的校园内流量共有6GB，截至31日20时45分，已使用90%。安徽移动手机营业厅，轻松查流量、话费、详单，优惠交话费、加流量、换套餐，详点 ah.10086.cn/dt/khd
+08-08 20:28:06.719 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月31日 20时37分04秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:06.834 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:《网络安全法》自2017年6月1日起施行，网络安全为人民，网络安全靠人民。【安徽省委网络安全和信息化领导小组办公室、安徽省通信管理局宣】
+08-08 20:28:06.939 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:《安徽省电信设施建设和保护办法》自2017年6月1日起施行。电信设施属于公共基础设施，保护电信设施，共享畅通网络。【安徽省通信管理局宣】
+08-08 20:28:07.012 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月29日 13时23分38秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:07.143 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月27日 16时45分26秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:07.278 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【中国移动 139邮箱】您的手机上网流量信息已送达139邮箱，敬请查阅！点击查看详情  http://y.10086.cn/t?s=kvy8mWtrSA2U&m=kzyhT
+08-08 20:28:07.363 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:😄
+08-08 20:28:07.436 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:欧凯。现在是在培训，还是已经进入项目了？
+08-08 20:28:07.475 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:谢谢
+08-08 20:28:07.548 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:坤乐，你台式机的密码是什么？
+08-08 20:28:07.629 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月26日 19时46分42秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:07.706 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【亚马逊】 感谢订购亚马逊商品。如需查看或修改订单，请通过登录“我的订单”、点击www.z.cn/y、或下载客户端z.cn/x 操作。 
+08-08 20:28:07.790 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:549280  body:【亚马逊】 您的亚马逊验证码为 549280
+08-08 20:28:07.909 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:5823bd  body:【当当】尊敬的顾客, 您正在申请短信登录，验证码为：5823bd，切勿将验证码泄露于他人。如非本人操作，请尽快更改密码或联系当当客服 0527-80878888
+08-08 20:28:08.007 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【ofo】本周免费骑明日开始，5.26－5.27周五周六全国免费！邀请朋友一块儿骑小黄吧～退订td
+08-08 20:28:08.125 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月25日 09时14分46秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:08.227 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】您近3个月的移动话费消费报告已送达您的139邮箱，点击查看账单详情 http://y.10086.cn/t?s=kvy8mWtq3LRS&m=l2Vj2
+                                                                    【中国移动 139邮箱】
+08-08 20:28:08.342 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月23日 22时18分42秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:08.415 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】会员大回馈，8亿年中礼！全品类249减20、518减40等神券 dc.jd.com/dLscQQ 快来领你的礼包！BK退订
+08-08 20:28:08.486 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:000341  body:【安徽交警】您本次操作【(考试预约)】的短信验证码为000341，切勿告知他人！
+08-08 20:28:08.581 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:流量提醒：您本月的校园内流量共有6GB，截至21日19时14分，已使用50%。安徽移动手机营业厅，轻松查流量、话费、详单，优惠交话费、加流量、换套餐，详点 ah.10086.cn/dt/khd
+08-08 20:28:08.666 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:哦  没事
+08-08 20:28:08.762 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:你好  房子还租吗
+08-08 20:28:08.884 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:953261  body:您获得的验证码是：953261。感谢使用五八同城。【58同城】
+08-08 20:28:08.978 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好，截至05月21日14时00分，您本月通话时长使用情况为：4G飞享套餐38元（校园版）套餐中包含国内语音主叫国内类通话时长为50分钟，剩余30分钟。本次提醒内容仅供参考，具体以月结账单为准。如需退订该提醒服务，请回复QXYYTX。中国移动
+08-08 20:28:09.105 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:93栋408
+08-08 20:28:09.308 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:93栋408
+08-08 20:28:09.423 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:878040  body:您获得的验证码是：878040。感谢使用五八同城。【58同城】
+08-08 20:28:09.514 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:458106  body:【58同城】您获得的验证码是：458106。感谢使用五八同城。
+08-08 20:28:09.567 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:258708  body:您获得的验证码是：258708。感谢使用五八同城。【58同城】
+08-08 20:28:09.633 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:904783  body:【58同城】您的手机动态码：904783。工作人员不会向您索要，索要动态码的都是骗子，如果非本人操作请忽略。
+08-08 20:28:09.736 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【ofo】本周五至周日三天免费开始啦！周末骑车不仅免费，成功邀请好友还能各得10元现金奖励哦 td退
+08-08 20:28:09.823 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【京东】三星S8来了，每天上午10点99元起限量预定，支付尾款成功后还将获取四重好礼，速戳！ dc.jd.com/dtKXQQ  回BK退订
+08-08 20:28:09.934 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:交费提醒：您于05月16日20时28分通过安徽移动手机营业厅交费50.00元，其中实际支付49.75元，优惠赠送0.25元。您目前的账户预存款为90.34元，本月未出账话费38.10元。【首充有礼】手厅交费满50元送100M，满100元送200M，详点 ah.10086.cn/m/s/yxhd9
+08-08 20:28:10.027 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月16日 20时27分21秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:10.133 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:余额提醒：您好！截至05月16日20时，您账户余额为2.24元，将启用10.00元的信用度。【首充有礼】手厅交费满50元送100M，满100元送200M，详点 ah.10086.cn/m/s/yxhd9
+08-08 20:28:10.227 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽交警】您已成功预约合肥市八一科目三考场（小型车）05月20日场次一的科目三 道路驾驶技能考试考试，请携带身份证明按时参加考试。如有特殊情况，请提前去车管所取消预约。
+08-08 20:28:10.352 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽交警】您的交管12123平台账号当前在其他手机设备上登录,如非本人操作,请及时修改账号密码谨防被盗.
+08-08 20:28:10.487 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:486939  body:【安徽交警】您本次操作【(用户密码找回)】的短信验证码为486939，切勿告知他人！
+08-08 20:28:10.570 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】尊敬的客户，4月话费账单已送达您的139邮箱，看账单赢流量礼包详情点击http://y.10086.cn/t?s=kvy8mWtfZZ5e&m=kr9ZK【中国移动139邮箱】
+08-08 20:28:10.657 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:890519  body:【安徽交警】您本次操作【(考试预约)】的短信验证码为890519，切勿告知他人！
+08-08 20:28:10.737 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:609988  body:【安徽交警】您本次操作【(考试预约)】的短信验证码为609988，切勿告知他人！
+08-08 20:28:10.807 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【滴滴出行】尊敬的滴滴用户，诚邀您参加用户调查，以便于我们改进服务，请点击：https://dc.tt/E3f1VuZfXf5  退订TD
+08-08 20:28:10.878 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:积分提醒：尊敬的客户，您本月新增积分38分。截至08日19时58分，累计剩余1182分。现在发送LLJY100至10658999即可840积分兑换100M流量加油包。中国移动
+08-08 20:28:10.985 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【小米】您的小米帐号176896995于17:15在中国安徽登录了新的设备。如非本人登录，请访问id.mi.com修改密码
+08-08 20:28:11.117 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:支付宝mak*@qq.*蚂蚁花呗今天将从余额、储蓄卡或余额宝自动92.20元，可登录支付宝-蚂蚁花呗核对，已还忽略【蚂蚁花呗】
+08-08 20:28:11.282 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月08日 14时54分06秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:11.389 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月07日 23时02分28秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:11.483 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月07日 23时02分20秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:11.582 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】尊敬的客户，4月话费账单已送达您的139邮箱，看账单赢流量礼包详情点击 http://y.10086.cn/t?s=kvy8mWtfZZ5e&m=kr9ZK
+                                                                    【中国移动 139邮箱】
+08-08 20:28:11.698 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽金寨县旅游委】希望之城，养心金寨，中国长寿之乡欢迎您！金寨微旅游ahjzwly全方位为您服务，电话05647356638投诉96301
+08-08 20:28:11.821 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:我们一直在努力，只为您“10分”满意！请回复序号进行评价：1.非常满意10分；2.满意9分；3.一般（较差）8分；4.不满意7分。����������
+08-08 20:28:11.895 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【中国移动 139邮箱】 您的手机上网流量信息已到达，敬请查阅！点击查看详情 http://y.10086.cn/t?s=kvy8mWtaKjub&m=kzyhT
+                                                                    [回A阅读邮件，回Q关闭通知，按标准计费]
+08-08 20:28:11.998 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:237153  body:【摩拜单车】您的验证码是237153。请在页面中提交验证码完成验证。
+08-08 20:28:12.093 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:9438  body:验证码为：9438请在2分钟之内输入【ofo】
+08-08 20:28:12.194 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年05月04日16时34分06秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:28:12.316 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:中国移动提醒您，您正于2017年05月04日16时34分06秒使用中国移动提供的个人客户账单查询服务查询账单，如有疑问拨10086，中国移动竭诚为您服务！
+08-08 20:28:12.415 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年05月04日 16时32分10秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:12.474 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:7934  body:【酷骑单车】您的验证码是7934，有效期30分钟，请在页面中提交验证码完成验证。
+08-08 20:28:12.556 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:165070  body:【摩拜单车】您的验证码是165070。请在页面中提交验证码完成验证。
+08-08 20:28:12.685 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【ofo】小黄车已进驻全球100座城市啦。为感谢您一直以来对我们的支持与厚爱，即日起至5月7日，小黄车邀请您免费骑车！td退
+08-08 20:28:12.803 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【中通快递】货号1024请于19点前到工大东门教育超市内中通网点领取，当日未取默认代签，三日未取将退回！电话15855113056
+08-08 20:28:12.930 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【闲鱼】您收到一条新消息，点击 http://tb.cn/xhoDeZx  查看吧！ 回TD退订
+08-08 20:28:13.034 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【闲鱼】您收到一条新消息，点击 http://tb.cn/xhoDeZx  查看吧！ 回TD退订
+08-08 20:28:13.132 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:上午10点学院拍照，9点50学术会议中心集合，大家请准时参加
+08-08 20:28:13.315 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【合工大就业中心】各位2017年毕业研究生：2017年研究生就业方案网上核对就业开始，时间紧迫。请各位研究生抓紧时间，认真核对，确保就业方案无误。
+08-08 20:28:13.422 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【蚂蚁花呗】您支付宝mak*@qq.*花呗05月账单92.20元，05月09日自动还款，可登录支付宝-蚂蚁花呗查账及还款，已还忽略
+08-08 20:28:13.533 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【ofo】小长假结束了，骑小黄的幸福感不减，本周二至本周日用车继续免费！退订td
+08-08 20:28:13.611 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【免费送1G】安徽移动手厅新用户见面送壕礼，点击 ah.10086.cn/dt/khd 。
+                                                                   您好！截至05月01日19时10分，您本月已使用移动数据流量0.00M，套餐内流量剩余950.00M，其中国内流量剩余600.00M(含国内结转流量300.00M)，省内流量剩余350.00M。夜间流量已使用0.00M，剩余1G204.80M。
+                                                                   回复序号办理:
+                                                                   661.流量包
+                                                                   662.流量加油包
+                                                                   663.夜间流量包
+                                                                   664.季包/半年包
+                                                                   665.假日流量包
+                                                                   667.国内流量小时包
+                                                                   668.查询共享明细
+                                                                   669.查询上月结转流量
+                                                                   660.查询特殊流量及任我用套餐流量
+                                                                   【中国移动】
+08-08 20:28:13.709 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至05月01日19时10分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用0.68M，剩余6143.32M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   感谢您的使用。
+                                                                   【中国移动】
+08-08 20:28:13.820 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【铁路客服】订单EA65655302,马坤乐您已购5月1日G1330次4车8D号上饶20:21开,检票口二层3号检票口。
+08-08 20:28:13.921 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【携程网】5月2日06:40泗县汽车站—合肥，座位号26。凭取票号20170501001183，密码410722和马坤乐身份证取票。根据国家实名制要求，3月1日起长途汽车站将对旅客身份证原件进行查验，票、证、人不一致将无法进站。点击查看取票信息 http://t.ctrip.cn/chO6mF
+08-08 20:28:14.047 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【铁路客服】订单EA59678642,马坤乐您已购5月1日G1380次4车4B号弋阳16:55开。
+08-08 20:28:14.134 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【安徽移动】您的近3个月移动话费消费报告已送达139邮箱，点击查看账单详情 http://y.10086.cn/t?s=kvy8mWt9IOhf&m=l2Vj2
+                                                                    回Q关闭通知，按标准计费，欢迎关注官方微信(cmccmail-139) http://dwz.cn/139mail【中国移动139邮箱】
+08-08 20:28:14.219 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您尾号3055的银行卡2017年04月28日  10:01:44与网银在线成功签约借记卡快捷支付服务，如非本人操作，请联系95566【中国银行】
+08-08 20:28:14.310 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:217428  body:您正使用尾号3055的银行卡与网银在线签约借记卡快捷支付服务。请确认同意《借记卡快捷支付服务协议》的内容后，输入交易码：217428，切勿将交易码告知他人，详询95566【中国银行】
+08-08 20:28:14.393 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您尾号3055的银行卡2017年04月27日  22:33:03与微信成功签约借记卡快捷支付服务，如非本人操作，请联系95566【中国银行】
+08-08 20:28:14.469 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:907133  body:您正使用尾号3055的银行卡与微信签约借记卡快捷支付服务。请确认同意《借记卡快捷支付服务协议》的内容后，输入交易码：907133，切勿将交易码告知他人，详询95566【中国银行】
+08-08 20:28:14.593 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！您于2017年04月27日 22时21分10秒登录安徽移动手机营业厅。【中国移动】
+08-08 20:28:14.687 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【合肥汽车客运官网】尊敬的旅客，您购买04月28日合肥至泗　县的车票，由于系统订票失败已将您的款项退还到您的银行帐户中，实际到账时间以支付账户所属银行为准，请注意查收！
+08-08 20:28:14.777 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:911733  body:订单号：中国银联2588；金额：人民币元 81.00；手机交易码911733，切勿泄露。[中国银行]
+08-08 20:28:14.862 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【合肥汽车客运官网】尊敬的旅客，您购买04月28日合肥至泗　县的车票，由于系统订票失败已将您的款项退还到您的银行帐户中，实际到账时间以支付账户所属银行为准，请注意查收！
+08-08 20:28:14.958 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:905881  body:订单号：中国银联9035；金额：人民币元 81.00；手机交易码905881，切勿泄露。[中国银行]
+08-08 20:28:15.081 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:【大街网】联发科技股份有限公司招聘负责人发现您的专业背景很适合，亲自发了一封职位邀请，可优先面试： d-j.me/eKB3jyz 回TD退订
+08-08 20:28:15.248 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:536607  body:【摩拜单车】您的验证码是536607。请在页面中提交验证码完成验证。
+08-08 20:28:15.351 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:970214  body:【摩拜单车】您的验证码是970214。请在页面中提交验证码完成验证。
+08-08 20:28:15.409 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:282800  body:【摩拜单车】您的验证码是282800。请在页面中提交验证码完成验证。
+08-08 20:28:15.472 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:960693  body:【小米通讯】960693（小米帐号安全验证，用于验证身份修改密码密保等，请勿将验证码透露给他人）
+08-08 20:28:15.543 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:null  body:您好！截至04月22日19时22分，您本月共有特殊流量如下：
+                                                                   1、您订购有校园活动优惠包（38版）共6144.00M，已使用3899.03M，剩余2244.97M，生效日期2016年11月01日，失效日期2020年10月31日。
+                                                                   感谢您的使用。
+                                                                   【办宽带送互联网电视】新装50M及以上“和家庭或飞享”套餐，送1年互联网电视。赶快登录 ah.10086.cn/new/s/dt/kdzq 办理【中国移动】
+08-08 20:28:15.608 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:922371  body:【摩拜单车】您的验证码是922371。请在页面中提交验证码完成验证。
+08-08 20:28:15.660 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:8RBHN  body:Your Steam verification code is 8RBHN[TLSG]
+08-08 20:28:15.712 6854-6854/com.iflytek.mkl.smscodeget D/smscode: get sms body by observer: code:GY77D  body:Your Steam verification code is GY77D[TLSG]
