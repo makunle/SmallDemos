@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -53,21 +54,33 @@ public class MainActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onNotificationGet(NotificationObserveService.Msg msg){
-        if(output != null && msg.notification.tickerText != null){
+        Notification notification = msg.sbn.getNotification();
+        if(output != null && notification.tickerText != null){
             output.append("==================================================\n");
-            output.append(msg.notification.tickerText+"\n--------------------------\n");
+            output.append(notification.tickerText+"\n--------------------------\n");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                Bundle bundle = msg.notification.extras;
-                String title = bundle.getString(Notification.EXTRA_TITLE);
-                String text = bundle.getString(Notification.EXTRA_TEXT);
-                String subText = bundle.getString(Notification.EXTRA_SUB_TEXT);
-
-                output.append(bundle.toString()+"\n--------------------------\n");
-                output.append("title:" + title+"\n");
-                output.append("text:" + text+"\n");
-                output.append("subText:" + subText +"\n\n\n");
+                Bundle bundle = notification.extras;
+                for(String key : bundle.keySet()){
+                    output.append(key + ":" + bundle.get(key)+"\n");
+                }
             }
+            output.append("contentView is null: " + (notification.contentView == null) + "\n");
+            output.append("tickerView is null: " + (notification.tickerView == null) + "\n");
+            output.append("bigContentView is null: " + (notification.bigContentView == null) + "\n");
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Parcelable parcelable = output.onSaveInstanceState();
+        outState.putParcelable("output", parcelable);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        output.onRestoreInstanceState(savedInstanceState.getParcelable("output"));
     }
 
     @Override

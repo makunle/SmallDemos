@@ -59,25 +59,8 @@ public class NotificationObserveService extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Bundle bundle = sbn.getNotification().extras;
-            String text = bundle.getString("android.text");
-//            Log.d(TAG, "onNotificationPosted: Text: " + text);
-//            Log.d(TAG, "onNotificationPosted: " + bundle.toString());
-
-
-        }
         super.onNotificationPosted(sbn);
-        String pkgName = sbn.getPackageName();
-        String notiText = sbn.getNotification().toString();
-        String text = (String) sbn.getNotification().tickerText;
-        String tag = sbn.getTag();
-//        Log.d(TAG, "pkgName ===== " + pkgName);
-//        Log.d(TAG, "notiText ===== " + notiText);
-//        Log.d(TAG, "text ===== " + text);
-//        Log.d(TAG, "tag ===== " + tag);
-//        Toast.makeText(this, "text from nitificaiton: " + text, Toast.LENGTH_SHORT).show();
-        EventBus.getDefault().post(new Msg(sbn.getNotification()));
+        EventBus.getDefault().post(new Msg(sbn));
     }
 
     @Override
@@ -95,10 +78,10 @@ public class NotificationObserveService extends NotificationListenerService {
     }
 
     public static class Msg{
-        Notification notification;
+        StatusBarNotification sbn;
 
-        public Msg(Notification notification) {
-            this.notification = notification;
+        public Msg(StatusBarNotification sbn) {
+            this.sbn = sbn;
         }
     }
 }
