@@ -1,21 +1,18 @@
 package com.iflytek.mkl.accessibilityservicetest;
 
 import android.accessibilityservice.AccessibilityService;
-import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -36,6 +33,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        show("package name: " + accessibilityEvent.getPackageName().toString());
         int eventType = accessibilityEvent.getEventType();
         switch (eventType) {
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
@@ -52,15 +50,15 @@ public class MyAccessibilityService extends AccessibilityService {
                     editTextList.clear();
                     showAll(root);
                     show("edittext number: " + editTextList.size());
-                    if(!TextUtils.isEmpty(code)) {
+                    if (!TextUtils.isEmpty(code)) {
                         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
                             ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                            cm.setText("" + code);
+                            cm.setPrimaryClip(ClipData.newPlainText("verificaiton code", code));
                             for (int i = 0; i < editTextList.size(); i++) {
                                 AccessibilityNodeInfo node = editTextList.get(i);
                                 String resId = node.getViewIdResourceName();
-                                resId = resId == null ? "":resId;
-                                if(pattern.matcher(resId).matches() || i == editTextList.size()-1){
+                                resId = resId == null ? "" : resId;
+                                if (pattern.matcher(resId).matches() || i == editTextList.size() - 1) {
                                     node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                                     node.performAction(AccessibilityNodeInfo.ACTION_PASTE);
                                 }
@@ -70,7 +68,21 @@ public class MyAccessibilityService extends AccessibilityService {
                 }
                 break;
             case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
-//                show("TYPE_WINDOW_STATE_CHANGED");
+                show("TYPE_WINDOW_STATE_CHANGED");
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    AccessibilityNodeInfo root = null;
+                    root = getRootInActiveWindow();
+                    editTextList.clear();
+                    showAll(root);
+                    show("edittext number: " + editTextList.size());
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2 && editTextList.size() == 2) {
+                        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                        cm.setPrimaryClip(ClipData.newPlainText("phone number", "18788858382"));
+                        AccessibilityNodeInfo node = editTextList.get(0);
+                        node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                        node.performAction(AccessibilityNodeInfo.ACTION_PASTE);
+                    }
+                }
 //
 //                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
 //                    AccessibilityNodeInfo root = null;
@@ -80,17 +92,17 @@ public class MyAccessibilityService extends AccessibilityService {
                 break;
             default:
                 show("onAccessibilityEvent default: " + eventType);
-                show("type: "+eventType);
+                show("type: " + eventType);
                 break;
         }
     }
 
-    private void showAll(AccessibilityNodeInfo root){
-        if(root == null) return;
-        String info = root.getClassName() + " "  + root.getText() + "  ";
+    private void showAll(AccessibilityNodeInfo root) {
+        if (root == null) return;
+        String info = root.getClassName() + " " + root.getText() + "  ";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             info += root.getViewIdResourceName();
-            if(root.getClassName().equals("android.widget.EditText")){
+            if (root.getClassName().equals("android.widget.EditText")) {
                 editTextList.add(root);
             }
         }
@@ -102,7 +114,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
     private String greaterThanAPI18(Notification notification) {
         String code = VerificationCodeGetter.getCode(notification.tickerText.toString());
-        if(!TextUtils.isEmpty(code)) return code;
+        if (!TextUtils.isEmpty(code)) return code;
         show("tickerText:" + notification.tickerText.toString());
         if (notification.contentView == null) {
             show("don't have contentView");
