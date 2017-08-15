@@ -16,11 +16,9 @@ import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 
-public class NotificationObserveService extends NotificationListenerService {
+public class SMSNotificationListenerService extends NotificationListenerService {
 
     private static final String TAG = "NotificationObserveServ";
-
-    private MyBinder binder = new MyBinder();
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -66,15 +64,6 @@ public class NotificationObserveService extends NotificationListenerService {
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         super.onNotificationRemoved(sbn);
-    }
-
-    private Activity activity;
-
-    public class MyBinder extends Binder{
-
-        public void setActivity(Activity activity){
-            NotificationObserveService.this.activity = activity;
-        }
     }
 
     public static class Msg{
