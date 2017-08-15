@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AccessibilityServiceTest</string>
+    <string name="description">用于获取验证码</string>
+</resources>
