@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.util.StringBuilderPrinter;
@@ -28,8 +29,20 @@ public class SmsOberver extends ContentObserver {
 
     @Override
     public void onChange(boolean selfChange) {
+        if (Build.VERSION.SDK_INT >= 16) return;
         Cursor cursor = context.getContentResolver().query(
-                Uri.parse("content://sms/inbox"), null, null, null, null
+                Uri.parse("content://sms/inbox"), null, null, null, "date desc limit 3"
+        );
+        cursor.moveToNext();
+        String id = cursor.getString(cursor.getColumnIndex("_id"));
+        onChange(selfChange, Uri.parse("content://sms/"+id));
+        Log.d(TAG, "onChange with one paramater");
+    }
+
+    @Override
+    public void onChange(boolean selfChange, Uri uri) {
+        Cursor cursor = context.getContentResolver().query(
+                uri, null, null, null, null
         );
         cursor.moveToNext();
         String body = cursor.getString(cursor.getColumnIndex("body"));

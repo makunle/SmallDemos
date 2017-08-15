@@ -29,11 +29,11 @@ public class SMSReceiver extends BroadcastReceiver {
                         + "   body:" + msg.getDisplayMessageBody() + "  time:"
                         + msg.getTimestampMillis());
 
-                Toast.makeText(context, "sms body: " + msg.getMessageBody(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "broadcast receive sms body: " + msg.getMessageBody(), Toast.LENGTH_SHORT).show();
                 String code = GetCode.Get(msg.getMessageBody());
                 if (code != null) {
-                    Log.d(TAG, "receive SMS code is : " + code);
-                    Toast.makeText(context, "receive SMS code is : " + code, Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "broadcast receive SMS code is : " + code);
+//                    Toast.makeText(context, "broadcast receive SMS code is : " + code, Toast.LENGTH_SHORT).show();
                 }
             }
         }
