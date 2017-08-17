@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AccessibilityWithWeChatPractice</string>
+    <string name="access_description">用于辅助观看微信中文字</string>
+</resources>
