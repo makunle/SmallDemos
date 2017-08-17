@@ -18,9 +18,6 @@ import java.util.List;
 public class WeChatAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-
-        MessageShowDialog.getInstance().init(getApplicationContext());
-
         switch (event.getEventType()) {
             case AccessibilityEvent.TYPE_VIEW_CLICKED:
                 AccessibilityNodeInfo source = event.getSource();
