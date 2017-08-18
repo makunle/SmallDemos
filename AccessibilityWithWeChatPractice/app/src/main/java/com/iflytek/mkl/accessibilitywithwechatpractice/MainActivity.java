@@ -2,9 +2,10 @@ package com.iflytek.mkl.accessibilitywithwechatpractice;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView manTv;
     private TextView sayTv;
 
+    private TextToSpeech textToSpeech;
+
     public static void startMe(Context context, String man, String say) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(MAN, man);
@@ -26,21 +29,44 @@ public class MainActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    private void show(final String man, final String say) {
+        if (man == null || say == null) return;
+        if (manTv != null && sayTv != null) {
+            manTv.setText(man);
+            sayTv.setText(say);
+        }
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();;
+            textToSpeech = null;
+        }
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status == TextToSpeech.SUCCESS){
+                    textToSpeech.speak(man + "说" + say, TextToSpeech.QUEUE_FLUSH, null);
+                }
+            }
+        });
+
+    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         String man = intent.getStringExtra(MAN);
         String say = intent.getStringExtra(SAY);
-        Log.d(TAG, "onNewIntent  man: " + man);
-        Log.d(TAG, "onNewIntent  say: " + say);
-        manTv.setText(man);
-        sayTv.setText(say);
+        show(man, say);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.d(TAG, "onPause: ");
+        if(textToSpeech !=null){
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
     }
 
     @Override
@@ -66,12 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         manTv = (TextView) findViewById(R.id.man);
         sayTv = (TextView) findViewById(R.id.say);
-
-        manTv.setText(man);
-        sayTv.setText(say);
-
-        Log.d(TAG, "onCreate  man: " + man);
-        Log.d(TAG, "onCreate  say: " + say);
+        show(man, say);
     }
 
     @Override
