@@ -4,12 +4,17 @@ import android.accessibilityservice.AccessibilityService;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Rect;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2017/8/17.
@@ -28,38 +33,72 @@ public class WeChatAccessibilityService extends AccessibilityService {
         }
     }
 
+    /***
+     * qq群
+     * ico com.tencent.mobileqq:id/chat_item_head_icon
+     * msg com.tencent.mobileqq:id/chat_item_content_layout
+     * nam com.tencent.mobileqq:id/chat_item_nick_name
+     *
+     * 个人
+     * ico com.tencent.mobileqq:id/chat_item_head_icon
+     * msg com.tencent.mobileqq:id/chat_item_content_layout  android.widget.TextView
+     * voc com.tencent.mobileqq:id/qq_aio_ptt_time_tv
+     * nam com.tencent.mobileqq:id/title
+     * @param event
+     */
+
     private void catchWeChatMsg(AccessibilityEvent event) {
         AccessibilityNodeInfo source = event.getSource();
         AccessibilityNodeInfo parent = source.getParent();
-        if (parent == null) return;
+        if (parent != null) {
 
-        List<AccessibilityNodeInfo> txt = parent.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/ij");
-        List<AccessibilityNodeInfo> img = parent.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/ih");
-        List<AccessibilityNodeInfo> audio = parent.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/a9u");
+            List<AccessibilityNodeInfo> txt = parent.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/ij");
+            List<AccessibilityNodeInfo> img = parent.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/ih");
+            List<AccessibilityNodeInfo> audio = parent.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/a9u");
 
-        String man = null;
-        String say = null;
+            String man = null;
+            String say = null;
 
-        if (txt == null || img == null) return;
-        if (audio != null && audio.size() > 0) return;
+            int msgX = 0, imgX = 0;
+            Rect rect = new Rect();
 
-        for (int i = 0; i < txt.size(); i++) {
-            say = "" + txt.get(i).getText();
-            txt.get(i).recycle();
-        }
-        for (int i = 0; i < img.size(); i++) {
-            String dsp = "" + img.get(i).getContentDescription();
-            if (dsp.endsWith("头像")) {
-                man = dsp.substring(0, dsp.length() - 2);
+            if (txt != null && img != null && audio == null || audio.size() == 0) {
+
+                if (txt.size() == 1) {
+                    AccessibilityNodeInfo msg = txt.get(0);
+                    if (msg.getClassName().equals("android.widget.TextView")) {
+                        say = "" + msg.getText();
+                        msg.getBoundsInScreen(rect);
+                        msgX = rect.centerX();
+                        msg.recycle();
+                    }
+                }
+
+                if (img.size() == 1) {
+                    AccessibilityNodeInfo face = img.get(0);
+                    if (face.getClassName().equals("android.widget.ImageView")) {
+                        String dsp = (String) face.getContentDescription();
+                        if (dsp.endsWith("头像")) {
+                            man = dsp.substring(0, dsp.length() - 2);
+                        }
+                        face.getBoundsInScreen(rect);
+                        imgX = rect.centerX();
+                        face.recycle();
+                    }
+                }
+
+
+                if (man != null && say != null) {
+                    if (msgX < imgX) {
+                        man = "我";
+                    }
+                    MainActivity.startMe(this, man, say);
+                }
             }
-            img.get(i).recycle();
+            parent.recycle();
         }
-        parent.recycle();
-        source.recycle();
 
-        if (man != null && say != null) {
-            MainActivity.startMe(this, man, say);
-        }
+        source.recycle();
     }
 
     @Override

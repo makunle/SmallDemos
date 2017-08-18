@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if(status == TextToSpeech.SUCCESS){
-                    textToSpeech.speak(man + "说" + say, TextToSpeech.QUEUE_FLUSH, null);
+                    textToSpeech.speak("    "+man + "说" + say, TextToSpeech.QUEUE_FLUSH, null);
                 }
             }
         });
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                 startActivity(intent);
+                moveTaskToBack(true);
             }
         });
 
@@ -97,6 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(false);
+        moveTaskToBack(true);
     }
 }
