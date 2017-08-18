@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
-    android:accessibilityEventTypes="typeNotificationStateChanged|typeWindowStateChanged"
-    android:accessibilityFeedbackType="feedbackGeneric"
-    android:accessibilityFlags="flagDefault|flagReportViewIds"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:accessibilityFlags="flagReportViewIds|flagRetrieveInteractiveWindows|flagRequestFilterKeyEvents"
+    android:canControlMagnification="true"
+    android:canRequestFilterKeyEvents="true"
     android:canRetrieveWindowContent="true"
     android:description="@string/description"
-    android:notificationTimeout="100" />
-
-    <!--android:packageNames="com.android.mms"-->
+    android:notificationTimeout="100"
+    android:settingsActivity="com.iflytek.mkl.accessibilityservicetest.MainActivity"
+    android:summary="@string/summary" />

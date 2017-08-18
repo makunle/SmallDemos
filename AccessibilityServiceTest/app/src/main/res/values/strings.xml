@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AccessibilityServiceTest</string>
-    <string name="description">用于获取验证码</string>
+    <string name="description">用于获取验证码\n需要开启</string>
+    <string name="summary">需要读取通知栏内容，可辅助输入验证码;\n需手动开启此服务;\n</string>
 </resources>

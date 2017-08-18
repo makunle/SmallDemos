@@ -17,14 +17,19 @@
             android:text="权限设置" />
 
         <Button
-            android:id="@+id/start"
+            android:id="@+id/say"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开启" />
+            android:text="sya" />
 
         <Button
             android:id="@+id/clear"
             android:text="clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/show_view_info"
+            android:text="show all info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
