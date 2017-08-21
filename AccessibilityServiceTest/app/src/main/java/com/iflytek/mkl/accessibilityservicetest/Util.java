@@ -1,5 +1,6 @@
 package com.iflytek.mkl.accessibilityservicetest;
 
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -12,8 +13,8 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.widget.EditText;
 import android.widget.RemoteViews;
 
 import org.greenrobot.eventbus.EventBus;
@@ -61,8 +62,17 @@ public class Util {
         }
     }
 
+    public static boolean isAccessibilityServiceRunning(Context context) {
+        AccessibilityManager service = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+        List<AccessibilityServiceInfo> infoList = service.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
+        for (AccessibilityServiceInfo info : infoList) {
+            if (info.getId().contains(context.getPackageName())) return true;
+        }
+        return false;
+    }
 
-    public static boolean showall(Context context){
+
+    public static boolean needShowAll(Context context) {
         boolean needShowAll = context.getSharedPreferences("tempset", Context.MODE_APPEND).getBoolean("show_all", true);
         return needShowAll;
     }
@@ -77,7 +87,7 @@ public class Util {
                 editTextList.add(root);
             }
         }
-        if (showall(context)) show(info);
+        if (needShowAll(context)) show(info);
         for (int i = 0; i < root.getChildCount(); i++) {
             showAll(root.getChild(i), context);
         }
@@ -115,6 +125,7 @@ public class Util {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         try {
             RemoteViews views = notification.contentView;
             Field field = views.getClass().getDeclaredField("mActions");

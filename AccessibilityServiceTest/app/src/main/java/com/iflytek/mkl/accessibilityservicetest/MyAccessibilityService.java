@@ -2,14 +2,17 @@ package com.iflytek.mkl.accessibilityservicetest;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
-import android.accessibilityservice.GestureDescription;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.accessibility.AccessibilityWindowInfo;
 
 import java.util.List;
+
+import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_SCROLLED;
+import static android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
 
 /**
  * Created by Administrator on 2017/8/14.
@@ -46,21 +49,28 @@ public class MyAccessibilityService extends AccessibilityService {
 
         switch (eventType) {
             case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
-                if(Util.showall(this)){
-                    Util.showAll(getRootInActiveWindow(), this);
-                }
                 break;
             case AccessibilityEvent.TYPE_VIEW_SCROLLED:
                 break;
-            case AccessibilityEvent.TYPE_VIEW_HOVER_ENTER:
-                AccessibilityNodeInfo source = event.getSource();
-                source.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+            case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
+                Util.show(AccessibilityEvent.eventTypeToString(eventType) + " " + event.getText());
+                Util.autoInputCode(event, getRootInActiveWindow(), this);
+                break;
+            case AccessibilityEvent.TYPE_VIEW_CLICKED:
+                Util.show("VIEW_CLICKED " + event.getClassName() + " " + event.getText());
+                event.getSource().performAction(AccessibilityNodeInfo.ACTION_DISMISS);
+                break;
+            case AccessibilityEvent.TYPE_WINDOWS_CHANGED:
                 break;
             default:
-                Util.show("EVENT TYPE: " + AccessibilityEvent.eventTypeToString(eventType) + "  "
-                        + event.getPackageName() + " sx:" + event.getScrollX() + " sy:" + event.getScrollY());
+                Util.show(AccessibilityEvent.eventTypeToString(eventType) + " " + event.getPackageName() + " " + event.getMovementGranularity());
                 break;
         }
+
+        if (eventType != TYPE_WINDOW_CONTENT_CHANGED && eventType != TYPE_VIEW_SCROLLED) {
+
+        }
+
 
     }
 
@@ -76,7 +86,7 @@ public class MyAccessibilityService extends AccessibilityService {
     @Override
     protected boolean onGesture(int gestureId) {
         Util.show("Gesture: " + gestureId);
-        if(gestureId == GESTURE_SWIPE_DOWN_AND_LEFT){
+        if (gestureId == GESTURE_SWIPE_DOWN_AND_LEFT) {
             disableSelf();
         }
         return super.onGesture(gestureId);
