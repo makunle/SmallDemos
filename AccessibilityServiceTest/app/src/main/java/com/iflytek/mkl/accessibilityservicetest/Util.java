@@ -78,7 +78,10 @@ public class Util {
     }
 
     public static void showAll(AccessibilityNodeInfo root, Context context) {
-        if (root == null) return;
+        if (root == null) {
+            show("root is null");
+            return;
+        }
 
         String info = root.getClassName() + " " + root.getText() + "  ";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {

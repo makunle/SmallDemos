@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/page"
             android:layout_width="wrap_content"
@@ -20,22 +21,45 @@
             android:id="@+id/say"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sya" />
+            android:contentDescription="测试按钮"
+            android:text="say" />
 
         <Button
             android:id="@+id/clear"
-            android:text="clear"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="clear" />
+
         <CheckBox
             android:id="@+id/show_view_info"
-            android:text="show all info"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="show all info" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <EditText
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="phone number" />
+
+        <EditText
+            android:id="@+id/input_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="verify code" />
+
+        <Button
+            android:id="@+id/manager"
+            android:text="manager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
