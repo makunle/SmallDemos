@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.iflytek.mkl.accessibilitywithwechatpractice.MainActivity">
 
-    <ImageView
-        android:background="@drawable/bk5"
-        android:scaleType="centerInside"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#99e9e6">
+
             <TextView
                 android:id="@+id/say"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#d6b493"
+                android:text="这是哪里的电话号码"
                 android:textColor="#000"
-                android:textSize="50sp" />
+                android:textSize="60sp" />
         </ScrollView>
-        <TextView
-            android:layout_width="match_parent"
-            android:background="#888"
-            android:layout_height="2dp" />
-        <TextView
-            android:id="@+id/man"
+
+        <LinearLayout
+            android:background="#a7ccde"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#88c4a4"
-            android:textColor="#000"
-            android:textSize="50sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/play_pause"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/img_pause"
+                android:tag="play" />
+
+            <TextView
+                android:id="@+id/man"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:gravity="left"
+                android:text="马乾愉"
+                android:textColor="#000"
+                android:textSize="40sp" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -48,9 +64,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:background="@drawable/ico_setting"
         android:layout_margin="10dp"
-        android:text="权限" />
+        android:background="@drawable/ico_setting"
+        android:text="权限"
+        android:visibility="gone" />
 
 
 </FrameLayout>
