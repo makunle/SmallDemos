@@ -1,6 +1,7 @@
 package com.iflytek.mkl.autosendimagedemo;
 
 import android.accessibilityservice.AccessibilityService;
+import android.support.v4.util.Pools;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
@@ -48,6 +49,7 @@ public class AutoSendImageToQQ extends AccessibilityService {
                 nowState = 0;
         }
         return false;
+
     }
 
 
@@ -55,7 +57,7 @@ public class AutoSendImageToQQ extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-//        if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED)
+        if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED)
             Log.d(TAG, event.getPackageName() + "  " + AccessibilityEvent.eventTypeToString(event.getEventType())
                     + "   isChatWindow " + isChatWindowNow()
                     + "   isPictureSendWindowNow " + isPictureSendWindowNow()
@@ -88,7 +90,7 @@ public class AutoSendImageToQQ extends AccessibilityService {
                 break;
             case 2:
                 if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-                    boolean res = autoClickPersonWithName(listenerName, AccessibilityNodeInfo.ACTION_CLICK);
+                    boolean res = autoClickPersonWithName(listenerName);
                     if (res) {
                         nowState = 3;
                     } else {
@@ -194,13 +196,13 @@ public class AutoSendImageToQQ extends AccessibilityService {
     }
 
     /**
-     * 在发送列表中，点击具有给定名字的条目
+     * 在发送列表中，点击具有给定名字的条目,最近列表中没有时，执行搜索
      *
-     * @param name   指定的text
-     * @param action 要执行的操作
+     * @param name   指定的name
      * @return
      */
-    private boolean autoClickPersonWithName(String name, int action) {
+    private boolean autoClickPersonWithName(String name) {
+        boolean performed = false;
         boolean toReturn = false;
         AccessibilityNodeInfo root = getRootInActiveWindow();
         if (root == null) return false;
@@ -208,16 +210,24 @@ public class AutoSendImageToQQ extends AccessibilityService {
         for (AccessibilityNodeInfo node : viewNode) {
             if (node.getText().equals(name)) {
                 AccessibilityNodeInfo parent = node.getParent();
-                toReturn = parent.performAction(action);
+                performed = true;
+                toReturn = parent.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                 parent.recycle();
                 Log.d(TAG, "autoClickPersonWithName: clicked: " + name);
             }
         }
 
+
+        if(!performed){
+            //执行搜索
+
+        }
+
+
         clean(viewNode);
         root.recycle();
-
         return toReturn;
+
     }
 
     /**
