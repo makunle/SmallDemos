@@ -1,20 +1,11 @@
 package com.iflytek.mkl.accessibilitywithwechatpractice;
 
 import android.accessibilityservice.AccessibilityService;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Rect;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.util.Log;
-import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Administrator on 2017/8/17.
@@ -92,7 +83,7 @@ public class WeChatAccessibilityService extends AccessibilityService {
                     if (msgX < imgX) {
                         man = "我";
                     }
-                    MainActivity.startMe(this, man, say);
+                    ShowWindowActivity.startMe(this, man, say);
                 }
             }
             parent.recycle();

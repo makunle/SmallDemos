@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">AccessibilityWithWeChatPractice</string>
-    <string name="access_description">辅助查看微信中文字</string>
+    <string name="app_name">微信消息辅助阅读</string>
+    <string name="access_description">点击微信中文字消息后放大显示\n也可语音播报</string>
 </resources>
