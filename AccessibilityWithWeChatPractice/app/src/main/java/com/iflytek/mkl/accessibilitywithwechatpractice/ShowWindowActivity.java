@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -16,9 +15,9 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class ShowWindowActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "ShowWindowActivity";
 
     private static final String MAN = "MAN";
     private static final String SAY = "SAY";
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean needSpeak;
 
     public static void startMe(Context context, String man, String say) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, ShowWindowActivity.class);
         intent.putExtra(MAN, man);
         intent.putExtra(SAY, say);
         context.startActivity(intent);
@@ -61,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        needSpeak = preferences.getBoolean(NEED_SAY, true);
+        needSpeak = preferences.getBoolean(NEED_SAY, false);
         if (needSpeak) {
-            playPauseBtn.setBackground(getResources().getDrawable(R.drawable.img_pause));
+            playPauseBtn.setBackground(getResources().getDrawable(R.drawable.ic_pause));
         } else {
-            playPauseBtn.setBackground(getResources().getDrawable(R.drawable.img_paly));
+            playPauseBtn.setBackground(getResources().getDrawable(R.drawable.ic_play));
         }
     }
 
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                     if (needAddNum) {
                         clickNum++;
                         if (clickNum >= 2) {
-                            moveTaskToBack(true);
+                            hideWindow();
                             clickNum = 0;
                             return true;
                         }
@@ -198,11 +197,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (needSpeak) {
-                v.setBackground(getResources().getDrawable(R.drawable.img_paly));
+                v.setBackground(getResources().getDrawable(R.drawable.ic_play));
                 needSpeak = false;
                 stopSpeak();
             } else {
-                v.setBackground(getResources().getDrawable(R.drawable.img_pause));
+                v.setBackground(getResources().getDrawable(R.drawable.ic_pause));
                 needSpeak = true;
                 speak();
             }
@@ -212,6 +211,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        hideWindow();
+    }
+
+    private void hideWindow(){
         moveTaskToBack(true);
+        manTv.setText("");
+        sayTv.setText("");
     }
 }
