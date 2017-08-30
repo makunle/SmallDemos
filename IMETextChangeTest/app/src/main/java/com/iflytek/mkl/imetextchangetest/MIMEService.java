@@ -1,7 +1,10 @@
 package com.iflytek.mkl.imetextchangetest;
 
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.inputmethodservice.InputMethodService;
+import android.os.Build;
+import android.os.IBinder;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -13,10 +16,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.CursorAnchorInfo;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.ExtractedText;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by makunle on 2017/8/30.
@@ -25,8 +31,13 @@ import android.widget.Toast;
 public class MIMEService extends InputMethodService implements View.OnClickListener {
 
     private static final String TAG = "MIMEService";
-    private static final int CURSOR_UPDATE = InputConnection.CURSOR_UPDATE_MONITOR | InputConnection.CURSOR_UPDATE_IMMEDIATE;
+    private static final int CURSOR_UPDATE = 7;
 
+    /**
+     * 创建输入法键盘view
+     *
+     * @return
+     */
     @Override
     public View onCreateInputView() {
         View view = getLayoutInflater().inflate(R.layout.input_view, null);
@@ -36,6 +47,11 @@ public class MIMEService extends InputMethodService implements View.OnClickListe
         return view;
     }
 
+    /**
+     * 键盘按键点击事件
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -43,7 +59,7 @@ public class MIMEService extends InputMethodService implements View.OnClickListe
                 func1();
                 break;
             default:
-                InputConnection connection = getCurrentInputConnection();
+                InputConnection connection = getInputConnection();
                 if (connection != null) {
                     connection.commitText(((Button) view).getText() + "", 1);
                 }
@@ -51,9 +67,25 @@ public class MIMEService extends InputMethodService implements View.OnClickListe
         }
     }
 
+    /**
+     * 改变指定位置字的内容和颜色、下划线
+     * 考虑需要使用CustomSpan使得下划线和字体颜色不同，另外考虑改变下划线线型【未完成】
+     */
     private void func1() {
-        InputConnection connection = getCurrentInputConnection();
-        connection.setComposingRegion(7, 9);
+        InputConnection connection = getInputConnection();
+
+        //找寻最后一个”今天“
+        CharSequence allText = getAllText(connection);
+        Matcher matcher = Pattern.compile("今天").matcher(allText);
+        int start = -1, end = 0;
+        while (matcher.find(start+1)) {
+            start = matcher.start();
+            end = matcher.end();
+        }
+        if(end == 0) return;
+
+        //替换为”后天“
+        connection.setComposingRegion(start, end);
         SpannableString ss = new SpannableString("后天");
         ss.setSpan(new ForegroundColorSpan(Color.rgb(58, 132, 255)), 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         ss.setSpan(new ClickableSpan() {
@@ -69,22 +101,34 @@ public class MIMEService extends InputMethodService implements View.OnClickListe
         }, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         ss.setSpan(new UnderlineSpan(), 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         connection.setComposingText(ss, 1);
+        connection.commitText(ss, 1);
     }
 
+    /**
+     * 输入法开始输入时回调
+     *
+     * @param attribute
+     * @param restarting
+     */
     @Override
     public void onStartInput(EditorInfo attribute, boolean restarting) {
         super.onStartInput(attribute, restarting);
-        getCurrentInputConnection().requestCursorUpdates(CURSOR_UPDATE);
-
         InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
     }
 
-    @Override
-    public void onUpdateCursorAnchorInfo(CursorAnchorInfo cursorAnchorInfo) {
-        super.onUpdateCursorAnchorInfo(cursorAnchorInfo);
-        Log.d(TAG, "onUpdateCursorAnchorInfo: ");
+    private InputConnection getInputConnection() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getCurrentInputConnection().requestCursorUpdates(CURSOR_UPDATE);
+        }
+        return getCurrentInputConnection();
     }
 
+    /**
+     * 获取当前输入框内所有字符
+     *
+     * @param ic
+     * @return
+     */
     private CharSequence getAllText(InputConnection ic) {
         if (ic == null) return null;
         ic.performContextMenuAction(android.R.id.selectAll);
@@ -94,10 +138,47 @@ public class MIMEService extends InputMethodService implements View.OnClickListe
         return data;
     }
 
+    /**
+     * 光标所在字符位置的变化
+     */
     @Override
     public void onUpdateSelection(int oldSelStart, int oldSelEnd, int newSelStart, int newSelEnd, int candidatesStart, int candidatesEnd) {
         Log.d(TAG, "onUpdateSelection: " + oldSelStart + " " + oldSelEnd + " " + newSelStart + " " + newSelEnd + " " + candidatesStart + " " + candidatesEnd);
         super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd, candidatesStart, candidatesEnd);
+        getInputConnection();
     }
 
+    @Override
+    public void onUpdateExtractingViews(EditorInfo ei) {
+        Log.d(TAG, "onUpdateExtractingViews: ");
+    }
+
+    /**
+     * 光标在屏幕上位置的改变
+     */
+    @Override
+    public void onUpdateCursor(Rect newCursor) {
+        Log.d(TAG, "onUpdateCursor: ");
+    }
+
+    /**
+     * 光标在屏幕上位置的改变
+     */
+    @Override
+    public void onUpdateCursorAnchorInfo(CursorAnchorInfo cursorAnchorInfo) {
+        super.onUpdateCursorAnchorInfo(cursorAnchorInfo);
+        Log.d(TAG, "onUpdateCursorAnchorInfo: ");
+    }
+
+    @Override
+    public void onUpdateExtractingVisibility(EditorInfo ei) {
+        super.onUpdateExtractingVisibility(ei);
+        Log.d(TAG, "onUpdateExtractingVisibility: ");
+    }
+
+    @Override
+    public void onUpdateExtractedText(int token, ExtractedText text) {
+        super.onUpdateExtractedText(token, text);
+        Log.d(TAG, "onUpdateExtractedText: ");
+    }
 }
