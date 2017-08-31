@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="this is et1"
+        android:textSize="30sp"
         android:text="今天是星期几,今天天气怎么样？" />
 
     <EditText
@@ -20,5 +21,17 @@
         android:layout_height="wrap_content"
         android:hint="this is et2"
         android:text="今天是星期几,今天天气怎么样？" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="无id输入框" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:text="这是一个TextView"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>
