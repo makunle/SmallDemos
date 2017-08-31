@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">View查看器</string>
+    <string name="description">查看屏幕上所有元素</string>
+</resources>
