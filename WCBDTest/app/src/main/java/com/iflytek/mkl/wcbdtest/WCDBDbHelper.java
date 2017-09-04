@@ -29,6 +29,8 @@ public class WCDBDbHelper extends SQLiteOpenHelper {
         this.mPassword = password;
     }
 
+
+
     public WCDBDbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         this.mContext = context;
@@ -44,42 +46,55 @@ public class WCDBDbHelper extends SQLiteOpenHelper {
         this.mPassword = password;
     }
 
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        if (mDbName.equals(MainActivity.WCDB_DB_NAME)) {
-            File oldDbFile = mContext.getDatabasePath(MainActivity.LITE_DB_NAME);
-            if (oldDbFile.exists()) {
-                db.endTransaction();
+//        if (mDbName.equals(MainActivity.WCDB_DB_NAME)) {
+//            File oldDbFile = mContext.getDatabasePath(MainActivity.LITE_DB_NAME);
+//            if (oldDbFile.exists()) {
+//                // SQLiteOpenHelper begins a transaction before calling onCreate().
+//                // We have to end the transaction before we can attach a new database.
+//                db.endTransaction();
+//
+//                // Attach old database to the newly created, encrypted database.
+//                String sql = String.format("ATTACH DATABASE %s AS old KEY '';",
+//                        DatabaseUtils.sqlEscapeString(oldDbFile.getPath()));
+//                db.execSQL(sql);
+//
+//                // Export old database.
+//                db.beginTransaction();
+//                DatabaseUtils.stringForQuery(db, "SELECT sqlcipher_export('main', 'old')", null);
+//                db.setTransactionSuccessful();
+//                db.endTransaction();
+//
+//                // Get old database version for later upgrading.
+//                int oldVersion = (int) DatabaseUtils.longForQuery(db, "PRAGMA old.user_version;", null);
+//
+//                // Detach old database and enter a new transaction.
+//                db.execSQL("DETACH DATABASE old;");
+//
+//                oldDbFile.delete();
+//
+//                // Before further actions, restore the transaction.
+//                db.beginTransaction();
+//
+//                // Check if we need to upgrade the schema.
+//                if (oldVersion > mVersion) {
+//                    onDowngrade(db, oldVersion, mVersion);
+//                } else {
+//                    onUpgrade(db, oldVersion, mVersion);
+//                }
+//
+//                ((MainActivity) mContext).show("transform non encrypted to encrypted success");
+//            } else {
+//                db.execSQL(MainActivity.CREATE_DB);
+//                ((MainActivity) mContext).show("wcdb create success");
+//            }
+//        }
 
-                String sql = String.format("ATTACH DATABASE %s AS old KEY '';",
-                        DatabaseUtils.sqlEscapeString(oldDbFile.getPath()));
-                db.execSQL(sql);
-
-                db.beginTransaction();
-                DatabaseUtils.stringForQuery(db, "SELECT sqlcipher_export('main', 'old')", null);
-                db.setTransactionSuccessful();
-                db.endTransaction();
-
-                int oldVersion = (int) DatabaseUtils.longForQuery(db, "PRAGMA old.user_version;", null);
-
-                db.execSQL("DETACH DATABASE old;");
-
-                oldDbFile.delete();
-
-                db.beginTransaction();
-
-                if (oldVersion > mVersion) {
-                    onDowngrade(db, oldVersion, mVersion);
-                } else {
-                    onUpgrade(db, oldVersion, mVersion);
-                }
-
-                ((MainActivity) mContext).show("transform non encrypted to encrypted success");
-            }
-        } else {
-            db.execSQL(MainActivity.CREATE_DB);
-            ((MainActivity) mContext).show("wcdb create success");
-        }
+        db.execSQL(MainActivity.CREATE_DB);
+        ((MainActivity) mContext).show("wcdb create success");
 
         RepairKit.MasterInfo.save(db, db.getPath() + "-mbak", mPassword);
     }
