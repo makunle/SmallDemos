@@ -87,13 +87,16 @@ public class MainActivity extends AppCompatActivity {
                                     .setSQLCipherVersion(3);
                             wcdbDbHelper = new WCDBDbHelper(MainActivity.this, CIPHER_DB_NAME, CIPHER_PWD.getBytes(),
                                     cipher, null, 1, null);
-                            wcdbDbHelper.setWriteAheadLoggingEnabled(true);
-                            wcdbDb = wcdbDbHelper.getWritableDatabase();
-                        } else {
+                        } else if (PreDBType.equals("sqlite")) {
                             wcdbDbHelper = new WCDBDbHelper(MainActivity.this, LITE_DB_NAME, null, 1);
-                            wcdbDbHelper.setWriteAheadLoggingEnabled(true);
-                            wcdbDb = wcdbDbHelper.getWritableDatabase();
+                        } else {
+                            //WCDB_DB_NAME
+                            wcdbDbHelper = new WCDBDbHelper(MainActivity.this, WCDB_DB_NAME,
+                                    CIPHER_PWD.getBytes(), null, 1, null);
+
                         }
+                        wcdbDbHelper.setWriteAheadLoggingEnabled(true);
+                        wcdbDb = wcdbDbHelper.getWritableDatabase();
                         break;
                 }
             }
