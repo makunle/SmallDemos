@@ -2,6 +2,8 @@ package com.iflytek.mkl.wcbdtest;
 
 import android.content.Context;
 
+import com.tencent.wcdb.DatabaseErrorHandler;
+import com.tencent.wcdb.database.SQLiteCipherSpec;
 import com.tencent.wcdb.database.SQLiteDatabase;
 import com.tencent.wcdb.database.SQLiteOpenHelper;
 
@@ -11,6 +13,11 @@ import com.tencent.wcdb.database.SQLiteOpenHelper;
 
 public class WCDBDbHelper extends SQLiteOpenHelper {
     private Context context;
+
+    public WCDBDbHelper(Context context, String name, byte[] password, SQLiteCipherSpec cipher, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+        super(context, name, password, cipher, factory, version, errorHandler);
+        this.context = context;
+    }
 
     public WCDBDbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

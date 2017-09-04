@@ -2,9 +2,9 @@ package com.iflytek.mkl.wcbdtest;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SQLiteDatabase.loadLibs(this);
+
         View.OnClickListener radioClickLsn = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,25 +53,47 @@ public class MainActivity extends AppCompatActivity {
                 switch (v.getId()) {
                     case R.id.sqlite:
                         DBType = "sqlite";
-//                        if (sqliteDbHelper == null) {
-//                            sqliteDbHelper = new SqliteDbHelper(MainActivity.this, LITE_DB_NAME, null, 1);
-//                        }
-//                        sqliteDbHelper.getWritableDatabase().close();
+                        if (sqliteDbHelper != null && liteDb != null && liteDb.isOpen()) {
+                            sqliteDbHelper.close();
+                            sqliteDbHelper = null;
+                            liteDb = null;
+                        }
+                        sqliteDbHelper = new SqliteDbHelper(MainActivity.this, LITE_DB_NAME, null, 1);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            sqliteDbHelper.setWriteAheadLoggingEnabled(true);
+                        }
+                        liteDb = sqliteDbHelper.getWritableDatabase();
                         break;
                     case R.id.sqlcipher:
                         DBType = "sqlcipher";
-//                        if (sqlcipherDbHelper == null) {
-//                            sqlcipherDbHelper = new SqlcipherDbHelper(MainActivity.this, CIPHER_DB_NAME, null, 1);
-////                            SQLiteDatabase.loadLibs(MainActivity.this);
-//                        }
-//                        sqlcipherDbHelper.getWritableDatabase(CIPHER_PWD).close();
+                        if (sqlcipherDbHelper != null && cipherDb != null && cipherDb.isOpen()) {
+                            sqlcipherDbHelper.close();
+                            sqlcipherDbHelper = null;
+                            cipherDb = null;
+                        }
+                        sqlcipherDbHelper = new SqlcipherDbHelper(MainActivity.this, CIPHER_DB_NAME, null, 1);
+                        cipherDb = sqlcipherDbHelper.getWritableDatabase(CIPHER_PWD);
                         break;
                     case R.id.wcdb:
                         DBType = "wcdb";
-//                        if (wcdbDbHelper == null) {
-//                            wcdbDbHelper = new WCDBDbHelper(MainActivity.this, WCDB_DB_NAME, null, 1);
-//                        }
-//                        wcdbDbHelper.getWritableDatabase().close();
+                        if (wcdbDbHelper != null && wcdbDb != null && wcdbDb.isOpen()) {
+                            wcdbDbHelper.close();
+                            wcdbDbHelper = null;
+                            wcdbDb = null;
+                        }
+                        if (PreDBType.equals("sqlcipher")) {
+                            SQLiteCipherSpec cipher = new SQLiteCipherSpec()
+                                    .setPageSize(1024)
+                                    .setSQLCipherVersion(3);
+                            wcdbDbHelper = new WCDBDbHelper(MainActivity.this, CIPHER_DB_NAME, CIPHER_PWD.getBytes(),
+                                    cipher, null, 1, null);
+                            wcdbDbHelper.setWriteAheadLoggingEnabled(true);
+                            wcdbDb = wcdbDbHelper.getWritableDatabase();
+                        } else {
+                            wcdbDbHelper = new WCDBDbHelper(MainActivity.this, LITE_DB_NAME, null, 1);
+                            wcdbDbHelper.setWriteAheadLoggingEnabled(true);
+                            wcdbDb = wcdbDbHelper.getWritableDatabase();
+                        }
                         break;
                 }
             }
@@ -89,19 +113,19 @@ public class MainActivity extends AppCompatActivity {
 
         switch (DBType) {
             case "sqlite":
-                android.database.sqlite.SQLiteDatabase db = getLiteDb();
+//                android.database.sqlite.SQLiteDatabase liteDb = getLiteDb();
                 values.put("name", "sqlite_book" + bookId++);
-                db.insert("book", null, values);
+                liteDb.insert("book", null, values);
                 break;
             case "sqlcipher":
-                net.sqlcipher.database.SQLiteDatabase cipherdb = getCipherDb();
+//                net.sqlcipher.database.SQLiteDatabase cipherDb = getCipherDb();
                 values.put("name", "cipher_book" + bookId++);
-                cipherdb.insert("book", null, values);
+                cipherDb.insert("book", null, values);
                 break;
             case "wcdb":
-                com.tencent.wcdb.database.SQLiteDatabase wcdbdb = getWCDBDb();
+//                com.tencent.wcdb.database.SQLiteDatabase wcdbDb = getWCDBDb();
                 values.put("name", "wcdb_book" + bookId++);
-                wcdbdb.insert("book", null, values);
+                wcdbDb.insert("book", null, values);
                 break;
         }
         show("added");
@@ -111,16 +135,16 @@ public class MainActivity extends AppCompatActivity {
         int num = 0;
         switch (DBType) {
             case "sqlite":
-                android.database.sqlite.SQLiteDatabase db = getLiteDb();
-                num = db.delete("book", null, null);
+//                android.database.sqlite.SQLiteDatabase liteDb = getLiteDb();
+                num = liteDb.delete("book", null, null);
                 break;
             case "sqlcipher":
-                net.sqlcipher.database.SQLiteDatabase cipherdb = getCipherDb();
-                num = cipherdb.delete("book", null, null);
+//                net.sqlcipher.database.SQLiteDatabase cipherDb = getCipherDb();
+                num = cipherDb.delete("book", null, null);
                 break;
             case "wcdb":
-                com.tencent.wcdb.database.SQLiteDatabase wcdbdb = getWCDBDb();
-                num = wcdbdb.delete("book", null, null);
+//                com.tencent.wcdb.database.SQLiteDatabase wcdbDb = getWCDBDb();
+                num = wcdbDb.delete("book", null, null);
                 break;
         }
         show("delete " + num + " columns in " + DBType);
@@ -132,16 +156,16 @@ public class MainActivity extends AppCompatActivity {
         values.put("name", "update_" + DBType);
         switch (DBType) {
             case "sqlite":
-                android.database.sqlite.SQLiteDatabase db = getLiteDb();
-                num = db.update("book", values, "id % 2 = 0", null);
+//                android.database.sqlite.SQLiteDatabase liteDb = getLiteDb();
+                num = liteDb.update("book", values, "id % 2 = 0", null);
                 break;
             case "sqlcipher":
-                net.sqlcipher.database.SQLiteDatabase cipherdb = getCipherDb();
-                num = cipherdb.update("book", values, "id % 2 = 0", null);
+//                net.sqlcipher.database.SQLiteDatabase cipherDb = getCipherDb();
+                num = cipherDb.update("book", values, "id % 2 = 0", null);
                 break;
             case "wcdb":
-                com.tencent.wcdb.database.SQLiteDatabase wcdbdb = getWCDBDb();
-                num = wcdbdb.update("book", values, "id % 2 = 0", null);
+//                com.tencent.wcdb.database.SQLiteDatabase wcdbDb = getWCDBDb();
+                num = wcdbDb.update("book", values, "id % 2 = 0", null);
                 break;
         }
         show("updated " + num + " columns in " + DBType);
@@ -151,16 +175,16 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = null;
         switch (DBType) {
             case "sqlite":
-                android.database.sqlite.SQLiteDatabase db = getLiteDb();
-                cursor = db.query("book", null, null, null, null, null, null);
+//                android.database.sqlite.SQLiteDatabase liteDb = getLiteDb();
+                cursor = liteDb.query("book", null, null, null, null, null, null);
                 break;
             case "sqlcipher":
-                net.sqlcipher.database.SQLiteDatabase cipherdb = getCipherDb();
-                cursor = cipherdb.query("book", null, null, null, null, null, null);
+//                net.sqlcipher.database.SQLiteDatabase cipherDb = getCipherDb();
+                cursor = cipherDb.query("book", null, null, null, null, null, null);
                 break;
             case "wcdb":
-                com.tencent.wcdb.database.SQLiteDatabase wcdbdb = getWCDBDb();
-                cursor = wcdbdb.query("book", null, null, null, null, null, null);
+//                com.tencent.wcdb.database.SQLiteDatabase wcdbDb = getWCDBDb();
+                cursor = wcdbDb.query("book", null, null, null, null, null, null);
                 break;
         }
 
@@ -187,51 +211,51 @@ public class MainActivity extends AppCompatActivity {
         scroll.fullScroll(ScrollView.FOCUS_DOWN);
     }
 
-    private android.database.sqlite.SQLiteDatabase getLiteDb() {
-        if (liteDb == null || !liteDb.isOpen()) {
-            liteDb = android.database.sqlite.SQLiteDatabase.openOrCreateDatabase(
-                    getDatabasePath(LITE_DB_NAME), null);
-            liteDb.execSQL(CREATE_DB);
-        }
-        return liteDb;
-    }
-
-    private SQLiteDatabase getCipherDb() {
-        if (cipherDb == null || !cipherDb.isOpen()) {
-            SQLiteDatabase.loadLibs(this);
-            cipherDb = SQLiteDatabase.openOrCreateDatabase(
-                    getDatabasePath(CIPHER_DB_NAME), CIPHER_PWD, null);
-            cipherDb.execSQL(CREATE_DB);
-        }
-        return cipherDb;
-    }
-
-    private com.tencent.wcdb.database.SQLiteDatabase getWCDBDb() {
-        if (wcdbDb != null) {
-            wcdbDb.close();
-        }
-        if (PreDBType == "sqlcipher") {
-            SQLiteCipherSpec cipher = new SQLiteCipherSpec()
-                    .setPageSize(1024)
-                    .setSQLCipherVersion(3);
-            wcdbDb = com.tencent.wcdb.database.SQLiteDatabase.openOrCreateDatabase(
-                    getDatabasePath(CIPHER_DB_NAME),
-                    CIPHER_PWD.getBytes(),
-                    cipher,
-                    null,
-                    null,
-                    5
-            );
-
-        } else {
-            wcdbDb = com.tencent.wcdb.database.SQLiteDatabase.openOrCreateDatabase(
-                    getDatabasePath(LITE_DB_NAME),
-                    null
-            );
-
-        }
-        wcdbDb.execSQL(CREATE_DB);
-
-        return wcdbDb;
-    }
+//    private android.database.sqlite.SQLiteDatabase getLiteDb() {
+//        if (liteDb == null || !liteDb.isOpen()) {
+//            liteDb = android.database.sqlite.SQLiteDatabase.openOrCreateDatabase(
+//                    getDatabasePath(LITE_DB_NAME), null);
+//            liteDb.execSQL(CREATE_DB);
+//        }
+//        return liteDb;
+//    }
+//
+//    private SQLiteDatabase getCipherDb() {
+//        if (cipherDb == null || !cipherDb.isOpen()) {
+//            SQLiteDatabase.loadLibs(this);
+//            cipherDb = SQLiteDatabase.openOrCreateDatabase(
+//                    getDatabasePath(CIPHER_DB_NAME), CIPHER_PWD, null);
+//            cipherDb.execSQL(CREATE_DB);
+//        }
+//        return cipherDb;
+//    }
+//
+//    private com.tencent.wcdb.database.SQLiteDatabase getWCDBDb() {
+//        if (wcdbDb != null) {
+//            wcdbDb.close();
+//        }
+//        if (PreDBType == "sqlcipher") {
+//            SQLiteCipherSpec cipher = new SQLiteCipherSpec()
+//                    .setPageSize(1024)
+//                    .setSQLCipherVersion(3);
+//            wcdbDb = com.tencent.wcdb.database.SQLiteDatabase.openOrCreateDatabase(
+//                    getDatabasePath(CIPHER_DB_NAME),
+//                    CIPHER_PWD.getBytes(),
+//                    cipher,
+//                    null,
+//                    null,
+//                    5
+//            );
+//
+//        } else {
+//            wcdbDb = com.tencent.wcdb.database.SQLiteDatabase.openOrCreateDatabase(
+//                    getDatabasePath(LITE_DB_NAME),
+//                    null
+//            );
+//
+//        }
+//        wcdbDb.execSQL(CREATE_DB);
+//
+//        return wcdbDb;
+//    }
 }
