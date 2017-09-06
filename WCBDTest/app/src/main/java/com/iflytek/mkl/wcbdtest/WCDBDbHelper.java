@@ -46,7 +46,7 @@ public class WCDBDbHelper extends SQLiteOpenHelper {
         this.mPassword = password;
     }
 
-
+    byte[] BACKUP_PASSWORD;
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -96,7 +96,10 @@ public class WCDBDbHelper extends SQLiteOpenHelper {
         db.execSQL(MainActivity.CREATE_DB);
         ((MainActivity) mContext).show("wcdb create success");
 
-        RepairKit.MasterInfo.save(db, db.getPath() + "-mbak", mPassword);
+        long start = System.currentTimeMillis();
+        RepairKit.MasterInfo.save(db, db.getPath() + "-mbak", BACKUP_PASSWORD);
+        long end = System.currentTimeMillis();
+        ((MainActivity)mContext).show("mback time: " + (end - start));
     }
 
     @Override

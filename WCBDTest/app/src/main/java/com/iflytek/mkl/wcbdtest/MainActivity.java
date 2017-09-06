@@ -11,6 +11,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.tencent.wcdb.database.SQLiteCipherSpec;
+import com.tencent.wcdb.repair.BackupKit;
+import com.tencent.wcdb.repair.RecoverKit;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -98,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 //                        }
                         wcdbDbHelper.setWriteAheadLoggingEnabled(true);
                         wcdbDb = wcdbDbHelper.getWritableDatabase();
-
 //                        wcdbDb = com.tencent.wcdb.database.SQLiteDatabase.openOrCreateDatabase(getDatabasePath(WCDB_DB_NAME),
 //                                CIPHER_PWD.getBytes(), null, null, 4);
 //                        wcdbDb.enableWriteAheadLogging();
@@ -117,6 +118,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int bookId = 0;
+
+    public void clear(View view) {
+        output.setText("");
+    }
+
+    public void backup(View view) {
+        long start = System.currentTimeMillis();
+        BackupKit backup = new BackupKit(
+                wcdbDb,
+                wcdbDb.getPath() + "-backup",
+                CIPHER_PWD.getBytes(), 0, new String[]{}
+        );
+        int result = backup.run();
+        backup.release();
+        long end = System.currentTimeMillis();
+        show("backup: " + result + "time: " + (end - start));
+    }
+
+    public void recover(View view) {
+        long start = System.currentTimeMillis();
+        RecoverKit recover = new RecoverKit(
+                wcdbDb,
+                wcdbDb.getPath() + "-backup",
+                CIPHER_PWD.getBytes()
+        );
+        int result = recover.run(false);
+        recover.release();
+        long end = System.currentTimeMillis();
+        show("recover: " + result + "time: " + (end - start));
+    }
 
 
     //测试多线程是并行还是串行
@@ -196,6 +227,9 @@ public class MainActivity extends AppCompatActivity {
             new Thread(insertRunnable).start();
         }
 
+
+//        long totalTime = 0;
+//        int totalNum = 0;
 //        for (int t = 0; t < 5; t++) {
 //            ContentValues values = new ContentValues();
 //            values.put("name", "test_book" + bookId++);
@@ -221,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
 //            totalTime += end - start;
 //            totalNum++;
 //        }
-//        show(DBType + " add 1w x 5 case average time: " + (totalTime/(double)totalNum));
+//        show(DBType + " add 1w x 5 case average time: " + (totalTime / (double) totalNum));
     }
 
     public void delete(View view) {
@@ -267,16 +301,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void query(View view) {
         final int queryColum = 1;
-        final int threadNum = 1;
+        final int threadNum = 2;
         final String type = DBType;
         final long start = System.currentTimeMillis();
 
         Runnable queryRunnable = new Runnable() {
             @Override
             public void run() {
+                final int[] num = {0};
                 for (int n = 0; n < queryColum; n++) {
                     Cursor cursor = null;
-                    int num = 0;
+
                     switch (type) {
                         case "sqlite":
                             cursor = liteDb.query("book", null, "id % 2 = 0", null, null, null, null);
@@ -288,15 +323,19 @@ public class MainActivity extends AppCompatActivity {
                             cursor = wcdbDb.query("book", null, "id % 2 = 0", null, null, null, null);
                             break;
                     }
-                    while (cursor.moveToNext()){
-                        num++;
+                    for (int i = 0; i < 25000 / threadNum; i++) {
+                        cursor.moveToNext();
+                        num[0]++;
                     }
+//                    while (cursor.moveToNext()) {
+//                        num[0]++;
+//                    }
                     cursor.close();
                 }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        show(type + " query " + queryColum / threadNum + " , time " + (System.currentTimeMillis() - start));
+                        show(type + " query " + num[0] + " , time " + (System.currentTimeMillis() - start));
                     }
                 });
             }
@@ -308,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        int totalTime = 0;
 //        int totalNum = 0;
-//        for (int t = 0; t < 100; t++) {
+//        for (int t = 0; t < 1; t++) {
 //
 //
 //            long start = System.currentTimeMillis();
@@ -329,21 +368,21 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //
 ////        //show data;
-////        StringBuilder sb = new StringBuilder();
-////        sb.append("--------------------" + DBType + "----------------------\n");
-////        for (int i = 0; i < cursor.getColumnCount(); i++) {
-////            sb.append(cursor.getColumnName(i)).append("      \t");
-////        }
-////        show(sb.toString());
+//            StringBuilder sb = new StringBuilder();
+//            sb.append("--------------------" + DBType + "----------------------\n");
+//            for (int i = 0; i < cursor.getColumnCount(); i++) {
+//                sb.append(cursor.getColumnName(i)).append("      \t");
+//            }
+//            show(sb.toString());
 //            int num = 0;
 //            while (cursor != null && cursor.moveToNext()) {
-////            sb = new StringBuilder();
-////            for (int i = 0; i < cursor.getColumnCount(); i++) {
-////                sb.append(cursor.getString(i)).append("      \t");
-////                cursor.getString(i);
-////            }
+//                sb = new StringBuilder();
+//                for (int i = 0; i < cursor.getColumnCount(); i++) {
+//                    sb.append(cursor.getString(i)).append("      \t");
+//                    cursor.getString(i);
+//                }
 //                num++;
-////            show(sb.toString());
+//                show(sb.toString());
 //            }
 //            cursor.close();
 //            long end = System.currentTimeMillis();
