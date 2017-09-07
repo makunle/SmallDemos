@@ -1,12 +1,21 @@
 package com.iflytek.mkl.whocovermetest;
 
 import android.app.ActivityManager;
+import android.app.AppOpsManager;
+import android.app.UiAutomation;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.hardware.display.DisplayManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.print.PrintJob;
+import android.print.PrintManager;
+import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +23,10 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -34,12 +45,20 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkRun = false;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rootView = findViewById(R.id.rootLayout);
         Log.d(TAG, "onCreate: ");
+
+//        Intent intent = new Intent(this, CheckAlertWindowService.class);
+//        startService(intent);
+
+        AppOpsManager manager = (AppOpsManager) getSystemService(APP_OPS_SERVICE);
+        manager.
+
     }
 
     @Override
@@ -61,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
                     WindowManager wmanager = (WindowManager) getSystemService(WINDOW_SERVICE);
                     Display display = wmanager.getDefaultDisplay();
-                    registerDis
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
@@ -69,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        }).start();
+        });
     }
 
     private void visibleRect(View view) {
@@ -115,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         Log.d(TAG, "onStop: ");
+
+        WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+        ViewManager viewManager = getWindowManager();
     }
 
     @Override
@@ -156,4 +177,5 @@ public class MainActivity extends AppCompatActivity {
     public void halfWindowAlert(View view) {
         sendWindowPopBroadcast("half");
     }
+
 }
