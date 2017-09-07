@@ -36,7 +36,7 @@ public class MASService extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-
+        show("event: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + "  " + event.getPackageName());
     }
 
     @Override
@@ -57,6 +57,7 @@ public class MASService extends AccessibilityService {
                     }
                     show("======================================================\n");
                 }
+
             }
             return true;
         } else if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN) {
