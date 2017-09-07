@@ -34,9 +34,6 @@ public class ShowAlertWindowBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         this.context = context;
 
-        Log.d(TAG, "onReceive: " + this.toString());
-//        monitoring();
-
         String window_type = intent.getStringExtra("WINDOW_TYPE");
         Log.d(TAG, "onReceive: window type: " + window_type);
         switch (window_type) {
@@ -62,6 +59,8 @@ public class ShowAlertWindowBroadcastReceiver extends BroadcastReceiver {
                     manager.removeView(floatView);
                     floatView = null;
                 }
+            case "info":
+                WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
                 break;
         }
     }
@@ -90,7 +89,7 @@ public class ShowAlertWindowBroadcastReceiver extends BroadcastReceiver {
         builder.setView(view);
         AlertDialog dialog = builder.create();
         dialog.getWindow().setType(
-                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
+                WindowManager.LayoutParams.TYPE_TOAST
         );
         dialog.show();
     }
@@ -105,7 +104,7 @@ public class ShowAlertWindowBroadcastReceiver extends BroadcastReceiver {
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams();
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        params.type = WindowManager.LayoutParams.TYPE_PHONE;
+        params.type = WindowManager.LayoutParams.TYPE_TOAST;
         params.format = PixelFormat.RGBA_8888;
         params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         params.gravity = Gravity.CENTER | Gravity.CENTER;
