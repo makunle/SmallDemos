@@ -16,65 +16,85 @@ import java.util.List;
 
 /**
  * Created by makunle on 2017/9/11.
+ * 输入法悬浮键盘弹起/隐藏检测 工具
  */
 
 public class FloatKeyboardMonitor {
 
-    private static final String TAG = "FloatKeyboardMonitor";
+    private static final boolean DEBUG = true;
 
     private static FloatKeyboardMonitor instance = new FloatKeyboardMonitor();
 
     private List<KeyboardStateListener> listenerList = new ArrayList<>();
-
     private MonitorView view;
-
     private Context context;
 
-    private FloatKeyboardMonitor(){}
+    private FloatKeyboardMonitor() {}
 
-    public static void init(Context context){
-        instance.context = context;
-
-        if(instance.view == null) {
-            instance.view = instance.new MonitorView(context);
+    /**
+     * 工具初始化
+     *
+     * @param context
+     */
+    public static void init(Context context) {
+        if (instance.context == null) {
+            instance.context = context;
         }
+    }
 
-        if(instance.listenerList.size() == 0) {
+    /**
+     * 添加输入法软键盘状态监听器
+     *
+     * @param listener
+     */
+    public synchronized static void register(KeyboardStateListener listener) {
+        if (instance.context == null) {
+            throw new IllegalStateException("monitor haven't initialized");
+        }
+        if (instance.listenerList.contains(listener)) {
+            throw new IllegalStateException("keyboard listener already registered");
+        }
+        if (instance.view == null) {
+            instance.view = instance.new MonitorView(instance.context);
             WindowManager.LayoutParams params = new WindowManager.LayoutParams();
-            WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            WindowManager manager = (WindowManager) instance.context.getSystemService(Context.WINDOW_SERVICE);
             params.type = WindowManager.LayoutParams.TYPE_PHONE;
             params.format = PixelFormat.RGBA_8888;
             params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                     WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM |
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE|
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN;
             params.gravity = Gravity.LEFT | Gravity.TOP;
             params.x = 0;
             params.y = 0;
             params.width = 0;
             params.height = WindowManager.LayoutParams.MATCH_PARENT;
-            manager.addView(instance.view, params);
-        }
-    }
 
-    public synchronized static void register(KeyboardStateListener listener){
-        if(instance.context == null){
-            throw new IllegalStateException("monitor haven't initialized");
-        }
-        if(instance.listenerList.contains(listener)){
-            throw new IllegalStateException("keyboard listener already registered");
+            if (DEBUG) {
+                params.width = 10;
+                instance.view.setBackgroundColor(Color.RED);
+            }
+
+            manager.addView(instance.view, params);
         }
         instance.listenerList.add(listener);
     }
 
-    public synchronized static void unregister(KeyboardStateListener listener){
-        if(instance.context == null){
+    /**
+     * 移除输入法软键盘状态监听器
+     *
+     * @param listener
+     */
+    public synchronized static void unregister(KeyboardStateListener listener) {
+        if (instance.context == null) {
             throw new IllegalStateException("monitor haven't initialized");
         }
-        if(!instance.listenerList.contains(listener)){
+        if (!instance.listenerList.contains(listener)) {
             throw new IllegalStateException("keyboard listener haven't registered or already unregistered");
         }
         instance.listenerList.remove(listener);
-        if(instance.listenerList.size() == 0){
+        if (instance.listenerList.size() == 0) {
             WindowManager manager = (WindowManager) instance.context.getSystemService(Context.WINDOW_SERVICE);
             manager.removeView(instance.view);
             instance.view = null;
@@ -84,13 +104,14 @@ public class FloatKeyboardMonitor {
     /**
      * keyboard state call back interface
      */
-    public interface KeyboardStateListener{
+    public interface KeyboardStateListener {
         void onKeyboardShow();
         void onKeyboardHide();
     }
 
-    private class MonitorView extends View{
+    private class MonitorView extends View {
         private int maxHeight = 0;
+
         public MonitorView(Context context) {
             super(context);
         }
@@ -98,13 +119,13 @@ public class FloatKeyboardMonitor {
         @Override
         protected void onSizeChanged(int w, int h, int oldw, int oldh) {
             super.onSizeChanged(w, h, oldw, oldh);
-            if(h > maxHeight) maxHeight = h;
-            if(h >= maxHeight){
-                for(KeyboardStateListener listener : listenerList){
+            if (h > maxHeight) maxHeight = h;
+            if (h >= maxHeight) {
+                for (KeyboardStateListener listener : listenerList) {
                     listener.onKeyboardHide();
                 }
-            }else{
-                for(KeyboardStateListener listener : listenerList){
+            } else {
+                for (KeyboardStateListener listener : listenerList) {
                     listener.onKeyboardShow();
                 }
             }
