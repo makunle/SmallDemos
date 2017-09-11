@@ -48,7 +48,9 @@ public class MASService extends AccessibilityService {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         for (AccessibilityWindowInfo info : getWindows()) {
                             AccessibilityNodeInfo root = info.getRoot();
-                            show("======================== " + root.getPackageName() + format.format(Calendar.getInstance().getTime()) + " ========================");
+                            show("======================== " + root.getPackageName()
+                                    + format.format(Calendar.getInstance().getTime())
+                                    + "  " +info.getLayer() + " ========================");
                             show(root, 0);
                         }
                     } else {
