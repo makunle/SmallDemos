@@ -147,6 +147,7 @@ public class MIMEService extends InputMethodService implements View.OnClickListe
      */
     @Override
     public void onStartInput(EditorInfo attribute, boolean restarting) {
+        Log.d(TAG, "onStartInput: ");
         super.onStartInput(attribute, restarting);
         InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         Log.d(TAG, "onStartInput: editorinof: " + attribute.fieldName + " " + attribute.fieldId + " " + attribute.packageName);
