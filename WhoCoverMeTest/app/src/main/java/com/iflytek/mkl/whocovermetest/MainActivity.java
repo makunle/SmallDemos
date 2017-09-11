@@ -3,9 +3,13 @@ package com.iflytek.mkl.whocovermetest;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.UiAutomation;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
@@ -15,26 +19,40 @@ import android.os.Message;
 import android.print.PrintJob;
 import android.print.PrintManager;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityManager;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.accessibility.AccessibilityWindowInfo;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private View rootView;
+    private EditText cmdInput;
 
     private boolean checkRun = false;
 
@@ -53,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
         rootView = findViewById(R.id.rootLayout);
         Log.d(TAG, "onCreate: ");
 
-//        Intent intent = new Intent(this, CheckAlertWindowService.class);
-//        startService(intent);
+        Intent intent = new Intent(this, CheckAlertWindowService.class);
+        startService(intent);
 
         AppOpsManager manager = (AppOpsManager) getSystemService(APP_OPS_SERVICE);
-        manager.
+        cmdInput = (EditText) findViewById(R.id.cmdinput);
 
     }
 
@@ -101,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 
     @Override
     protected void onStart() {
@@ -178,4 +198,177 @@ public class MainActivity extends AppCompatActivity {
         sendWindowPopBroadcast("half");
     }
 
+    public void checkWindow(View view) {
+        runnApp();
+    }
+
+    private void shell(String cmd) {
+        try {
+            Process exec = Runtime.getRuntime().exec(cmd);
+            BufferedReader br = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                Log.d(TAG, line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void uiautomator() {
+    }
+
+    private void runnApp() {
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningTasks = manager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo info : runningTasks) {
+            String list = "";
+            for (int i = 0; i < info.pkgList.length; i++) {
+                list += info.pkgList[i] + " ";
+            }
+            Log.d(TAG, "handleMessage: " + info.importance + " " + info.lru + " " + info +" " + info.processName + " " + list);
+        }
+    }
+
+
+    AccessibilityManager.AccessibilityStateChangeListener accessiListener;
+    private void windowService(){
+        AccessibilityManager manager = (AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE);
+        accessiListener = new AccessibilityManager.AccessibilityStateChangeListener() {
+            @Override
+            public void onAccessibilityStateChanged(boolean enabled) {
+
+            }
+        };
+    }
+
+    private void reflect() {
+        try {
+
+            Class<?> clazz = Class.forName(
+                    "android.view.accessibility.AccessibilityNodeInfoCache");
+
+            Constructor<?> constructors = clazz.getDeclaredConstructor();
+            Object o = constructors.newInstance();
+            Method get = clazz.getDeclaredMethod("get", long.class);
+            for (int i = 0; i < 100000; i++) {
+                AccessibilityNodeInfo info = (AccessibilityNodeInfo) get.invoke(o, i);
+                if (info != null)
+                    Log.d(TAG, "reflect: " + info);
+            }
+            Log.d(TAG, "reflect: done");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void srufaceFlinger() {
+    }
+
+    public void runCmd(View view) {
+        String cmd = cmdInput.getText().toString();
+        shell(cmd);
+    }
+    
+    //=======================================  onMethods ===========================================
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        Log.d(TAG, "onPostCreate: ");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.d(TAG, "onConfigurationChanged: ");
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    protected void onPostResume() {
+        Log.d(TAG, "onPostResume: ");
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onTitleChanged(CharSequence title, int color) {
+        Log.d(TAG, "onTitleChanged: ");
+        super.onTitleChanged(title, color);
+    }
+
+    @Override
+    public void onSupportActionModeStarted(@NonNull ActionMode mode) {
+        Log.d(TAG, "onSupportActionModeStarted: ");
+        super.onSupportActionModeStarted(mode);
+    }
+
+    @Override
+    public void onSupportActionModeFinished(@NonNull ActionMode mode) {
+        Log.d(TAG, "onSupportActionModeFinished: ");
+        super.onSupportActionModeFinished(mode);
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(@NonNull ActionMode.Callback callback) {
+        Log.d(TAG, "onWindowStartingSupportActionMode: ");
+        return super.onWindowStartingSupportActionMode(callback);
+    }
+
+    @Override
+    public void onCreateSupportNavigateUpTaskStack(@NonNull TaskStackBuilder builder) {
+        Log.d(TAG, "onCreateSupportNavigateUpTaskStack: ");
+        super.onCreateSupportNavigateUpTaskStack(builder);
+    }
+
+    @Override
+    public void onPrepareSupportNavigateUpTaskStack(@NonNull TaskStackBuilder builder) {
+        Log.d(TAG, "onPrepareSupportNavigateUpTaskStack: ");
+        super.onPrepareSupportNavigateUpTaskStack(builder);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Log.d(TAG, "onSupportNavigateUp: ");
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onContentChanged() {
+        Log.d(TAG, "onContentChanged: ");
+        super.onContentChanged();
+    }
+
+    @Override
+    public void onSupportContentChanged() {
+        Log.d(TAG, "onSupportContentChanged: ");
+        super.onSupportContentChanged();
+    }
+
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        Log.d(TAG, "onMenuOpened: ");
+        return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
+    public void onPanelClosed(int featureId, Menu menu) {
+        Log.d(TAG, "onPanelClosed: ");
+        super.onPanelClosed(featureId, menu);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.d(TAG, "onSaveInstanceState: ");
+        super.onSaveInstanceState(outState);
+    }
 }

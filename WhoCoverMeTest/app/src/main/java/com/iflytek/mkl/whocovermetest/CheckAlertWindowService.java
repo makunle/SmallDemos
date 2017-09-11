@@ -5,12 +5,14 @@ import android.app.Service;
 import android.app.usage.UsageStatsManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.hardware.display.DisplayManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
+import android.view.SurfaceHolder;
 
 import java.sql.Time;
 import java.util.List;
@@ -42,7 +44,7 @@ public class CheckAlertWindowService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        timer.schedule(task, 0, 2000);
+        timer.schedule(task, 0, 5000);
     }
 
     @Override
@@ -74,9 +76,26 @@ public class CheckAlertWindowService extends Service {
 //                ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
 //                Log.d(TAG, "pkg:"+cn.getPackageName());
 //                Log.d(TAG, "cls:"+cn.getClassName());
-                Log.d(TAG, " ");
+//                Log.d(TAG, " ");
+//                runnApp();
+//                Log.d(TAG, " ");
             }
             super.handleMessage(msg);
         }
     };
+
+    private void runnApp() {
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningTasks = manager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo info : runningTasks) {
+
+            String list = "";
+            for (int i = 0; i < info.pkgList.length; i++) {
+                list += info.pkgList[i] + " ";
+            }
+            if(list.contains("android.")) continue;
+            Log.d(TAG, "handleMessage: " + info.importance + " " + info.lru + " " + info +" " + info.processName + " " + list
+                + info.importanceReasonComponent + " " + info.importanceReasonCode + " " + info.importanceReasonPid + " ");
+        }
+    }
 }

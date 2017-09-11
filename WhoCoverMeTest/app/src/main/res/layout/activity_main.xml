@@ -45,5 +45,27 @@
 
     </LinearLayout>
 
+    <Button
+        android:text="Check"
+        android:onClick="checkWindow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:focusable="false"
+            android:id="@+id/cmdinput"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="run"
+            android:onClick="runCmd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </LinearLayout>
