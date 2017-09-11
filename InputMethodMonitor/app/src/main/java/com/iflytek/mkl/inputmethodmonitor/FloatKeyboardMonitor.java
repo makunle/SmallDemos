@@ -4,12 +4,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +14,13 @@ import java.util.List;
 /**
  * Created by makunle on 2017/9/11.
  * 输入法悬浮键盘弹起/隐藏检测 工具
+ * 目前只对竖屏情况有效，浮动键盘有待测试
  */
 
 public class FloatKeyboardMonitor {
 
     private static final boolean DEBUG = true;
+    private static final String TAG = "FloatKeyboardMonitor";
 
     private static FloatKeyboardMonitor instance = new FloatKeyboardMonitor();
 
@@ -29,7 +28,8 @@ public class FloatKeyboardMonitor {
     private MonitorView view;
     private Context context;
 
-    private FloatKeyboardMonitor() {}
+    private FloatKeyboardMonitor() {
+    }
 
     /**
      * 工具初始化
@@ -62,9 +62,7 @@ public class FloatKeyboardMonitor {
             params.format = PixelFormat.RGBA_8888;
             params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                     WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM |
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE|
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN;
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
             params.gravity = Gravity.LEFT | Gravity.TOP;
             params.x = 0;
             params.y = 0;
@@ -106,11 +104,14 @@ public class FloatKeyboardMonitor {
      */
     public interface KeyboardStateListener {
         void onKeyboardShow();
+
         void onKeyboardHide();
     }
 
     private class MonitorView extends View {
         private int maxHeight = 0;
+        private int maxDeltaHeight = 0;
+        private int lastState = 0; // 1: show    2: hide
 
         public MonitorView(Context context) {
             super(context);
@@ -119,15 +120,24 @@ public class FloatKeyboardMonitor {
         @Override
         protected void onSizeChanged(int w, int h, int oldw, int oldh) {
             super.onSizeChanged(w, h, oldw, oldh);
-            if (h > maxHeight) maxHeight = h;
             if (h >= maxHeight) {
-                for (KeyboardStateListener listener : listenerList) {
-                    listener.onKeyboardHide();
+                maxHeight = h;
+                if (lastState == 1) {
+                    for (KeyboardStateListener listener : listenerList) {
+                        listener.onKeyboardHide();
+                    }
                 }
+                lastState = 2;
+            } else if (maxHeight - h > maxDeltaHeight / 3) {
+                maxDeltaHeight = Math.max(maxHeight - h, maxDeltaHeight);
+                if (lastState == 2) {
+                    for (KeyboardStateListener listener : listenerList) {
+                        listener.onKeyboardShow();
+                    }
+                }
+                lastState = 1;
             } else {
-                for (KeyboardStateListener listener : listenerList) {
-                    listener.onKeyboardShow();
-                }
+                maxHeight = h;
             }
         }
 
@@ -135,6 +145,7 @@ public class FloatKeyboardMonitor {
         protected void onConfigurationChanged(Configuration newConfig) {
             super.onConfigurationChanged(newConfig);
             maxHeight = 0;
+            maxDeltaHeight = 0;
         }
     }
 }
