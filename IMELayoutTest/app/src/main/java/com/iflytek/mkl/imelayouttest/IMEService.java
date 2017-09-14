@@ -1,13 +1,18 @@
 package com.iflytek.mkl.imelayouttest;
 
+import android.app.Activity;
+import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.InputConnection;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,7 +23,7 @@ import java.util.List;
  * Created by makunle on 2017/9/14.
  */
 
-public class IMEService extends InputMethodService implements OnClickListener{
+public class IMEService extends InputMethodService implements OnClickListener {
 
     private static final String TAG = "IMEService";
 
@@ -32,7 +37,7 @@ public class IMEService extends InputMethodService implements OnClickListener{
     View layout_abc3;
     View layout_num;
 
-    LinearLayout keyboardRoot;
+    View keyboardRoot;
 
     private TextView candidateTextView;
 
@@ -62,10 +67,14 @@ public class IMEService extends InputMethodService implements OnClickListener{
                 if (layout_num.getVisibility() == View.VISIBLE) {
                     layout_num.setVisibility(View.GONE);
                     layout_abc2.setVisibility(View.GONE);
+                    keyboardRoot.setMinimumHeight(800);
                 } else {
                     layout_num.setVisibility(View.VISIBLE);
                     layout_abc2.setVisibility(View.VISIBLE);
+                    keyboardRoot.setMinimumHeight(200);
                 }
+                Activity activity = getWindow().getOwnerActivity();
+                Log.d(TAG, "activity is null: " + (activity == null));
                 break;
             default:
                 TextView editText = (TextView) v;
@@ -90,9 +99,16 @@ public class IMEService extends InputMethodService implements OnClickListener{
         layout_abc3 = view.findViewById(R.id.layout_abc3);
         layout_num = view.findViewById(R.id.layout_num);
 
-        keyboardRoot = (LinearLayout) view.findViewById(R.id.kb_root);
-        keyboardRoot.setLayoutAnimation(new LayoutAnimationController(new ScaleAnimation(0, 100, 0, 100), 2000));
-        return view;
+//        keyboardRoot = (FrameLayout) view.findViewById(R.id.kb_root);
+//        keyboardRoot.setLayoutAnimation(new LayoutAnimationController(new ScaleAnimation(0, 100, 0, 100), 2000));
+
+        keyboardRoot = new View(getApplicationContext());
+        keyboardRoot.setBackgroundColor(Color.RED);
+        keyboardRoot.setMinimumHeight(200);
+        keyboardRoot.setMinimumWidth(100);
+        return keyboardRoot;
+
+//        return view;
     }
 
     @Override
