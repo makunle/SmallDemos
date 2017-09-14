@@ -21,9 +21,11 @@ import android.text.style.AbsoluteSizeSpan;
 import android.text.style.BackgroundColorSpan;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
             @Override
             public boolean onScale(ScaleGestureDetector detector) {
-                matrix.postScale(detector.getScaleFactor(), detector.getScaleFactor(), detector.getFocusX(), detector.getFocusY());
+                safeScale(detector.getScaleFactor(), detector.getFocusX(), detector.getFocusY());
                 return true;
             }
         });
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                matrix.postTranslate(-distanceX, -distanceY);
+                safeTranslation(-distanceX, -distanceY);
                 return true;
             }
         });
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 mouseX = motionEvent.getX();
                 mouseY = motionEvent.getY();
 
-                adjustToArea();
+//                adjustToArea();
                 showInfo();
                 return true;
             }
@@ -105,6 +107,45 @@ public class MainActivity extends AppCompatActivity {
 
         infoOut = (TextView) findViewById(R.id.et);
         previewArea = findViewById(R.id.preview_layout);
+
+        int height = getWindowManager().getDefaultDisplay().getHeight() - 260;
+        float scaleH = height / 3.0f / (float) bitmap.getHeight();
+
+        int width = getWindowManager().getDefaultDisplay().getWidth();
+        float scaleW = width / (float) bitmap.getWidth();
+
+        float scale = Math.max(scaleH, scaleW);
+        float transX = width / 2 - bitmap.getWidth() * scale / 2;
+        float transY = height / 2 - bitmap.getHeight() * scale / 2;
+        matrix.postScale(scale, scale);
+        matrix.postTranslate(transX, transY);
+        imageView.setImageMatrix(matrix);
+//        adjustToArea();
+//        matrix = imageView.getImageMatrix();
+    }
+
+    private float getNowScale() {
+        float[] value = new float[9];
+        matrix.getValues(value);
+        return value[0];
+    }
+
+    private float[] getNowTranslate() {
+        float[] value = new float[9];
+        matrix.getValues(value);
+        return new float[]{value[2], value[5]};
+    }
+
+    private Rect getImageAreaRect() {
+        Rect rect = new Rect();
+        imageView.getGlobalVisibleRect(rect);
+        return rect;
+    }
+
+    private Rect getPreviewAreaRect() {
+        Rect rect = new Rect();
+        previewArea.getGlobalVisibleRect(rect);
+        return rect;
     }
 
     private void showInfo() {
@@ -118,6 +159,66 @@ public class MainActivity extends AppCompatActivity {
                 "\nimageview: " + imageAreaRect + "\npreview: " + previewAreaRect +
                 "\nmouse: " + (int) mouseX + " " + (int) mouseY;
         infoOut.setText(show);
+    }
+
+    /**
+     * 安全平移，确保平移后图片还能完全覆盖preview area
+     * @param transX
+     * @param transY
+     */
+    private void safeTranslation(float transX, float transY) {
+        float nowTransX = getNowTranslate()[0];
+        float nowTransY = getNowTranslate()[1];
+
+        float nowScale = getNowScale();
+
+        Rect ivRect = getImageAreaRect();
+        Rect previewRect = getPreviewAreaRect();
+
+        float imgUp = nowTransY + transY + ivRect.top - previewRect.top;
+        float imgDown = nowTransY + transY + ivRect.top + bitmap.getHeight() * nowScale - previewRect.bottom;
+        float imgLeft = nowTransX + transX + ivRect.left - previewRect.left;
+        float imgRight = nowTransX + transX + ivRect.left + bitmap.getWidth() * nowScale - previewRect.right;
+
+        if (imgUp > 0) {
+            transY -= imgUp;
+        } else if (imgDown < 0) {
+            transY -= imgDown;
+        }
+
+        if (imgLeft > 0) {
+            transX -= imgLeft;
+        } else if (imgRight < 0) {
+            transX -= imgRight;
+        }
+
+//                Log.d(TAG, "move  up:" + imgUp + "  down:" + imgDown + "    left:" + imgLeft + "  right:" + imgRight);
+
+        matrix.postTranslate(transX, transY);
+    }
+
+    /**
+     * 安全缩放，确保缩放后图片还能完全覆盖preview area
+     * @param scale
+     * @param focusX
+     * @param focusY
+     */
+    private void safeScale(float scale, float focusX, float focusY) {
+        float nowScale = getNowScale();
+
+        int previewWidth = getPreviewAreaRect().width();
+        if (bitmap.getWidth() * nowScale * scale < previewWidth) {
+            scale = previewWidth / nowScale / bitmap.getWidth();
+        }
+
+        int previewHeight = getPreviewAreaRect().height();
+        if (bitmap.getHeight() * nowScale * scale < previewHeight) {
+            scale = previewHeight / nowScale / bitmap.getHeight();
+        }
+
+//                Log.d(TAG, "onScale after width: " + bitmap.getWidth() * nowScale * canScale + "    view:" + previewWidth);
+
+        matrix.postScale(scale, scale, focusX, focusY);
     }
 
     /**
@@ -177,20 +278,43 @@ public class MainActivity extends AppCompatActivity {
     private void adjustToArea() {
         Rect previewRect = new Rect();
         previewArea.getGlobalVisibleRect(previewRect);
+        Rect ivRect = new Rect();
+        imageView.getGlobalVisibleRect(ivRect);
+
+        int height = getWindowManager().getDefaultDisplay().getHeight();
+        int width = getWindowManager().getDefaultDisplay().getWidth();
+        previewRect = new Rect(0, 0, width, height);
+        ivRect = new Rect(0, height / 4, width, height / 4 * 3);
 
         float[] value = new float[9];
         matrix.getValues(value);
 
         float nowScale = value[0];
         //调整scale，使得图片的长宽>=预览窗口长宽
-        float scaleX = previewRect.width() / (bitmap.getWidth() * nowScale);
-        float scaleY = previewRect.height() / (bitmap.getHeight() * nowScale);
-        if (scaleX > 1 || scaleY > 1) {
-            float shouldScale = Math.max(scaleX, scaleY);
-            matrix.postScale(shouldScale, shouldScale);
+        float needScaleX = previewRect.width() / (bitmap.getWidth() * nowScale);
+        float needScaleY = previewRect.height() / (bitmap.getHeight() * nowScale);
+        float needScale = nowScale;
+        if (needScaleX > 1 || needScaleY > 1) {
+            needScale = Math.max(needScaleX, needScaleY);
+            matrix.postScale(needScale, needScale);
         }
 
         //调整平移值，使得图片左右/上下边移动到最近的preview窗口左右/上下边上。
+        float transX = value[2];
+        float transY = value[5];
+        float imgUp = transY + ivRect.top - previewRect.top;
+        float imgDown = transY + ivRect.top + bitmap.getHeight() * needScale - previewRect.bottom;
+        float imgLeft = transX + ivRect.left - previewRect.left;
+        float imgRight = transX + ivRect.left + bitmap.getWidth() * needScale - previewRect.right;
+//        Log.d(TAG, "adjustToArea  up:" + imgUp + "  down:" + imgDown + "    left:" + imgLeft + "  right:" + imgRight);
+        float needTransX = 0, needTransY = 0;
+        if (imgLeft > 0) needTransX = -imgLeft;
+        else if (imgRight < 0) needTransX = -imgRight;
+        if (imgUp > 0) needTransY = -imgUp;
+        else if (imgDown < 0) needTransY = -imgDown;
+        matrix.postTranslate(needTransX, needTransY);
+
+        Log.d(TAG, "adjust done");
     }
 
     /**
