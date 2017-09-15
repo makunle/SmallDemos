@@ -73,27 +73,29 @@ public class IMEService extends InputMethodService implements OnClickListener {
                 TextView editText = (TextView) v;
                 candidateTextView.append(editText.getText(), 0, 1);
 
-                if(editText.getText().equals("a")){
+                if (editText.getText().equals("a")) {
                     if (layout_num.getVisibility() == View.VISIBLE) {
                         layout_num.setVisibility(View.GONE);
 //                    layout_abc2.setVisibility(View.GONE);
 //                        mLinearLayout.fillLayout.getLayoutParams().height = 1413;
-                        getWindow().getWindow().getAttributes().y = 500;
+
                     } else {
                         layout_num.setVisibility(View.VISIBLE);
 //                    layout_abc2.setVisibility(View.VISIBLE);
 //                        mLinearLayout.fillLayout.getLayoutParams().height = 1269;
 //                        mLinearLayout.getLayoutParams().height = 591;
-                        getWindow().getWindow().getAttributes().y = 200;
                     }
-
-
+                    boolean b = getWindow().getWindow().getDecorView() == null;
+                    Log.d(TAG, "onClick: decor view is null: " + b);
+                    View decorView = getWindow().getWindow().getDecorView();
+                    decorView.setBackgroundColor(Color.RED);
                 }
                 break;
         }
     }
 
     MLinearLayout mLinearLayout;
+
     @Override
     public View onCreateInputView() {
         Log.d(TAG, "onCreateInputView: ");
@@ -114,9 +116,9 @@ public class IMEService extends InputMethodService implements OnClickListener {
         keyboardRoot.setLayoutAnimation(new LayoutAnimationController(new ScaleAnimation(0, 100, 0, 100), 2000));
 
         mLinearLayout = (MLinearLayout) view.findViewById(R.id.kb_root);
-//        getWindow().getWindow().setWindowAnimations(R.style.noAnimTheme);
-//        WindowManager.LayoutParams params = getWindow().getWindow().getAttributes();
-//        getWindow().getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+        getWindow().getWindow().setWindowAnimations(R.style.noAnimTheme);
+        WindowManager.LayoutParams params = getWindow().getWindow().getAttributes();
+        getWindow().getWindow().getDecorView().setBackgroundColor(Color.BLUE);
 
         return view;
 
@@ -154,6 +156,7 @@ public class IMEService extends InputMethodService implements OnClickListener {
 
 
     FrameLayout fullLayout;
+
     @Override
     public View onCreateCandidatesView() {
         Log.d(TAG, "onCreateCandidatesView: ");
@@ -168,6 +171,8 @@ public class IMEService extends InputMethodService implements OnClickListener {
         fullLayout = (FrameLayout) transparentView.findViewById(R.id.full_layout);
 
         mLinearLayout.fillLayout = fullLayout;
+
+        getWindow().getWindow().getAttributes().gravity = Gravity.TOP;
         return transparentView;
     }
 
