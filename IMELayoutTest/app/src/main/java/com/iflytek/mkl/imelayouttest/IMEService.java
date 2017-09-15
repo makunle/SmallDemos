@@ -1,13 +1,21 @@
 package com.iflytek.mkl.imelayouttest;
 
+import android.app.Dialog;
+import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.ScaleAnimation;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,7 +26,7 @@ import java.util.List;
  * Created by makunle on 2017/9/14.
  */
 
-public class IMEService extends InputMethodService implements OnClickListener{
+public class IMEService extends InputMethodService implements OnClickListener {
 
     private static final String TAG = "IMEService";
 
@@ -59,21 +67,33 @@ public class IMEService extends InputMethodService implements OnClickListener{
                 candidateTextView.setText("");
                 break;
             case R.id.change_layout:
-                if (layout_num.getVisibility() == View.VISIBLE) {
-                    layout_num.setVisibility(View.GONE);
-                    layout_abc2.setVisibility(View.GONE);
-                } else {
-                    layout_num.setVisibility(View.VISIBLE);
-                    layout_abc2.setVisibility(View.VISIBLE);
-                }
+
                 break;
             default:
                 TextView editText = (TextView) v;
                 candidateTextView.append(editText.getText(), 0, 1);
+
+                if(editText.getText().equals("a")){
+                    if (layout_num.getVisibility() == View.VISIBLE) {
+                        layout_num.setVisibility(View.GONE);
+//                    layout_abc2.setVisibility(View.GONE);
+//                        mLinearLayout.fillLayout.getLayoutParams().height = 1413;
+                        getWindow().getWindow().getAttributes().y = 500;
+                    } else {
+                        layout_num.setVisibility(View.VISIBLE);
+//                    layout_abc2.setVisibility(View.VISIBLE);
+//                        mLinearLayout.fillLayout.getLayoutParams().height = 1269;
+//                        mLinearLayout.getLayoutParams().height = 591;
+                        getWindow().getWindow().getAttributes().y = 200;
+                    }
+
+
+                }
                 break;
         }
     }
 
+    MLinearLayout mLinearLayout;
     @Override
     public View onCreateInputView() {
         Log.d(TAG, "onCreateInputView: ");
@@ -92,18 +112,68 @@ public class IMEService extends InputMethodService implements OnClickListener{
 
         keyboardRoot = (LinearLayout) view.findViewById(R.id.kb_root);
         keyboardRoot.setLayoutAnimation(new LayoutAnimationController(new ScaleAnimation(0, 100, 0, 100), 2000));
+
+        mLinearLayout = (MLinearLayout) view.findViewById(R.id.kb_root);
+//        getWindow().getWindow().setWindowAnimations(R.style.noAnimTheme);
+//        WindowManager.LayoutParams params = getWindow().getWindow().getAttributes();
+//        getWindow().getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+
         return view;
+
+//        drawView = (MDrawView) getLayoutInflater().inflate(R.layout.use_drawview, null);
+//        ViewGroup.LayoutParams params = drawView.getLayoutParams();
+//        Log.d(TAG, "onCreateInputView: params is null: " + (params == null));
+//        return drawView;
+
+//        View lv = getLayoutInflater().inflate(R.layout.use_mlinearlayout, null);
+//        final Button b1 = (Button) lv.findViewById(R.id.b1);
+//        final Button b2 = (Button) lv.findViewById(R.id.b2);
+//        final Button b3 = (Button) lv.findViewById(R.id.b3);
+//        lv.findViewById(R.id.b2).setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(b1.getVisibility() == View.VISIBLE){
+//                    b1.setVisibility(View.GONE);
+//                    b3.setVisibility(View.GONE);
+//                }else{
+//                    b1.setVisibility(View.VISIBLE);
+//                    b3.setVisibility(View.VISIBLE);
+//                }
+//                getWindow().dismiss();
+//                getWindow().show();
+//            }
+//        });
+//
+//        Dialog dialog = getWindow();
+//        Window window = dialog.getWindow();
+//        WindowManager.LayoutParams params = window.getAttributes();
+//        params.windowAnimations = R.style.noAnimTheme;
+
+//        return lv;
     }
 
+
+    FrameLayout fullLayout;
     @Override
     public View onCreateCandidatesView() {
         Log.d(TAG, "onCreateCandidatesView: ");
-        setCandidatesViewShown(true);
         View v = getLayoutInflater().inflate(R.layout.candidate, null);
         candidateTextView = (TextView) v.findViewById(R.id.candidate);
         candidateTextView.setOnClickListener(this);
         v.findViewById(R.id.hide).setOnClickListener(this);
         v.findViewById(R.id.change_layout).setOnClickListener(this);
-        return v;
+//        return v;
+
+        View transparentView = getLayoutInflater().inflate(R.layout.transparent_candidate, null);
+        fullLayout = (FrameLayout) transparentView.findViewById(R.id.full_layout);
+
+        mLinearLayout.fillLayout = fullLayout;
+        return transparentView;
+    }
+
+    @Override
+    public void onStartInputView(EditorInfo info, boolean restarting) {
+        super.onStartInputView(info, restarting);
+        Log.d(TAG, "onStartInputView: ");
     }
 }

@@ -15,5 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/cover_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="遮罩测试" />
 
 </LinearLayout>
