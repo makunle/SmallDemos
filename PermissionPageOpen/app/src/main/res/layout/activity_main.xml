@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/root"
     tools:context="com.iflytek.mkl.permissionpageopen.MainActivity">
 
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent">
       <LinearLayout
+          android:orientation="vertical"
+          android:layout_gravity="bottom"
           android:layout_width="match_parent"
           android:layout_height="match_parent">
 
@@ -19,6 +22,11 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content" />
 
+          <Button
+              android:text="change size"
+              android:onClick="changeViewSize"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
 
 
       </LinearLayout>
