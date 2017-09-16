@@ -48,7 +48,7 @@ public class MLinearLayout extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    FrameLayout fillLayout;
+    FrameLayout candilayout;
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
@@ -381,18 +381,12 @@ public class MLinearLayout extends LinearLayout {
         Log.d(TAG, "onSizeChanged: " + w + " " + h + " " + oldw + " " + oldh);
         super.onSizeChanged(w, h, oldw, oldh);
 
-        int statusBarHeight = -1;
-        //获取status_bar_height资源的ID
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            //根据资源ID获取响应的尺寸值
-            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
-        }
-        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
-        int height = wm.getDefaultDisplay().getHeight();
-        Log.d(TAG, "onSizeChanged: status bar height: " + statusBarHeight + "    window height: " + height + "      need fill height: " + (height - statusBarHeight - h));
-
-//        fillLayout.getLayoutParams().height = height - statusBarHeight - h;
+//        candilayout.getLayoutParams().height = height - statusBarHeight - h;
+//        this.getLayoutParams().height = h;
+//        int height1 = getHeight();
+//        Log.d(TAG, "onSizeChanged: m height : " + height1);
+//        candilayout.requestLayout();
+//        requestLayout();
     }
 
     @Override

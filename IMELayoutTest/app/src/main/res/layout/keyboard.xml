@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.iflytek.mkl.imelayouttest.MLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffcc"
+    android:layout_height="wrap_content"
+    android:background="#6fcc"
     android:orientation="vertical"
-    android:gravity="bottom"
-    android:layout_gravity="bottom"
     android:animateLayoutChanges="false"
     android:id="@+id/kb_root"
     android:paddingLeft="10dp"

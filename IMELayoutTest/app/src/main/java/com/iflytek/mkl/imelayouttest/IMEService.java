@@ -1,6 +1,6 @@
 package com.iflytek.mkl.imelayouttest;
 
-import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.inputmethodservice.InputMethodService;
 import android.util.Log;
@@ -8,13 +8,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.LayoutAnimationController;
-import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,7 +36,8 @@ public class IMEService extends InputMethodService implements OnClickListener {
     View layout_abc3;
     View layout_num;
 
-    LinearLayout keyboardRoot;
+    FrameLayout candiLayout;
+    MLinearLayout boardLayout;
 
     private TextView candidateTextView;
 
@@ -71,30 +68,52 @@ public class IMEService extends InputMethodService implements OnClickListener {
                 break;
             default:
                 TextView editText = (TextView) v;
-                candidateTextView.append(editText.getText(), 0, 1);
+//                candidateTextView.append(editText.getText(), 0, 1);
+                inputConnection.commitText(editText.getText().toString(), 1);
+                if (editText.getText().equals("p") || editText.getText().equals("A")) {
 
-                if (editText.getText().equals("a")) {
                     if (layout_num.getVisibility() == View.VISIBLE) {
                         layout_num.setVisibility(View.GONE);
-//                    layout_abc2.setVisibility(View.GONE);
-//                        mLinearLayout.fillLayout.getLayoutParams().height = 1413;
+                    layout_abc3.setVisibility(View.GONE);
+//                        candiLayout.getLayoutParams().height = 1413;
+//                        boardLayout.getLayoutParams().height = 447;
 
                     } else {
                         layout_num.setVisibility(View.VISIBLE);
-//                    layout_abc2.setVisibility(View.VISIBLE);
-//                        mLinearLayout.fillLayout.getLayoutParams().height = 1269;
+                    layout_abc3.setVisibility(View.VISIBLE);
+//                        candiLayout.getLayoutParams().height = 1269;
+//                        boardLayout.getLayoutParams().height = 591;
 //                        mLinearLayout.getLayoutParams().height = 591;
                     }
-                    boolean b = getWindow().getWindow().getDecorView() == null;
-                    Log.d(TAG, "onClick: decor view is null: " + b);
+                    int statusBarHeight = -1;
+                    //获取status_bar_height资源的ID
+                    int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+                    if (resourceId > 0) {
+                        //根据资源ID获取响应的尺寸值
+                        statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+                    }
+                    WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+                    int windowHeight = wm.getDefaultDisplay().getHeight();
+                    boardLayout.measure(0, 0);
+                    int boardHeight = boardLayout.getMeasuredHeight();
+                    int candiHeight = windowHeight - statusBarHeight - boardHeight;
+                    candiLayout.getLayoutParams().height = candiHeight;
+                    boardLayout.getLayoutParams().height = boardHeight;
+                    candiLayout.requestLayout();
+                    boardLayout.requestLayout();
+
+                    boardLayout.requestLayout();
                     View decorView = getWindow().getWindow().getDecorView();
-                    decorView.setBackgroundColor(Color.RED);
+//                    decorView.setBackgroundColor(Color.GREEN);
+                    decorView.clearAnimation();
+                    ViewGroup.LayoutParams layoutParams = decorView.getLayoutParams();
+//                    getWindow().cancel();
+//                    getWindow().show();
                 }
                 break;
         }
     }
 
-    MLinearLayout mLinearLayout;
 
     @Override
     public View onCreateInputView() {
@@ -112,13 +131,21 @@ public class IMEService extends InputMethodService implements OnClickListener {
         layout_abc3 = view.findViewById(R.id.layout_abc3);
         layout_num = view.findViewById(R.id.layout_num);
 
-        keyboardRoot = (LinearLayout) view.findViewById(R.id.kb_root);
-        keyboardRoot.setLayoutAnimation(new LayoutAnimationController(new ScaleAnimation(0, 100, 0, 100), 2000));
+        boardLayout = (MLinearLayout) view.findViewById(R.id.kb_root);
+//        keyboardRoot.setLayoutAnimation(new LayoutAnimationController(new ScaleAnimation(0, 100, 0, 100), 2000));
 
-        mLinearLayout = (MLinearLayout) view.findViewById(R.id.kb_root);
-        getWindow().getWindow().setWindowAnimations(R.style.noAnimTheme);
+//        mLinearLayout = (MLinearLayout) view.findViewById(R.id.kb_root);
+//        getWindow().getWindow().setWindowAnimations(R.style.noAnimTheme);
         WindowManager.LayoutParams params = getWindow().getWindow().getAttributes();
-        getWindow().getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+        params.gravity = Gravity.BOTTOM | Gravity.LEFT;
+//        params.x = 100;
+//        params.y = 200;
+        params.rotationAnimation = R.style.noAnimTheme;
+        params.dimAmount = 0.8f;
+
+//        params.windowAnimations = R.style.noAnimTheme;
+
+//        getWindow().getWindow().getDecorView().setBackgroundColor(Color.BLUE);
 
         return view;
 
@@ -155,7 +182,7 @@ public class IMEService extends InputMethodService implements OnClickListener {
     }
 
 
-    FrameLayout fullLayout;
+
 
     @Override
     public View onCreateCandidatesView() {
@@ -166,13 +193,16 @@ public class IMEService extends InputMethodService implements OnClickListener {
         v.findViewById(R.id.hide).setOnClickListener(this);
         v.findViewById(R.id.change_layout).setOnClickListener(this);
 //        return v;
-
+//        return null;
         View transparentView = getLayoutInflater().inflate(R.layout.transparent_candidate, null);
-        fullLayout = (FrameLayout) transparentView.findViewById(R.id.full_layout);
+        candiLayout = (FrameLayout) transparentView.findViewById(R.id.fill_layout);
+        candiLayout.getLayoutParams().height = 1269;
 
-        mLinearLayout.fillLayout = fullLayout;
-
-        getWindow().getWindow().getAttributes().gravity = Gravity.TOP;
+        boardLayout.candilayout = candiLayout;
+//
+//        getWindow().getWindow().getDecorView().setBackgroundColor(Color.argb(100, 255, 120, 220));
+//        getWindow().getWindow().getAttributes().gravity = Gravity.TOP;
+        setCandidatesViewShown(false);
         return transparentView;
     }
 
