@@ -70,8 +70,8 @@ public class FloatKeyboardMonitor {
             params.height = WindowManager.LayoutParams.MATCH_PARENT;
 
             if (DEBUG) {
-                params.width = 100;
-                instance.view.setBackgroundColor(Color.RED);
+                params.width = 800;
+                instance.view.setBackgroundColor(Color.argb(80, 180, 250, 100));
             }
 
             manager.addView(instance.view, params);
