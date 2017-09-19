@@ -2,58 +2,38 @@ package com.iflytek.mkl.whocovermetest;
 
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
-import android.app.UiAutomation;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.hardware.display.DisplayManager;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.print.PrintJob;
-import android.print.PrintManager;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.TaskStackBuilder;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Display;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.view.accessibility.AccessibilityWindowInfo;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
+
+import reflect.Reflect;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,23 +71,49 @@ public class MainActivity extends AppCompatActivity {
                 while (checkRun) {
 //                    visibleRect(rootView);
 //                    Log.d(TAG, " ");
-                    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-                    List<ActivityManager.RunningTaskInfo> tasks = manager.getRunningTasks(100);
-                    for (ActivityManager.RunningTaskInfo info : tasks) {
-                        Log.d(TAG, "run: " + info.topActivity);
-                    }
+//                    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+//                    List<ActivityManager.RunningTaskInfo> tasks = manager.getRunningTasks(100);
+//                    for (ActivityManager.RunningTaskInfo info : tasks) {
+//                        Log.d(TAG, "exec: " + info.topActivity);
+//                    }
+//
+//                    WindowManager wmanager = (WindowManager) getSystemService(WINDOW_SERVICE);
+//                    Display display = wmanager.getDefaultDisplay();
 
-                    WindowManager wmanager = (WindowManager) getSystemService(WINDOW_SERVICE);
-                    Display display = wmanager.getDefaultDisplay();
+                    Rect rect = new Rect();
+//                    getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+//                    Log.d(TAG, "get rect: " + rect);
+
+                    Reflect DMG = new Reflect("android.hardware.display.DisplayManagerGlobal");
+
+                    Reflect DI = new Reflect("android.view.DisplayInfo");
+
+                    Object instance = DMG.getMethod("getInstance").exec();
+
+                    Display d = (Display) DMG.getMethod("getRealDisplay", int.class)
+                            .with(instance).exec(Display.DEFAULT_DISPLAY);
+
+                    Object displayInfoInstance = DMG.getMethod("getDisplayInfo", int.class)
+                            .with(instance).exec(d.getDisplayId());
+
+                    String infoString = (String) DI.getMethod("toString").with(displayInfoInstance).exec();
+                    Log.d(TAG, "display info : " + infoString);
+
+
+//                    Display d = DisplayManagerGlobal.getInstance().getRealDisplay(Display.DEFAULT_DISPLAY);
+//                    d.getRectSize(outRect);
+
+
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        });
+        }).start();
     }
+
 
     private void visibleRect(View view) {
         Rect rect = new Rect();
@@ -226,13 +232,14 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < info.pkgList.length; i++) {
                 list += info.pkgList[i] + " ";
             }
-            Log.d(TAG, "handleMessage: " + info.importance + " " + info.lru + " " + info +" " + info.processName + " " + list);
+            Log.d(TAG, "handleMessage: " + info.importance + " " + info.lru + " " + info + " " + info.processName + " " + list);
         }
     }
 
 
     AccessibilityManager.AccessibilityStateChangeListener accessiListener;
-    private void windowService(){
+
+    private void windowService() {
         AccessibilityManager manager = (AccessibilityManager) getSystemService(ACCESSIBILITY_SERVICE);
         accessiListener = new AccessibilityManager.AccessibilityStateChangeListener() {
             @Override
@@ -278,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
         String cmd = cmdInput.getText().toString();
         shell(cmd);
     }
-    
+
     //=======================================  onMethods ===========================================
 
     @Override
