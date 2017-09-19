@@ -36,7 +36,7 @@ public class MASService extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        show("event: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + "  " + event.getPackageName());
+        Log.d(TAG, "event: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + "  " + event.getPackageName());
     }
 
     @Override
