@@ -70,17 +70,21 @@ public class IMEService extends InputMethodService implements OnClickListener {
                 TextView editText = (TextView) v;
 //                candidateTextView.append(editText.getText(), 0, 1);
                 inputConnection.commitText(editText.getText().toString(), 1);
-                if (editText.getText().equals("p") || editText.getText().equals("A")) {
+                if (editText.getText().equals("p") || editText.getText().equals("l")) {
 
                     if (layout_num.getVisibility() == View.VISIBLE) {
-                        layout_num.setVisibility(View.GONE);
-                    layout_abc3.setVisibility(View.GONE);
+                        if (editText.getText().equals("p"))
+                            layout_num.setVisibility(View.GONE);
+                        else
+                            layout_abc3.setVisibility(View.GONE);
 //                        candiLayout.getLayoutParams().height = 1413;
 //                        boardLayout.getLayoutParams().height = 447;
 
                     } else {
-                        layout_num.setVisibility(View.VISIBLE);
-                    layout_abc3.setVisibility(View.VISIBLE);
+                        if (editText.getText().equals("p"))
+                            layout_num.setVisibility(View.VISIBLE);
+                        else
+                            layout_abc3.setVisibility(View.VISIBLE);
 //                        candiLayout.getLayoutParams().height = 1269;
 //                        boardLayout.getLayoutParams().height = 591;
 //                        mLinearLayout.getLayoutParams().height = 591;
@@ -180,8 +184,6 @@ public class IMEService extends InputMethodService implements OnClickListener {
 
 //        return lv;
     }
-
-
 
 
     @Override
