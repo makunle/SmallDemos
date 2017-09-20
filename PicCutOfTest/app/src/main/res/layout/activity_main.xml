@@ -12,15 +12,6 @@
         android:layout_height="match_parent"
         android:scaleType="matrix" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="10dp"
-        android:onClick="getInfo"
-        android:text="get" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,9 +43,8 @@
                 android:id="@+id/preview_layout"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#0000">
-            </LinearLayout>
+                android:background="#0000"
+                android:orientation="vertical"></LinearLayout>
             <!--<include layout="@layout/keyboard" />-->
 
 
@@ -82,4 +72,34 @@
         android:layout_gravity="top|left"
         android:focusable="false"
         android:textColor="#fff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getInfo"
+            android:text="get" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="rotate"
+            android:text="rotate" />
+
+        <Button
+            android:text="translate"
+            android:onClick="translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="scale"
+            android:onClick="scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </FrameLayout>

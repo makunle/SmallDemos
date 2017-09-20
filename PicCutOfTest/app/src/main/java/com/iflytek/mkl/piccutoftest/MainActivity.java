@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private Matrix matrix;
     private int imageX, imageY;
     private float mouseX, mouseY;
+    private float oldRotate, rotate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,13 +85,31 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.iv);
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                gestureDetector.onTouchEvent(motionEvent);
-                scaleGestureDetector.onTouchEvent(motionEvent);
+            public boolean onTouch(View view, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                scaleGestureDetector.onTouchEvent(event);
+
+                if (event.getPointerCount() == 2) {
+                    float dx = event.getX(0) - event.getX(1);
+                    float dy = event.getY(0) - event.getY(1);
+                    float radians = (float) Math.toDegrees(Math.atan2(dy, dx));
+                    if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                        rotate = radians - oldRotate;
+                        if (Math.abs(rotate) < 5) {
+                            matrix.postRotate(rotate,
+                                    (event.getX(0) + event.getX(1)) / 2,
+                                    (event.getY(0) + event.getY(1)) / 2);
+//                            Log.d(TAG, "rotate: " + rotate);
+                        }
+                        oldRotate = radians;
+                    }
+                }
+
+
                 imageView.setImageMatrix(matrix);
 
-                mouseX = motionEvent.getX();
-                mouseY = motionEvent.getY();
+                mouseX = event.getX();
+                mouseY = event.getY();
 
 //                adjustToArea();
                 showInfo();
@@ -117,11 +136,9 @@ public class MainActivity extends AppCompatActivity {
         float scale = Math.max(scaleH, scaleW);
         float transX = width / 2 - bitmap.getWidth() * scale / 2;
         float transY = height / 2 - bitmap.getHeight() * scale / 2;
-        matrix.postScale(scale, scale);
-        matrix.postTranslate(transX, transY);
+//        matrix.preScale(scale, scale);
+//        matrix.preTranslate(transX, transY);
         imageView.setImageMatrix(matrix);
-//        adjustToArea();
-//        matrix = imageView.getImageMatrix();
     }
 
     private float getNowScale() {
@@ -155,42 +172,113 @@ public class MainActivity extends AppCompatActivity {
         float value[] = new float[9];
         matrix.getValues(value);
         String show = "image: " + imageX + " " + imageY +
-                "\nscale: " + value[0] + "\ntranslate x: " + value[2] + "\ntranslate y: " + value[5] +
-                "\nimageview: " + imageAreaRect + "\npreview: " + previewAreaRect +
-                "\nmouse: " + (int) mouseX + " " + (int) mouseY;
+//                "\nscale: " + value[0] + "\ntranslate x: " + value[2] + "\ntranslate y: " + value[5] +
+                "\nimageview: " + imageAreaRect + "\npreview: " + previewAreaRect
+                + "\nbitmap: " + bitmap.getWidth() + " - " + bitmap.getHeight()
+
+//               + "\nmouse: " + (int) mouseX + " " + (int) mouseY
+                ;
+
+        for (int i = 0; i < 3; i++) {
+            show += "\n";
+            for (int j = 0; j < 3; j++) {
+                show += value[j + i * 3] + "\r              ";
+            }
+        }
+
         infoOut.setText(show);
+
+        drawPreViewRectInImg();
+    }
+
+
+    /**
+     * 绘制preview rect在img上的投影
+     */
+    private void drawPreViewRectInImg() {
+        float org[] = new float[]{previewAreaRect.left - imageAreaRect.left
+                , previewAreaRect.top - imageAreaRect.top};
+        float lt[] = new float[2];
+
+        Matrix invertMatrix = new Matrix();
+        matrix.invert(invertMatrix);
+
+        invertMatrix.mapPoints(lt, org);
+
+        org = new float[]{previewAreaRect.right - imageAreaRect.left,
+                previewAreaRect.bottom - imageAreaRect.top};
+        float rd[] = new float[2];
+        invertMatrix.mapPoints(rd, org);
+
+        org = new float[]{previewAreaRect.left - imageAreaRect.left,
+                previewAreaRect.bottom - imageAreaRect.top};
+
+        float ld[] = new float[2];
+        invertMatrix.mapPoints(ld, org);
+
+        org = new float[]{previewAreaRect.right - imageAreaRect.left,
+                previewAreaRect.top - imageAreaRect.top};
+        float rt[] = new float[2];
+        invertMatrix.mapPoints(rt, org);
+
+
+        Bitmap changedBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+        Canvas canvas = new Canvas(changedBitmap);
+        Paint paint = new Paint();
+        paint.setStrokeWidth(2);
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.STROKE);
+//        canvas.drawLine(0, 0, lt[0], lt[1], paint);
+//        canvas.drawLine(imageAreaRect.right, imageAreaRect.bottom,
+//                rd[0], rd[1], paint);
+
+        canvas.drawLine(lt[0], lt[1], rt[0], rt[1], paint);
+        canvas.drawLine(rt[0], rt[1], rd[0], rd[1], paint);
+        canvas.drawLine(rd[0], rd[1], ld[0], ld[1], paint);
+        canvas.drawLine(ld[0], ld[1], lt[0], lt[1], paint);
+
+        imageView.setImageBitmap(changedBitmap);
+
+//        Log.d(TAG, "image rect: " + imageAreaRect +
+//                "\nproject rect: \n" + lt[0] + ", " + lt[1] + "               " + rt[0] + "," + rt[1]
+//                + "\n" + ld[0] + ", " + ld[1] + "               " + rd[0] + ", " + rd[1]);
+
+        String prinfo =  "\nproject rect: \n" + lt[0] + ",  " + lt[1] + "               " + rt[0] + ",  " + rt[1]
+                + "\n" + ld[0] + ",  " + ld[1] + "               " + rd[0] + ",  " + rd[1];
+        infoOut.append(prinfo);
     }
 
     /**
      * 安全平移，确保平移后图片还能完全覆盖preview area
+     *
      * @param transX
      * @param transY
      */
     private void safeTranslation(float transX, float transY) {
-        float nowTransX = getNowTranslate()[0];
-        float nowTransY = getNowTranslate()[1];
-
-        float nowScale = getNowScale();
-
-        Rect ivRect = getImageAreaRect();
-        Rect previewRect = getPreviewAreaRect();
-
-        float imgUp = nowTransY + transY + ivRect.top - previewRect.top;
-        float imgDown = nowTransY + transY + ivRect.top + bitmap.getHeight() * nowScale - previewRect.bottom;
-        float imgLeft = nowTransX + transX + ivRect.left - previewRect.left;
-        float imgRight = nowTransX + transX + ivRect.left + bitmap.getWidth() * nowScale - previewRect.right;
-
-        if (imgUp > 0) {
-            transY -= imgUp;
-        } else if (imgDown < 0) {
-            transY -= imgDown;
-        }
-
-        if (imgLeft > 0) {
-            transX -= imgLeft;
-        } else if (imgRight < 0) {
-            transX -= imgRight;
-        }
+//        float nowTransX = getNowTranslate()[0];
+//        float nowTransY = getNowTranslate()[1];
+//
+//        float nowScale = getNowScale();
+//
+//        Rect ivRect = getImageAreaRect();
+//        Rect previewRect = getPreviewAreaRect();
+//
+//        float imgUp = nowTransY + transY + ivRect.top - previewRect.top;
+//        float imgDown = nowTransY + transY + ivRect.top + bitmap.getHeight() * nowScale - previewRect.bottom;
+//        float imgLeft = nowTransX + transX + ivRect.left - previewRect.left;
+//        float imgRight = nowTransX + transX + ivRect.left + bitmap.getWidth() * nowScale - previewRect.right;
+//
+//        if (imgUp > 0) {
+//            transY -= imgUp;
+//        } else if (imgDown < 0) {
+//            transY -= imgDown;
+//        }
+//
+//        if (imgLeft > 0) {
+//            transX -= imgLeft;
+//        } else if (imgRight < 0) {
+//            transX -= imgRight;
+//        }
 
 //                Log.d(TAG, "move  up:" + imgUp + "  down:" + imgDown + "    left:" + imgLeft + "  right:" + imgRight);
 
@@ -199,22 +287,23 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 安全缩放，确保缩放后图片还能完全覆盖preview area
+     *
      * @param scale
      * @param focusX
      * @param focusY
      */
     private void safeScale(float scale, float focusX, float focusY) {
-        float nowScale = getNowScale();
-
-        int previewWidth = getPreviewAreaRect().width();
-        if (bitmap.getWidth() * nowScale * scale < previewWidth) {
-            scale = previewWidth / nowScale / bitmap.getWidth();
-        }
-
-        int previewHeight = getPreviewAreaRect().height();
-        if (bitmap.getHeight() * nowScale * scale < previewHeight) {
-            scale = previewHeight / nowScale / bitmap.getHeight();
-        }
+//        float nowScale = getNowScale();
+//
+//        int previewWidth = getPreviewAreaRect().width();
+//        if (bitmap.getWidth() * nowScale * scale < previewWidth) {
+//            scale = previewWidth / nowScale / bitmap.getWidth();
+//        }
+//
+//        int previewHeight = getPreviewAreaRect().height();
+//        if (bitmap.getHeight() * nowScale * scale < previewHeight) {
+//            scale = previewHeight / nowScale / bitmap.getHeight();
+//        }
 
 //                Log.d(TAG, "onScale after width: " + bitmap.getWidth() * nowScale * canScale + "    view:" + previewWidth);
 
@@ -370,6 +459,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }.execute();
 
+    }
+
+    public void rotate(View view) {
+        matrix.preRotate(45);
+        imageView.setImageMatrix(matrix);
+        showInfo();
+    }
+
+    //scale之后，如果使用postTranslate,则translate的值不受scale影响
+    //如果使用preTranslate，则translate值受影响，scale 2倍的话translate的值也会x2
+    public void translate(View view) {
+        matrix.postTranslate(5, 5);
+        imageView.setImageMatrix(matrix);
+        showInfo();
+    }
+
+    //translate之后，如果使用preScale,则translate的值不改变，但设置center工作不正常
+    //如果使用postScale，则translate值受影响，scale 2倍的话translate的值也会x2,但postScale设置的center正常工作
+    public void scale(View view) {
+        matrix.postScale(1.1f, 1.1f, 1080 / 2, 1860 / 2);
+        imageView.setImageMatrix(matrix);
+        showInfo();
     }
 
 
