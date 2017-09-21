@@ -1,6 +1,7 @@
 package com.iflytek.mkl.getwindowviewsinfo;
 
 import android.accessibilityservice.AccessibilityService;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.ContactsContract;
@@ -45,16 +46,19 @@ public class MASService extends AccessibilityService {
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     SimpleDateFormat format = new SimpleDateFormat("  HH:mm:ss");
+                    Rect rect = new Rect();
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         for (AccessibilityWindowInfo info : getWindows()) {
                             AccessibilityNodeInfo root = info.getRoot();
+                            info.getBoundsInScreen(rect);
                             show("======================== " + root.getPackageName()
                                     + format.format(Calendar.getInstance().getTime())
-                                    + "  " +info.getLayer() + " ========================");
+                                    + "  " + info.getLayer() + "  " + rect + " ========================");
                             show(root, 0);
                         }
                     } else {
-                        show("======================== " + getPackageName() + format.format(Calendar.getInstance().getTime()) + " ========================");
+                        getRootInActiveWindow().getBoundsInScreen(rect);
+                        show("======================== " + getPackageName() + format.format(Calendar.getInstance().getTime()) + "  " + rect + " ========================");
                         show(getRootInActiveWindow(), 0);
                     }
                     show("======================================================\n");
