@@ -8,6 +8,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.PointF;
 import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -35,6 +37,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class MainActivity extends AppCompatActivity {
@@ -96,7 +99,10 @@ public class MainActivity extends AppCompatActivity {
                     if (event.getAction() == MotionEvent.ACTION_MOVE) {
                         rotate = radians - oldRotate;
                         if (Math.abs(rotate) < 5) {
-                            matrix.postRotate(rotate,
+//                            matrix.postRotate(rotate,
+//                                    (event.getX(0) + event.getX(1)) / 2,
+//                                    (event.getY(0) + event.getY(1)) / 2);
+                            newSafeRotate(rotate,
                                     (event.getX(0) + event.getX(1)) / 2,
                                     (event.getY(0) + event.getY(1)) / 2);
 //                            Log.d(TAG, "rotate: " + rotate);
@@ -196,30 +202,30 @@ public class MainActivity extends AppCompatActivity {
      * 绘制preview rect在img上的投影
      */
     private void drawPreViewRectInImg() {
-        float org[] = new float[]{previewAreaRect.left - imageAreaRect.left
-                , previewAreaRect.top - imageAreaRect.top};
-        float lt[] = new float[2];
-
-        Matrix invertMatrix = new Matrix();
-        matrix.invert(invertMatrix);
-
-        invertMatrix.mapPoints(lt, org);
-
-        org = new float[]{previewAreaRect.right - imageAreaRect.left,
-                previewAreaRect.bottom - imageAreaRect.top};
-        float rd[] = new float[2];
-        invertMatrix.mapPoints(rd, org);
-
-        org = new float[]{previewAreaRect.left - imageAreaRect.left,
-                previewAreaRect.bottom - imageAreaRect.top};
-
-        float ld[] = new float[2];
-        invertMatrix.mapPoints(ld, org);
-
-        org = new float[]{previewAreaRect.right - imageAreaRect.left,
-                previewAreaRect.top - imageAreaRect.top};
-        float rt[] = new float[2];
-        invertMatrix.mapPoints(rt, org);
+//        float org[] = new float[]{previewAreaRect.left - imageAreaRect.left
+//                , previewAreaRect.top - imageAreaRect.top};
+//        float lt[] = new float[2];
+//
+//        Matrix invertMatrix = new Matrix();
+//        matrix.invert(invertMatrix);
+//
+//        invertMatrix.mapPoints(lt, org);
+//
+//        org = new float[]{previewAreaRect.right - imageAreaRect.left,
+//                previewAreaRect.bottom - imageAreaRect.top};
+//        float rd[] = new float[2];
+//        invertMatrix.mapPoints(rd, org);
+//
+//        org = new float[]{previewAreaRect.left - imageAreaRect.left,
+//                previewAreaRect.bottom - imageAreaRect.top};
+//
+//        float ld[] = new float[2];
+//        invertMatrix.mapPoints(ld, org);
+//
+//        org = new float[]{previewAreaRect.right - imageAreaRect.left,
+//                previewAreaRect.top - imageAreaRect.top};
+//        float rt[] = new float[2];
+//        invertMatrix.mapPoints(rt, org);
 
 
         Bitmap changedBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
@@ -232,10 +238,17 @@ public class MainActivity extends AppCompatActivity {
 //        canvas.drawLine(imageAreaRect.right, imageAreaRect.bottom,
 //                rd[0], rd[1], paint);
 
-        canvas.drawLine(lt[0], lt[1], rt[0], rt[1], paint);
-        canvas.drawLine(rt[0], rt[1], rd[0], rd[1], paint);
-        canvas.drawLine(rd[0], rd[1], ld[0], ld[1], paint);
-        canvas.drawLine(ld[0], ld[1], lt[0], lt[1], paint);
+//        canvas.drawLine(lt[0], lt[1], rt[0], rt[1], paint);
+//        canvas.drawLine(rt[0], rt[1], rd[0], rd[1], paint);
+//        canvas.drawLine(rd[0], rd[1], ld[0], ld[1], paint);
+//        canvas.drawLine(ld[0], ld[1], lt[0], lt[1], paint);
+
+        PointF[] p = get4PointsChangeMatrix(matrix);
+
+        canvas.drawLine(p[0].x, p[0].y, p[1].x, p[1].y, paint);
+        canvas.drawLine(p[1].x, p[1].y, p[3].x, p[3].y, paint);
+        canvas.drawLine(p[2].x, p[2].y, p[3].x, p[3].y, paint);
+        canvas.drawLine(p[0].x, p[0].y, p[2].x, p[2].y, paint);
 
         imageView.setImageBitmap(changedBitmap);
 
@@ -243,8 +256,10 @@ public class MainActivity extends AppCompatActivity {
 //                "\nproject rect: \n" + lt[0] + ", " + lt[1] + "               " + rt[0] + "," + rt[1]
 //                + "\n" + ld[0] + ", " + ld[1] + "               " + rd[0] + ", " + rd[1]);
 
-        String prinfo =  "\nproject rect: \n" + lt[0] + ",  " + lt[1] + "               " + rt[0] + ",  " + rt[1]
-                + "\n" + ld[0] + ",  " + ld[1] + "               " + rd[0] + ",  " + rd[1];
+//        String prinfo = "\nproject rect: \n" + lt[0] + ",  " + lt[1] + "               " + rt[0] + ",  " + rt[1]
+//                + "\n" + ld[0] + ",  " + ld[1] + "               " + rd[0] + ",  " + rd[1];
+
+        String prinfo = "\nproject rect: \n" + p[0] + " " + p[1] + "\n" + p[2] + " " + p[3];
         infoOut.append(prinfo);
     }
 
@@ -473,6 +488,13 @@ public class MainActivity extends AppCompatActivity {
         matrix.postTranslate(5, 5);
         imageView.setImageMatrix(matrix);
         showInfo();
+
+        Matrix im = new Matrix();
+        matrix.invert(im);
+        float in[] = new float[]{5, 5};
+        float out[] = new float[2];
+        im.mapPoints(out, in);
+        Log.d(TAG, "translate: effect: " + out[0] + " , " + out[1]);
     }
 
     //translate之后，如果使用preScale,则translate的值不改变，但设置center工作不正常
@@ -484,56 +506,107 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//     imageView.setOnTouchListener(new View.OnTouchListener() {
-//        private float px, py;
-//        private float px1, px2, py1, py2;
-//        private boolean isRoom = false;
-//        @Override
-//        public boolean onTouch(View view, MotionEvent e) {
-//            Log.d(TAG, "onTouch: " + e.getAction() + "  " + e.getPointerCount());
-//            scaleGestureDetector.onTouchEvent(e);
-////                if(!scaleGestureDetector.onTouchEvent(e))
-//            if(e.getPointerCount() == 2){
-//                isRoom = true;
-//            }
-////                if(e.getPointerCount() == 1) {
-//            switch (e.getAction()) {
-//                case MotionEvent.ACTION_DOWN:
-//
-//                    px = e.getX();
-//                    py = e.getY();
-//                    break;
-//                case MotionEvent.ACTION_MOVE:
-//                    float dx = e.getX() - px;
-//                    float dy = e.getY() - py;
-//                    px = e.getX();
-//                    py = e.getY();
-//                    if(!isRoom)
-//                        matrix.postTranslate(dx, dy);
-//                    break;
-//                case MotionEvent.ACTION_UP:
-//                    if(e.getPointerCount() == 1){
-//                        isRoom = false;
-//                    }
-//                    break;
-//            }
+    /***
+     * 新版safe translate，移动时，图片必须完全覆盖preview rect
+     * x，y方向中，达到极限的位置的方向不再平移
+     * @param transX
+     * @param transY
+     */
+    private void newSafeTranslate(float transX, float transY) {
+    }
 
-//                }
-//                if(e.getPointerCount() == 2){
-//                    switch (e.getAction()){
-//                        case MotionEvent.ACTION_DOWN:
-//                            px1 = e.getX(0);
-//                            px2 = e.getX(1);
-//                            py1 = e.getY(0);
-//                            py2 = e.getY(1);
-//                            break;
-//                        case MotionEvent.ACTION_MOVE:
-//
-//                    }
-//                }
-//            imageView.setImageMatrix(matrix);
-//            return true;
-//        }
-//
-//    });
+    private boolean inImage(PointF p) {
+        return p.x >= 0 && p.x <= bitmap.getWidth()
+                && p.y >= 0 && p.y <= bitmap.getHeight();
+    }
+
+    /***
+     * 新版safe scale，缩放时，保证图片完全覆盖preview rect，
+     * 缩放时可通过translate继续调整缩放
+     * @param scale
+     * @param centerX
+     * @param centerY
+     */
+    private void newSafeScale(float scale, float centerX, float centerY) {
+
+    }
+
+    /***
+     * 新版safe rotate，旋转时，保证图片完全覆盖preview rect
+     * 以centerX，centerY为中心调节scale，确保可继续旋转
+     * @param angle
+     * @param centerX
+     * @param centerY
+     */
+    private void newSafeRotate(float angle, float centerX, float centerY) {
+        matrix.postRotate(angle, centerX, centerY);
+        float W = bitmap.getWidth();
+        float H = bitmap.getHeight();
+
+        boolean isOutRange;
+        do {
+            PointF[] p = get4PointsChangeMatrix(matrix);
+            isOutRange = p[0].x < 0 || p[1].x < 0 || p[2].x < 0 || p[3].x < 0
+                    || p[0].y < 0 || p[1].y < 0 || p[2].y < 0 || p[3].y < 0
+                    || p[0].x > W || p[1].x > W || p[2].x > W || p[3].x > W
+                    || p[0].y > H || p[1].y > H || p[2].y > H || p[3].y > H;
+            if (isOutRange) {
+                matrix.postScale(1.02f, 1.02f, centerX, centerY);
+            }
+        } while (isOutRange);
+    }
+
+    /***
+     * 直接调整matrix，让bitmap覆盖preview rect，调整中
+     * 可调节translate、scale来适应rotate
+     * 可调节translate来适应scale
+     */
+    private void adjustMatrix() {
+        PointF[] p = get4PointsChangeMatrix(matrix);
+        //调节scale，确保存在当前rotate下，img中存在一个能覆盖preview的区域
+        float dx;
+    }
+
+    /***
+     * 获取给定矩阵下，preview四个顶点
+     * 0           1
+     * 2           3
+     * 在bitmap中的位置
+     * @param matrix
+     * @return
+     * 0           1
+     * 2           3
+     * 顶点在bitmpa中的位置
+     */
+    private PointF[] get4PointsChangeMatrix(Matrix matrix) {
+
+        Matrix invertMatrix = new Matrix();
+        matrix.invert(invertMatrix);
+
+        Rect pr = getPreviewAreaRect();
+        Rect ir = getImageAreaRect();
+        PointF p1, p2, p3, p4;
+
+        p1 = new PointF(pr.left - ir.left, pr.top - ir.top);
+        p2 = new PointF(pr.right - ir.left, pr.top - ir.top);
+        p3 = new PointF(pr.left - ir.left, pr.bottom - ir.top);
+        p4 = new PointF(pr.right - ir.left, pr.bottom - ir.top);
+
+        float in[] = new float[]{p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y};
+        float out[] = new float[8];
+
+        invertMatrix.mapPoints(out, 0, in, 0, 4);
+
+        p1.x = out[0];
+        p1.y = out[1];
+        p2.x = out[2];
+        p2.y = out[3];
+        p3.x = out[4];
+        p3.y = out[5];
+        p4.x = out[6];
+        p4.y = out[7];
+
+        return new PointF[]{p1, p2, p3, p4};
+    }
+
 }
