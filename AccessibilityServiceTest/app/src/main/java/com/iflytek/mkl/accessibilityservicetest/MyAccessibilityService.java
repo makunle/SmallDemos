@@ -54,6 +54,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
         switch (eventType) {
             case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
+
                 break;
             case AccessibilityEvent.TYPE_VIEW_SCROLLED:
                 break;
@@ -112,8 +113,8 @@ public class MyAccessibilityService extends AccessibilityService {
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
-        AccessibilityServiceInfo serviceInfo = getServiceInfo();
-        Util.show("feedtype:" + AccessibilityServiceInfo.feedbackTypeToString(serviceInfo.feedbackType));
+//        AccessibilityServiceInfo serviceInfo = getServiceInfo();
+//        Util.show("feedtype:" + AccessibilityServiceInfo.feedbackTypeToString(serviceInfo.feedbackType));
 
 //        AccessibilityServiceInfo info = getServiceInfo();
 //        info.eventTypes = AccessibilityEvent.TYPE_VIEW_CLICKED;
