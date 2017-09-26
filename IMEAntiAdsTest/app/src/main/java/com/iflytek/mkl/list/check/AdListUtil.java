@@ -57,10 +57,9 @@ public class AdListUtil {
             InputStream inputStream = context.getResources().openRawResource(R.raw.adlist);
             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             try {
-                String s = br.readLine();
-                while (s != null) {
+                String s = null;
+                while ((s = br.readLine()) != null) {
                     adList.add(s);
-                    s = br.readLine();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

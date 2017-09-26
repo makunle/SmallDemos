@@ -38,10 +38,9 @@ public class SensitiveListUtil {
             InputStream inputStream = context.getResources().openRawResource(R.raw.sensitivelist);
             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             try {
-                String s = br.readLine();
-                while (s != null) {
+                String s = null;
+                while ((s = br.readLine()) != null) {
                     sensitiveListPattern.add(Pattern.compile(s));
-                    s = br.readLine();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

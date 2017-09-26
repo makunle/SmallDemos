@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import com.iflytek.mkl.constant.value.CV;
 import com.iflytek.mkl.db.DBUtil;
 import com.iflytek.mkl.list.check.AdListUtil;
+import com.iflytek.mkl.list.check.RuleCalcUtil;
 import com.iflytek.mkl.list.check.SensitiveListUtil;
 import com.iflytek.mkl.list.check.WhiteListUtil;
 
@@ -40,6 +41,7 @@ public class AdDetect {
         AdListUtil.init(context);
         WhiteListUtil.init(context);
         SensitiveListUtil.init(context);
+        RuleCalcUtil.init(context);
     }
 
     //需由IMEService同名回调函数调用

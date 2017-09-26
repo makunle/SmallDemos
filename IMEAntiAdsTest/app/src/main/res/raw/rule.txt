@@ -1,7 +1,29 @@
-r1:A.state
-0:+2
-1:+5
-2:+3
+//============================================
+//属性说明：
+//A.state 当前输入状态
+//A.containInput A包含输入操作
+//A.inWhiteList A在白名单中
+//A.containAdSdk A包含广告SDK
+//A.duration A持续时间
+//A.inputed A进行了输入操作
+//A.isNull A对象为空
+//A.isSensitive A为敏感应用
+//
+//3个数值比较操作：
+//== > <
+//
+//格式：
+//r规则编号:AppState.[属性|函数][==|>|<][比较值]
+//[ true:[+|x][数字] ] 条件为真时执行的计算
+//[ false:[+|x][数字] ] 条件为假时执行的计算
+//============================================
+
+r1:A.state==0
+true:+2
+false:+3
+
+r1.1:A.state==1
+true:+2
 
 r2:A.containInput
 true:+1
@@ -12,7 +34,7 @@ true:x0
 r4:B.containAdSdk
 true:+1
 
-r5:B.duration<1500
+r5:B.duration<2000
 true:+1
 
 r6:B.duration
@@ -25,7 +47,7 @@ true:x0
 r8:C.isNull
 false:+1
 
-r9:C.duration<1500
+r9:C.duration<2000
 true:+0.5
 false:-1
 
