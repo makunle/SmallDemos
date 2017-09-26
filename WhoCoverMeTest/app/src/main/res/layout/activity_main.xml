@@ -26,6 +26,13 @@
         android:onClick="halfWindowAlert"
         android:text="半屏弹窗 pause" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="delayHalfWindowAlert"
+        android:text="延时半屏弹窗 pause" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -67,5 +74,9 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -378,4 +378,18 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onSaveInstanceState: ");
         super.onSaveInstanceState(outState);
     }
+
+    public void delayHalfWindowAlert(View view) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(8000);
+                    sendWindowPopBroadcast("half");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 }
