@@ -1,9 +1,17 @@
 package com.iflytek.mkl.imeantiadstest;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
+import com.iflytek.mkl.advertise.detect.AdDetect;
+import com.iflytek.mkl.db.AdDetectUtilDbHelper;
+import com.iflytek.mkl.db.DBUtil;
+import com.iflytek.mkl.list.check.AdListUtil;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -19,6 +27,10 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_AD_CHECK;
+import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_CONTAIN_INPUT;
+import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_DETECT_RESULT;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -28,29 +40,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final TextView output = (TextView) findViewById(R.id.output);
+
         findViewById(R.id.b1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String dualiad = AppAnalysisTool.a("dualiad", "043A48E4A53FADE6A11CE763588DCEA2");
-//                Log.d(TAG, "onClick: " + dualiad);
-
-                String des = decryptDES("043A48E4A53FADE6A11CE763588DCEA2", "dualiad");
-                Log.d(TAG, "onClick: " + des);
-
-                Properties properties = new Properties();
-                try {
-                    properties.load(getResources().openRawResource(R.raw.adlibrary));
-                    for (int i = 0; i < properties.size(); i++) {
-                        String str = properties.getProperty("" + i);
-                        String des1 = decryptDES(str, "dualiad");
-                        Log.d(TAG, "" + des1);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                output.setText("");
+                SQLiteDatabase db = DBUtil.getDb();
+                StringBuffer sb = new StringBuffer();
+                sb.append("--------------------ad sdk-------------------\n");
+                Cursor cursor = db.query("ad_sdk_check", null, null, null, null, null, null);
+                while (cursor.moveToNext()) {
+                    sb.append(cursor.getString(0)).append("   ").append(cursor.getString(1)).append("\n");
                 }
+                cursor.close();
+                cursor = db.query("detect_result", null, null, null, null, null, null);
+                sb.append("-----------------detect score-----------\n");
+                while (cursor.moveToNext()) {
+                    sb.append(cursor.getString(1)).append("   ").append(cursor.getString(2)).append("   ").append(cursor.getString(3)).append("   ").append("\n");
+                }
+                cursor.close();
+                sb.append("-----------------contain_input-----------\n");
+                cursor = db.query("contain_input", null, null, null, null, null, null);
+                while (cursor.moveToNext()) {
+                    sb.append(cursor.getString(0)).append("\n");
+                }
+                cursor.close();
+                output.setText(sb);
+
+                db.close();
             }
         });
 
+        AdDetect.init(this);
+
+//        DBUtil.setDetectResult("com.text.test", 8);
+//        DBUtil.setAdSdkCheckResult("com.aa.f", true);
+        int a = DBUtil.getAdSdkCheckResult("com.aa.f");
+//        int b = DBUtil.getAdSdkCheckResult("com.bb.f");
+//        Log.d(TAG, "onCreate: " + a + " " + b);
     }
 
 
@@ -59,12 +87,11 @@ public class MainActivity extends AppCompatActivity {
         int j = decryptString.length() / 2;
         byte[] localObject2 = new byte[j];
         int i = 0;
-        for (;;)
-        {
+        for (; ; ) {
             if (i >= j) {
                 break;
             }
-            localObject2[i] = ((byte)(Integer.parseInt(decryptString.substring(i * 2, i * 2 + 2), 16) & 0xFF));
+            localObject2[i] = ((byte) (Integer.parseInt(decryptString.substring(i * 2, i * 2 + 2), 16) & 0xFF));
             i += 1;
         }
 
@@ -104,5 +131,16 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void clearDb(View view) {
+        SQLiteDatabase db = DBUtil.getDb();
+        db.execSQL("drop table if exists ad_sdk_check;");
+        db.execSQL("drop table if exists detect_result;");
+        db.execSQL("drop table if exists contain_input;");
+
+        db.execSQL(CREATE_DB_AD_CHECK);
+        db.execSQL(CREATE_DB_DETECT_RESULT);
+        db.execSQL(CREATE_DB_CONTAIN_INPUT);
     }
 }

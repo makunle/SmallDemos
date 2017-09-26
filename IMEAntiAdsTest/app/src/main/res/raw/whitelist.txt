@@ -1,0 +1,7 @@
+com.android\.(mms|phone)
+com.miui\..*
+.*\.qualcomm\..*
+com.xiaomi\..*
+com.mipay\..*
+com.tencent.mobileqq
+com.tencent.mm
