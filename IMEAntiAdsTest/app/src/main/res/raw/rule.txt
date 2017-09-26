@@ -1,13 +1,13 @@
 //============================================
-//属性说明：
+//支持的属性和函数：
 //A.state 当前输入状态
-//A.containInput A包含输入操作
-//A.inWhiteList A在白名单中
-//A.containAdSdk A包含广告SDK
 //A.duration A持续时间
-//A.inputed A进行了输入操作
-//A.isNull A对象为空
-//A.isSensitive A为敏感应用
+//A.containInput A包含输入操作（函数）
+//A.inWhiteList A在白名单中（函数）
+//A.containAdSdk A包含广告SDK（函数）
+//A.inputed A进行了输入操作（函数）
+//A.isNull A对象为空（函数）
+//A.isSensitive A为敏感应用（函数）
 //
 //3个数值比较操作：
 //== > <
@@ -37,9 +37,11 @@ true:+1
 r5:B.duration<2000
 true:+1
 
-r6:B.duration
-3:+1
-5:+1
+r6:B.duration==3
+true:+1
+
+r6:B.duration==5
+true:+1
 
 r7:B.inputed
 true:x0
