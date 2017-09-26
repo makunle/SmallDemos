@@ -33,12 +33,10 @@ public class AppAnalysisTool {
                     .sourceDir;
             DexFile dexFile = new DexFile(path);
             Enumeration<String> entries = dexFile.entries();
-            int count = 0;
             while (entries.hasMoreElements()) {
-                entries.nextElement();
-                count++;
+                //获取到一个完整的类名
+                String className = entries.nextElement();
             }
-            Log.d(TAG, "package " + packageName + " have " + count +" class");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -50,16 +48,29 @@ public class AppAnalysisTool {
     public static String a(String paramString1, String paramString2)
     {
         Object localObject1;
+        int j = paramString2.length() / 2;
+        byte localObject2[] = new byte[j];
+        int i = 0;
+        for (;;)
+        {
+            localObject1 = localObject2;
+            if (i >= j) {
+                break;
+            }
+            localObject2[i] = ((byte)(Integer.parseInt(paramString2.substring(i * 2, i * 2 + 2), 16) & 0xFF));
+            i += 1;
+        }
+
         if ((paramString2 == null) || (paramString2.length() == 0))
         {
             localObject1 = null;
             IvParameterSpec paramStringa = new IvParameterSpec("0123456789ABCDEF".getBytes());
             SecretKeySpec paramStringb = a(paramString1);
-            Cipher localObject2 = null;
+            Cipher localObject3 = null;
             try {
-                localObject2 = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                ((Cipher)localObject2).init(2, paramStringb, paramStringa);
-                return new String(((Cipher)localObject2).doFinal((byte[])localObject1), "UTF-8");
+                localObject3 = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                ((Cipher)localObject3).init(2, paramStringb, paramStringa);
+                return new String(((Cipher)localObject3).doFinal((byte[])localObject1), "UTF-8");
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             } catch (NoSuchPaddingException e) {
@@ -77,23 +88,7 @@ public class AppAnalysisTool {
             }
 
         }
-        int j = paramString2.length() / 2;
-        byte localObject2[] = new byte[j];
-        int i = 0;
-        for (;;)
-        {
-            localObject1 = localObject2;
-            if (i >= j) {
-                break;
-            }
-            localObject2[i] = ((byte)(Integer.parseInt(paramString2.substring(i * 2, i * 2 + 2), 16) & 0xFF));
-            i += 1;
-        }
-        try {
-            return new String(localObject2, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+
         return null;
     }
 

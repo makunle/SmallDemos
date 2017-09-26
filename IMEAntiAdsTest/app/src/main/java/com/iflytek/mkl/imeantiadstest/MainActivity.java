@@ -2,11 +2,8 @@ package com.iflytek.mkl.imeantiadstest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-
-import com.iflytek.mkl.advertise.detector.AppAnalysisTool;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -53,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
 
