@@ -2,6 +2,7 @@ package com.iflytek.mkl.advertise.detect;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.view.inputmethod.EditorInfo;
@@ -77,6 +78,14 @@ public class AdDetect {
         SQLiteDatabase db = DBUtil.getDb();
         if(db != null){
             db.close();
+        }
+
+        if(instance != null){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                instance.detectorThread.quitSafely();
+            }else{
+                instance.detectorThread.quit();
+            }
         }
     }
 
