@@ -14,9 +14,15 @@ import com.iflytek.mkl.list.check.SensitiveListUtil;
 import com.iflytek.mkl.list.check.WhiteListUtil;
 import com.iflytek.mkl.log.Log;
 
+import java.util.List;
+
 /**
- * Created by makunle on 2017/9/21.
  * 用于与IMEService交互，并设置AppState，并放入AdDetector的队列中
+ *
+ * 要集成此评分应用，首先执行AdDetect.init(Context),然后在IMEService中调用此类中的几个同名静态函数
+ * onStartInput，onFinishInput，onStartInputView，onFinishInputView，onDestroy
+ *
+ * 如若要获取结果，只需调用此类的getDetectResult()
  */
 
 public class AdDetect {
@@ -72,6 +78,14 @@ public class AdDetect {
         if(db != null){
             db.close();
         }
+    }
+
+    /***
+     * 获取估值结果
+     * @return
+     */
+    public static List<String> getDetectResult(){
+        return DBUtil.getTopScorePkg(-1);
     }
 
     /***

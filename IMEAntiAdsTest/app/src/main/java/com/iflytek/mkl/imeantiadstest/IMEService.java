@@ -8,7 +8,7 @@ import android.view.inputmethod.EditorInfo;
 import com.iflytek.mkl.advertise.detect.AdDetect;
 
 /**
- * Created by makunle on 2017/9/22.
+ * 输入法服务，demo部分,仅用于测试
  */
 
 public class IMEService extends InputMethodService {

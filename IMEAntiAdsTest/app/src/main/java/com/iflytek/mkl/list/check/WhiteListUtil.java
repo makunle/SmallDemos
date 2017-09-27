@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
- * Created by makunle on 2017/9/26.
  * 用于判断B是否在白名单中
  */
 
@@ -28,7 +27,7 @@ public class WhiteListUtil {
     }
 
     /***
-     * 判断应用是否在白名单中
+     * 根据whitelist.txt中的正则表达式判断应用是否在白名单中
      * @param packageName
      */
     public static boolean isInWhiteList(String packageName) {

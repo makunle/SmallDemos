@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
- * Created by makunle on 2017/9/26.
  * 用于判断C是否为敏感的应用：浏览器、购物App等
  */
 
@@ -27,6 +26,11 @@ public class SensitiveListUtil {
         SensitiveListUtil.context = context;
     }
 
+    /***
+     * 根据sensitivelist.txt中的正则表达式，匹配packagename判断是否为敏感应用
+     * @param packageName
+     * @return
+     */
     public static boolean isSensitive(String packageName){
         if(context == null){
             Log.e(TAG, "isSensitive: haven't init");

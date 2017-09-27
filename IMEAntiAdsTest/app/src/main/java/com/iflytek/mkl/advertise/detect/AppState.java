@@ -3,7 +3,6 @@ package com.iflytek.mkl.advertise.detect;
 import com.iflytek.mkl.constant.value.CV;
 
 /**
- * Created by makunle on 2017/9/21.
  * 记录应用状态
  */
 

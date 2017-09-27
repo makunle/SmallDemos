@@ -18,7 +18,6 @@ import java.util.Enumeration;
 import dalvik.system.DexFile;
 
 /**
- * Created by makunle on 2017/9/26.
  * 用于判断B是否包含广告SDK
  */
 
@@ -34,7 +33,7 @@ public class AdListUtil {
     }
 
     /***
-     * 判断应用所有类名中是否有广告SDK中的类
+     * 判断应用所有类名中是否有广告SDK中的类，首先查数据库，数据库无记录则使用txt比对
      * @param packageName
      * @return
      */
@@ -52,6 +51,11 @@ public class AdListUtil {
         return in;
     }
 
+    /***
+     * 根据txt文件内容判断给定包名应用是否含有广告sdk
+     * @param packageName
+     * @return
+     */
     public static boolean checkIfIn(String packageName) {
         if (adList == null) {
             adList = new ArrayList<>();

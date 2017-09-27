@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by makunle on 2017/9/26.
+ * 规则计算类，根据rule.txt制定的规则计算AppState得分
  */
 
 public class RuleCalcUtil {
@@ -30,13 +30,15 @@ public class RuleCalcUtil {
     }
 
     /**
+     * 存放单个规则，支持的规则格式有：
+     * <p>
      * r1:A.state==1
-     * true:+1
-     * false:-1
+     * <p>true:+1
+     * <p>false:-1
      * <p>
      * r2:A.isSensitive
-     * true:+1
-     * false:-1
+     * <p>true:+1
+     * <p>false:-1
      */
     public static class Rule {
         String ruleCondition;   // A.state==1   A.isSensitive
@@ -161,6 +163,9 @@ public class RuleCalcUtil {
     }
 
 
+    /***
+     * 根据txt生成规则列表
+     */
     private static void makeRules() {
         rules = new ArrayList<>();
         InputStream inputStream = context.getResources().openRawResource(R.raw.rule);

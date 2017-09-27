@@ -23,12 +23,13 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.iflytek.mkl.log.Log;
-
 import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_AD_CHECK;
 import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_CONTAIN_INPUT;
 import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_DETECT_RESULT;
 
+/***
+ * 仅用于测试
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";

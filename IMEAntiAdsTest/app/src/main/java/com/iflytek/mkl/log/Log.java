@@ -1,7 +1,6 @@
 package com.iflytek.mkl.log;
 
 /**
- * Created by makunle on 2017/9/27.
  * 自定义Log
  */
 

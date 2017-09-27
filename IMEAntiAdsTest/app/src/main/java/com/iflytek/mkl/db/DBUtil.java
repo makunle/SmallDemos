@@ -8,11 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.iflytek.mkl.log.Log;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
- * Created by makunle on 2017/9/26.
  * 数据库操作工具类
  */
 
