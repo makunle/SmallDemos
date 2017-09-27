@@ -2,10 +2,11 @@ package com.iflytek.mkl.log;
 
 /**
  * Created by makunle on 2017/9/27.
+ * 自定义Log
  */
 
 public class Log {
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
 
     public static void e(String TAG, String msg){
         if(DEBUG) {

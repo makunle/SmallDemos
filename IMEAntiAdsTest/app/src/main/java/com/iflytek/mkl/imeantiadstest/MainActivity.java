@@ -14,6 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -21,6 +22,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+
 import com.iflytek.mkl.log.Log;
 
 import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_AD_CHECK;
@@ -62,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
                     sb.append(cursor.getString(0)).append("\n");
                 }
                 cursor.close();
+
+                sb.append("------------------top -------------------\n");
+                List<String> topScorePkg = DBUtil.getTopScorePkg(-1);
+                for (String str : topScorePkg) {
+                    sb.append(str+"\n");
+                }
+
+                sb.append("------------------top 2-------------------\n");
+                topScorePkg = DBUtil.getTopScorePkg(2);
+                for (String str : topScorePkg) {
+                    sb.append(str+"\n");
+                }
+
                 output.setText(sb);
             }
         });

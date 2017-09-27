@@ -156,7 +156,7 @@ public class RuleCalcUtil {
 
         //计算结果，存入数据库
         float total = Add * Multi;
-        DBUtil.setDetectResult(B.packageName, total, ruleRec);
+        DBUtil.setDetectResult(B.packageName, total, ruleRec, B.getStartTime());
 
     }
 

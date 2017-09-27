@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.iflytek.mkl.log.Log;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by makunle on 2017/9/26.
@@ -91,7 +93,7 @@ public class DBUtil {
      * @param packageName
      * @param score
      */
-    public static void setDetectResult(String packageName, float score, String rule) {
+    public static void setDetectResult(String packageName, float score, String rule, long time) {
         if (instance.helper == null) {
             Log.e(TAG, "setDetectReuslt, haven't init");
             return;
@@ -107,7 +109,7 @@ public class DBUtil {
         value.put("pkgname", packageName);
         value.put("score", score);
         value.put("rule", rule);
-        value.put("time", Calendar.getInstance().getTimeInMillis());
+        value.put("time", time);
         db.insert("detect_result", null, value);
     }
 
@@ -135,6 +137,11 @@ public class DBUtil {
         db.insert("contain_input", null, value);
     }
 
+    /***
+     * 从数据库读取，判断给定包名应用内是否包含输入操作
+     * @param packageName
+     * @return
+     */
     public static boolean getContainInput(String packageName) {
         if (instance.helper == null) {
             Log.e(TAG, "getContainInput, haven't init");
@@ -153,5 +160,43 @@ public class DBUtil {
         cursor.close();
 
         return result;
+    }
+
+    /***
+     * 获取前topNum个高分应用名称
+     * @param topNum 前N个高分应用，-1表示全部
+     * @return List<String>，单个String格式为pkgName|score|time
+     */
+    public static List<String> getTopScorePkg(int topNum) {
+        if (instance.helper == null) {
+            Log.e(TAG, "getTopScorePkg, haven't init");
+            return null;
+        }
+
+        SQLiteDatabase db = instance.helper.getWritableDatabase();
+        if (db == null) return null;
+
+        List<String> res = new ArrayList<>();
+
+        Cursor cursor = db.query("detect_result", null, null, null, null, null, "score desc", null);
+        String prePkgName = "";
+        while (cursor.moveToNext()) {
+            StringBuilder sb = new StringBuilder();
+            String pkgName = cursor.getString(cursor.getColumnIndex("pkgname"));
+            if (!prePkgName.equals(pkgName)) {
+                if (topNum >= 0) {
+                    topNum--;
+                    if (topNum < 0) break;
+                }
+                prePkgName = pkgName;
+            }
+            sb.append(pkgName);
+            sb.append("|").append(cursor.getString(cursor.getColumnIndex("score")));
+            sb.append("|").append(cursor.getString(cursor.getColumnIndex("time")));
+            res.add(sb.toString());
+
+        }
+        cursor.close();
+        return res;
     }
 }

@@ -172,7 +172,7 @@ public class AdDetectorHandler extends Handler {
         }
 
         float total = Add * Multi;
-        DBUtil.setDetectResult(B.packageName, total, rule);
+        DBUtil.setDetectResult(B.packageName, total, rule, B.getStartTime());
     }
 
 }

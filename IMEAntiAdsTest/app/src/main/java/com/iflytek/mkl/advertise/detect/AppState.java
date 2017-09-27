@@ -20,11 +20,11 @@ public class AppState {
     private long endTime = 0;
     private long inputTime = 0;
 
+    private boolean inputed;
+
     public boolean isInputed() {
         return inputed;
     }
-
-    private boolean inputed;
 
     public void end() {
         endTime = System.currentTimeMillis();
@@ -53,5 +53,9 @@ public class AppState {
 
     public int getState() {
         return state;
+    }
+
+    public long getStartTime() {
+        return startTime;
     }
 }
