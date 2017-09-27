@@ -2,7 +2,8 @@ package com.iflytek.mkl.list.check;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.util.Log;
+
+import com.iflytek.mkl.log.Log;
 
 import com.iflytek.mkl.db.DBUtil;
 import com.iflytek.mkl.imeantiadstest.R;
@@ -75,7 +76,8 @@ public class AdListUtil {
                 //获取到一个完整的类名
                 String className = entries.nextElement();
                 for (String str : adList) {
-                    if (str.equals(className)) {
+                    if (className.contains(str)) {
+                        Log.d(TAG, packageName + " contain ad sdk: " + str);
                         return true;
                     }
                 }

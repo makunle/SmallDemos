@@ -37,7 +37,7 @@ com.umengAd.android.AdView
 com.umeng.ad.AdView
 cn.casee.adsdk.CaseeAdView
 com.doumob.banner.AdBanner
-com.nexage.android.OrmmadsList.add(dLayout
+com.nexage.android.OrmmadsList.add
 com.nexage.android.PlainSwitcher
 cn.aduu.adsdk.AdView
 cn.appmedia.ad.BannerAdView
@@ -45,7 +45,7 @@ com.lmmob.ad.sdk.LmMobAdView
 net.miidi.credit.AdView
 net.miidi.ad.banner.AdView
 com.millennialmedia.android.MMAdView
-com.smadsList.add(to.SOMA.SOMABanner
+com.smadsList.add
 com.suizong.mobplate.ads.AdView
 com.winad.android.banner.ads.AdView
 com.winad.adwall.android.wall.Adview
@@ -68,8 +68,8 @@ cn.domob.android.ads.DomobActivity
 cn.domob.android.ads
 com.modisdk.modiview.ModiView
 com.imocha.AdView
-com.imocha.IMochadsList.add(dView
-com.hdtmobile.imocha.IMochadsList.add(dView
+com.imocha.IMochadsList.add
+com.hdtmobile.imocha.IMochadsList.add
 com.moji.mjweather.ad.MultiAdBanner
 com.moji.mjweather.ad.MojiAdBanner
 com.wqmobile.sdk.widget.ADView
@@ -153,7 +153,7 @@ MobWin.UserLocation.
 com.tencent.mobwin.
 com.mopub.mobileads.
 com.simpleg.
-com.smadsList.add(to.SOMA.
+com.smadsList.add
 com.suizong.
 com.tapjoy.
 com.waps.
@@ -368,9 +368,9 @@ com.jumptap.adtag.actions.VideoAdAction
 com.jumptap.adtag.actions.YouTubeAdAction
 com.jumptap.adtag.activity.JTVideo
 com.jumptap.adtag.activity.JtVideoAdView
-com.LogiaGroup.AdCore.LogiadsList.add(dManager
-com.LogiaGroup.AdCore.LogiadsList.add(dView
-com.LogiaGroup.AdCore.LogiadsList.add(dManager.LocationRequestType
+com.LogiaGroup.AdCore.LogiadsList
+com.LogiaGroup.AdCore.LogiadsList
+com.LogiaGroup.AdCore.LogiadsList
 com.mdotm.android.ads.MdotMManager
 com.mdotm.android.ads.MdotMView
 com.mdotm.android.ads.MdotmLandingPage

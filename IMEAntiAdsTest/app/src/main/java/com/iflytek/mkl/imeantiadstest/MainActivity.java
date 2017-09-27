@@ -2,23 +2,18 @@ package com.iflytek.mkl.imeantiadstest;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.iflytek.mkl.advertise.detect.AdDetect;
-import com.iflytek.mkl.db.AdDetectUtilDbHelper;
 import com.iflytek.mkl.db.DBUtil;
-import com.iflytek.mkl.list.check.AdListUtil;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Properties;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -26,6 +21,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import com.iflytek.mkl.log.Log;
 
 import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_AD_CHECK;
 import static com.iflytek.mkl.db.AdDetectUtilDbHelper.CREATE_DB_CONTAIN_INPUT;
@@ -67,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 cursor.close();
                 output.setText(sb);
-
-                db.close();
             }
         });
 

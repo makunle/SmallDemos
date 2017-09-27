@@ -1,15 +1,15 @@
 package com.iflytek.mkl.advertise.detect;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
-
 import com.iflytek.mkl.constant.value.CV;
 import com.iflytek.mkl.db.DBUtil;
 import com.iflytek.mkl.list.check.AdListUtil;
 import com.iflytek.mkl.list.check.RuleCalcUtil;
 import com.iflytek.mkl.list.check.SensitiveListUtil;
 import com.iflytek.mkl.list.check.WhiteListUtil;
+import com.iflytek.mkl.log.Log;
 
 import java.util.ArrayList;
 
@@ -25,6 +25,10 @@ public class AdDetectorHandler extends Handler {
     private static final int MAX_SWITCH_SIZE = 4;    //假设跳转次数最多的跳转为A -> B -> C  -> D(current)
     private static final int MIN_SWITCH_SIZE = 3;    //一个可供判断的完整流程至少为A -> B -> D(current)
     private ArrayList<AppState> stateList = new ArrayList<>();
+
+    public AdDetectorHandler(Looper looper) {
+        super(looper);
+    }
 
     @Override
     public void handleMessage(Message msg) {

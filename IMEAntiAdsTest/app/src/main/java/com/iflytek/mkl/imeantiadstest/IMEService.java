@@ -1,7 +1,7 @@
 package com.iflytek.mkl.imeantiadstest;
 
 import android.inputmethodservice.InputMethodService;
-import android.util.Log;
+import com.iflytek.mkl.log.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
@@ -47,5 +47,11 @@ public class IMEService extends InputMethodService {
         Log.d(TAG, "onFinishInputView: ");
         super.onFinishInputView(finishingInput);
         AdDetect.onFinishInputView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        AdDetect.onDestroy();
     }
 }

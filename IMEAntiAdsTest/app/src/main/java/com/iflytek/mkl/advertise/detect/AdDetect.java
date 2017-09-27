@@ -1,9 +1,9 @@
 package com.iflytek.mkl.advertise.detect;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.util.Log;
 import android.view.inputmethod.EditorInfo;
 
 import com.iflytek.mkl.constant.value.CV;
@@ -12,6 +12,7 @@ import com.iflytek.mkl.list.check.AdListUtil;
 import com.iflytek.mkl.list.check.RuleCalcUtil;
 import com.iflytek.mkl.list.check.SensitiveListUtil;
 import com.iflytek.mkl.list.check.WhiteListUtil;
+import com.iflytek.mkl.log.Log;
 
 /**
  * Created by makunle on 2017/9/21.
@@ -28,7 +29,8 @@ public class AdDetect {
 
     private AdDetect() {
         detectorThread = new HandlerThread("detector-thread");
-        detectorHandler = new AdDetectorHandler();
+        detectorThread.start();
+        detectorHandler = new AdDetectorHandler(detectorThread.getLooper());
     }
 
     private HandlerThread detectorThread;
@@ -62,6 +64,14 @@ public class AdDetect {
     //需由IMEService同名回调函数调用
     public static void onFinishInputView() {
         instance.finishCurrentInput();
+    }
+
+    //需由IMEService同名回调函数调用
+    public static void onDestroy(){
+        SQLiteDatabase db = DBUtil.getDb();
+        if(db != null){
+            db.close();
+        }
     }
 
     /***

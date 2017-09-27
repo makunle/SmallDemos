@@ -1,7 +1,5 @@
 package com.iflytek.mkl.advertise.detect;
 
-import android.os.SystemClock;
-
 import com.iflytek.mkl.constant.value.CV;
 
 /**

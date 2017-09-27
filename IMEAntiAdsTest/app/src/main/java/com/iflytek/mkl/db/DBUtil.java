@@ -4,7 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+
+import com.iflytek.mkl.log.Log;
 
 import java.util.Calendar;
 
@@ -23,17 +24,17 @@ public class DBUtil {
     }
 
     AdDetectUtilDbHelper helper;
+    SQLiteDatabase db;
 
     public static void initDb(Context context) {
-        synchronized (instance) {
-            if (instance.helper == null) {
-                instance.helper = new AdDetectUtilDbHelper(context, "ad_detect.db", null, 3);
-            }
+        if (instance.helper == null) {
+            instance.helper = new AdDetectUtilDbHelper(context, "ad_detect.db", null, 3);
+            instance.db = instance.helper.getWritableDatabase();
         }
     }
 
-    public static SQLiteDatabase getDb(){
-        if(instance.helper == null){
+    public static SQLiteDatabase getDb() {
+        if (instance.helper == null) {
             Log.e(TAG, "getDb: haven't init");
             return null;
         }
@@ -53,15 +54,13 @@ public class DBUtil {
 
         int result = -1;
 
-        SQLiteDatabase db = instance.helper.getWritableDatabase();
-        if (db == null) return -1;
+        if (instance.db == null) return -1;
 
-        Cursor cursor = db.query("ad_sdk_check", null, "pkgname = ?", new String[]{packageName}, null, null, null);
+        Cursor cursor = instance.db.query("ad_sdk_check", null, "pkgname = ?", new String[]{packageName}, null, null, null);
         if (cursor.moveToNext()) {
             result = cursor.getInt(cursor.getColumnIndex("have_ad_sdk"));
         }
         cursor.close();
-        db.close();
 
         return result;
     }
@@ -79,15 +78,13 @@ public class DBUtil {
 
         if (getAdSdkCheckResult(packageName) != -1) return;
 
-        SQLiteDatabase db = instance.helper.getWritableDatabase();
-        if (db == null) return;
+        if (instance.db == null) return;
 
         ContentValues value = new ContentValues();
         value.put("pkgname", packageName);
         value.put("have_ad_sdk", have ? 1 : 0);
-        db.insert("ad_sdk_check", null, value);
+        instance.db.insert("ad_sdk_check", null, value);
 
-        db.close();
     }
 
     /***
@@ -101,8 +98,7 @@ public class DBUtil {
             return;
         }
 
-        SQLiteDatabase db = instance.helper.getWritableDatabase();
-        if (db == null) {
+        if (instance.db == null) {
             Log.e(TAG, "setDetectReuslt: failed");
             return;
         }
@@ -112,9 +108,8 @@ public class DBUtil {
         value.put("score", score);
         value.put("rule", rule);
         value.put("time", Calendar.getInstance().getTimeInMillis());
-        db.insert("detect_result", null, value);
+        instance.db.insert("detect_result", null, value);
 
-        db.close();
     }
 
     /***
@@ -130,17 +125,15 @@ public class DBUtil {
 
         if (getContainInput(packageName)) return;
 
-        SQLiteDatabase db = instance.helper.getWritableDatabase();
-        if (db == null) {
+        if (instance.db == null) {
             Log.e(TAG, "setContainInput: failed");
             return;
         }
 
         ContentValues value = new ContentValues();
         value.put("pkgname", packageName);
-        db.insert("contain_input", null, value);
+        instance.db.insert("contain_input", null, value);
 
-        db.close();
     }
 
     public static boolean getContainInput(String packageName) {
@@ -151,15 +144,13 @@ public class DBUtil {
 
         boolean result = false;
 
-        SQLiteDatabase db = instance.helper.getWritableDatabase();
-        if (db == null) return false;
+        if (instance.db == null) return false;
 
-        Cursor cursor = db.query("contain_input", null, "pkgname = ?", new String[]{packageName}, null, null, null);
+        Cursor cursor = instance.db.query("contain_input", null, "pkgname = ?", new String[]{packageName}, null, null, null);
         if (cursor.moveToNext()) {
             result = true;
         }
         cursor.close();
-        db.close();
 
         return result;
     }

@@ -1,7 +1,7 @@
 package com.iflytek.mkl.list.check;
 
 import android.content.Context;
-import android.util.Log;
+import com.iflytek.mkl.log.Log;
 
 import com.iflytek.mkl.imeantiadstest.R;
 
