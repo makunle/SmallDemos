@@ -103,6 +103,8 @@ public class AdDetect {
      * 应用内关闭一次键盘
      */
     private void finishCurrentInput() {
+        //因为应用被关闭时会被调用，如果设置AppState.state==NOT_INPUT会影响starting_input判断
+        //一般如果关闭键盘但仍在应用中，时间应该会超过1s，所以此处不设置state为NOT_INPUT
     }
 
     /***

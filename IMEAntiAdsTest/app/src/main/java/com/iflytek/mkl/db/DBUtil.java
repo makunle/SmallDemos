@@ -24,12 +24,10 @@ public class DBUtil {
     }
 
     AdDetectUtilDbHelper helper;
-    SQLiteDatabase db;
 
     public static void initDb(Context context) {
         if (instance.helper == null) {
             instance.helper = new AdDetectUtilDbHelper(context, "ad_detect.db", null, 3);
-            instance.db = instance.helper.getWritableDatabase();
         }
     }
 
@@ -54,9 +52,10 @@ public class DBUtil {
 
         int result = -1;
 
-        if (instance.db == null) return -1;
+        SQLiteDatabase db = instance.helper.getWritableDatabase();
+        if (db == null) return -1;
 
-        Cursor cursor = instance.db.query("ad_sdk_check", null, "pkgname = ?", new String[]{packageName}, null, null, null);
+        Cursor cursor = db.query("ad_sdk_check", null, "pkgname = ?", new String[]{packageName}, null, null, null);
         if (cursor.moveToNext()) {
             result = cursor.getInt(cursor.getColumnIndex("have_ad_sdk"));
         }
@@ -78,13 +77,13 @@ public class DBUtil {
 
         if (getAdSdkCheckResult(packageName) != -1) return;
 
-        if (instance.db == null) return;
+        SQLiteDatabase db = instance.helper.getWritableDatabase();
+        if (db == null) return;
 
         ContentValues value = new ContentValues();
         value.put("pkgname", packageName);
         value.put("have_ad_sdk", have ? 1 : 0);
-        instance.db.insert("ad_sdk_check", null, value);
-
+        db.insert("ad_sdk_check", null, value);
     }
 
     /***
@@ -98,7 +97,8 @@ public class DBUtil {
             return;
         }
 
-        if (instance.db == null) {
+        SQLiteDatabase db = instance.helper.getWritableDatabase();
+        if (db == null) {
             Log.e(TAG, "setDetectReuslt: failed");
             return;
         }
@@ -108,8 +108,7 @@ public class DBUtil {
         value.put("score", score);
         value.put("rule", rule);
         value.put("time", Calendar.getInstance().getTimeInMillis());
-        instance.db.insert("detect_result", null, value);
-
+        db.insert("detect_result", null, value);
     }
 
     /***
@@ -125,15 +124,15 @@ public class DBUtil {
 
         if (getContainInput(packageName)) return;
 
-        if (instance.db == null) {
+        SQLiteDatabase db = instance.helper.getWritableDatabase();
+        if (db == null) {
             Log.e(TAG, "setContainInput: failed");
             return;
         }
 
         ContentValues value = new ContentValues();
         value.put("pkgname", packageName);
-        instance.db.insert("contain_input", null, value);
-
+        db.insert("contain_input", null, value);
     }
 
     public static boolean getContainInput(String packageName) {
@@ -144,9 +143,10 @@ public class DBUtil {
 
         boolean result = false;
 
-        if (instance.db == null) return false;
+        SQLiteDatabase db = instance.helper.getWritableDatabase();
+        if (db == null) return false;
 
-        Cursor cursor = instance.db.query("contain_input", null, "pkgname = ?", new String[]{packageName}, null, null, null);
+        Cursor cursor = db.query("contain_input", null, "pkgname = ?", new String[]{packageName}, null, null, null);
         if (cursor.moveToNext()) {
             result = true;
         }

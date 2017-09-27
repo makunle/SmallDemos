@@ -18,12 +18,14 @@
 //[ false:[+|x][数字] ] 条件为假时执行的计算
 //============================================
 
-r1:A.state==0
+r1.n:A.state==0
 true:+2
-false:+3
 
-r1.1:A.state==1
-true:+2
+r1.s:A.state==1
+true:+5
+
+r1.i:A.state==2
+true:+3
 
 r2:A.containInput
 true:+1
